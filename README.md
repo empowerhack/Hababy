@@ -15,6 +15,7 @@ Set up Ionic 2 and Cordova.
 xcode-select --install
 sudo npm install -g --unsafe-perm=true ios-deploy
 ```
+* You will also need XCode and Android Development Studio
 
 ### Project Setup
 
@@ -25,3 +26,30 @@ http://ionicframework.com/docs/v2/getting-started/tutorial/
 This command generates the project:
 
 $ ionic start HaBaby --v2
+
+Not everything gets checked into git, so each developer may need to run something to fill out some of the work files.(?)
+
+### Running the app
+
+In the browser:
+
+$ ionic serve
+
+#### iOS
+
+In the iOS Simulator:
+
+$ ionic emulate ios -lc
+
+On an iOS Device (plugged into USB)
+
+Run the HaBaby.xcodeproj project in the platforms/ios folder in XCode.
+
+Make sure your account is set up and the team/provisioning profile in Settings->General.  You can have it generate a provisioning profile even with a free Developer account: [http://stackoverflow.com/questions/4952820/test-ios-app-on-device-without-apple-developer-program-or-jailbreak](http://stackoverflow.com/questions/4952820/test-ios-app-on-device-without-apple-developer-program-or-jailbreak)
+
+#### Android
+
+
+
+
+

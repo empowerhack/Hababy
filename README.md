@@ -49,6 +49,21 @@ Make sure your account is set up and the team/provisioning profile in Settings->
 
 #### Android
 
+* Install JDK 8 (http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* Set up paths in ~/.bash_profile, e.g.:
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Home
+export ANDROID_HOME=/Users/derek/Library/Android/sdk/
+* Add Android target: ionic platform add android
+
+Run in Simulator
+* Download desired System Image by running: /Users/derek/Library/Android/sdk/tools/android sdk
+* Create an Android Virtual Device by running: /Users/derek/Library/Android/sdk/tools/android avd
+* ionic run android
+* ionic build android
+* ionic emulate android
+
+When running on a device, make sure it is already plugged in via USB, and that you OK the dialog to allow 
+
 
 
 

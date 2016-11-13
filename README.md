@@ -8,8 +8,9 @@ Set up Ionic 2 and Cordova.
 
 [http://ionicframework.com/docs/v2/getting-started/installation/](http://ionicframework.com/docs/v2/getting-started/installation/)
 
-* Install Node.js 4.6.1 using Mac installer from nodejs.org
+* Install Node.js **6** using Mac installer from https://nodejs.org/en/
 * Install cordova and ionic using npm: sudo npm install -g cordova ionic
+* The current version as of 12 Nov 2016 should be ionic 2.1.8 (run ionic -v)
 * You may need to install command-line deployment tools:
 ```
 xcode-select --install
@@ -58,12 +59,12 @@ export ANDROID_HOME=/Users/derek/Library/Android/sdk/
 Run in Simulator
 * Download desired System Image by running: /Users/derek/Library/Android/sdk/tools/android sdk
 * Create an Android Virtual Device by running: /Users/derek/Library/Android/sdk/tools/android avd
-* ionic run android
 * ionic build android
 * ionic emulate android
 
-When running on a device, make sure it is already plugged in via USB, and that you OK the dialog to allow 
+When running on a device, make sure it is already plugged in via USB, and that you OK the dialog to allow USB debugging.
 
+* ionic run android
 
 
 

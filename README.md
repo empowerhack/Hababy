@@ -28,7 +28,7 @@ This command generates the project:
 
 $ ionic start HaBaby --v2
 
-Not everything gets checked into git, so each developer may need to run something to fill out some of the work files.(?)
+Not everything gets checked into git, so each developer needs to run **npm install** to fill out some of the work files.
 
 ### Running the app
 

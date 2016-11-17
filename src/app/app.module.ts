@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { DisclaimerPage } from '../pages/en/disclaimer/disclaimer';
 
@@ -10,7 +9,6 @@ import { DisclaimerPage } from '../pages/en/disclaimer/disclaimer';
   declarations: [
     MyApp,
     AboutPage,
-    ContactPage,
     HomePage,
     DisclaimerPage
   ],
@@ -21,7 +19,6 @@ import { DisclaimerPage } from '../pages/en/disclaimer/disclaimer';
   entryComponents: [
     MyApp,
     AboutPage,
-    ContactPage,
     HomePage,
     DisclaimerPage
   ],

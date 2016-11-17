@@ -3,7 +3,7 @@ import { Platform, MenuController  } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { HomePage } from '../pages/home/home';
-import { AboutPage } from '../pages/about/about';
+import { DisclaimerPage } from '../pages/en/disclaimer/disclaimer';
 
 
 @Component({
@@ -26,7 +26,7 @@ export class MyApp {
     // set our app's pages
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'About', component: AboutPage }
+      { title: 'Disclaimer', component: DisclaimerPage }
     ];
   }
 }

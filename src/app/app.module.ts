@@ -6,7 +6,7 @@ import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-tra
 import { MyApp } from './app.component';
 import { AboutPage } from '../pages/about/about';
 import { HomePage } from '../pages/home/home';
-import { DisclaimerPage } from '../pages/en/disclaimer/disclaimer';
+import { DisclaimerPage } from '../pages/disclaimer/disclaimer';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');

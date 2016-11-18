@@ -3,7 +3,7 @@ import {TranslateService } from 'ng2-translate/ng2-translate';
 
 import { NavController } from 'ionic-angular';
 
-import { DisclaimerPage } from '../en/disclaimer/disclaimer';
+import { DisclaimerPage } from '../disclaimer/disclaimer';
 
 @Component({
   templateUrl: 'home.html'

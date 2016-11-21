@@ -7,6 +7,7 @@ import { MyApp } from './app.component';
 import { AboutPage } from '../pages/about/about';
 import { HomePage } from '../pages/home/home';
 import { DisclaimerPage } from '../pages/disclaimer/disclaimer';
+import { BasicInfoPage } from '../pages/basicinfo/basicinfo';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
@@ -17,7 +18,8 @@ export function createTranslateLoader(http: Http) {
     MyApp,
     AboutPage,
     HomePage,
-    DisclaimerPage
+    DisclaimerPage,
+    BasicInfoPage
   ],
   imports: [
     HttpModule,
@@ -33,7 +35,8 @@ export function createTranslateLoader(http: Http) {
     MyApp,
     AboutPage,
     HomePage,
-    DisclaimerPage
+    DisclaimerPage,
+    BasicInfoPage
   ],
   providers: []
 })

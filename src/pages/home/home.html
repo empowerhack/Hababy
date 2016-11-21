@@ -1,9 +1,9 @@
 <ion-content padding>
-  <h2 class="apptitle">HaBaby</h2>
+  <h2 class="apptitle">{{ "title" | translate }}</h2>
   <div class="logo">
     <img src="assets/hababy_logo.png" width="120" height="120">
   </div>
-  <p><button class="language" (click)="goEnglish()">English</button> <button class="language" href="#">Arabic</button></p>
+  <p><button class="language" (click)="goEnglish()">English</button> <button class="language" (click)="goArabic()">Arabic</button></p>
   <div class="tagline">
     Support and information for your pregnancy
   </div>

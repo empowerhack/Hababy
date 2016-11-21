@@ -15,10 +15,33 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+body {
+  color: #333;
+  font-size: 14px;
+}
+
 h2 {
   font-family: NotoSans, Helvetica, sans-serif;
 }
 
+.toolbar-title {
+  color: #fff;
+}
+
+.toolbar-background {
+  background-color: #339966;
+}
+
 a {
   text-decoration: none;
+}
+
+button {
+  font-size: 14px;
+  padding: 0.5em 1em;
+}
+
+button.primary {
+  background-color: #339966;
+  color: #fff;
 }

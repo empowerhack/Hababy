@@ -10,5 +10,10 @@
         "howhelp": "How can we help you?",
         "pregnant": "I am pregnant",
         "caregiver": "I'm a caregiver"
+    },
+    "patient": {
+        "home": {
+          "title": "HaBaby"
+        }
     }
 }

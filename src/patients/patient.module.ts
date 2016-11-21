@@ -3,12 +3,7 @@ import { IonicApp, IonicModule } from 'ionic-angular';
 import { HttpModule, Http } from '@angular/http';
 import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate/ng2-translate';
 
-import { MyApp } from './app.component';
-import { AboutPage } from '../pages/about/about';
-import { HomePage } from '../pages/home/home';
-import { DisclaimerPage } from '../pages/disclaimer/disclaimer';
-import { BasicInfoPage } from '../pages/basicinfo/basicinfo';
-import { PatientPage } from '../patients/home/patient';
+import { PatientPage } from './home/home';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
@@ -16,11 +11,6 @@ export function createTranslateLoader(http: Http) {
 
 @NgModule({
   declarations: [
-    MyApp,
-    AboutPage,
-    HomePage,
-    DisclaimerPage,
-    BasicInfoPage,
     PatientPage
   ],
   imports: [
@@ -30,17 +20,15 @@ export function createTranslateLoader(http: Http) {
       useFactory: (createTranslateLoader),
       deps: [Http]
     }),
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(PatientPage)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    AboutPage,
-    HomePage,
-    DisclaimerPage,
-    BasicInfoPage,
+    PatientPage
+  ],
+  exports: [
     PatientPage
   ],
   providers: []
 })
-export class AppModule {}
+export class PatientModule {}

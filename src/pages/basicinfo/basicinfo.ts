@@ -14,12 +14,6 @@ export class BasicInfoPage {
 
   clickPregnant() {
     this.events.publish('user:patient');
-
-    // switch to Patient page as root
-    this.navCtrl.setRoot(PatientPage)
-      .then(function() {
-         this.navCtrl.popToRoot();
-      });
   }
 
 }

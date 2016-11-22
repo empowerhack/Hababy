@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from 'ng2-translate/ng2-translate';
 
-import { NavController } from 'ionic-angular';
-
 import { BasicInfoPage } from '../../pages/basicinfo/basicinfo';
 
 @Component({
@@ -10,7 +8,6 @@ import { BasicInfoPage } from '../../pages/basicinfo/basicinfo';
 })
 export class PatientPage {
 
-  constructor( public navCtrl: NavController,
-      private translate: TranslateService ) {
+  constructor( private translate: TranslateService ) {
   }
 }

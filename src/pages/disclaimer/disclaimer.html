@@ -9,6 +9,6 @@
 
 
 <ion-content padding>
-  <p>Pregnancy can be wonderful, but it can also be stressful and scary.</p>
-  <button>{{ "disclaimer.submit" | translate }}</button>
+  <div class="maintext">{{ "disclaimer.maintext" | translate }}</div>
+  <button class="primary" (click)="acceptDisclaimer()">{{ "disclaimer.submit" | translate }}</button>
 </ion-content>

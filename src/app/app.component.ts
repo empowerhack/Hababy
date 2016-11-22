@@ -4,7 +4,6 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 import { TranslateService } from 'ng2-translate/ng2-translate';
 
 import { HomePage } from '../pages/home/home';
-import { DisclaimerPage } from '../pages/en/disclaimer/disclaimer';
 
 
 @Component({
@@ -29,8 +28,7 @@ export class MyApp {
 
     // set our app's pages
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'Disclaimer', component: DisclaimerPage }
+      { title: 'Home', component: HomePage }
     ];
   }
 

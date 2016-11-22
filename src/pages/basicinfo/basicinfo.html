@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ "basicinfo.title" | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="question">{{ "basicinfo.howhelp" | translate }}</div>
+  <div>
+    <button class="inline" (click)="clickPregnant()">{{ "basicinfo.pregnant" | translate }}</button>
+    <button class="inline">{{ "basicinfo.caregiver" | translate }}</button>
+  </div>
+</ion-content>

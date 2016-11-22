@@ -2,6 +2,13 @@
     "title" : "HaBaby",
     "disclaimer": {
         "title": "تنصل",
+        "maintext": "Pregnancy can be wonderful, but it can also be stressful and scary. We are here to help you be safe, healthy, and informed during your pregnancy.",
         "submit": "أفهم"
+    },
+    "basicinfo": {
+        "title": "Basic Info",
+        "howhelp": "How can we help you?",
+        "pregnant": "I am pregnant",
+        "caregiver": "I'm a caregiver"
     }
 }

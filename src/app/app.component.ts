@@ -71,6 +71,8 @@ export class MyApp {
     this.nav.setRoot(page.component).catch(() => {
       console.log("Didn't set nav root");
     });
+
+    this.menu.close();
   }
 
   initializeTranslateServiceConfig() {

@@ -48,7 +48,6 @@ export class MyApp {
     this.events.subscribe('user:patient', () => {
 
       // switch to Patient page as root
-      this.nav.popToRoot();
       this.nav.setRoot(PatientPage);
       this.enableMenu(true);
     });

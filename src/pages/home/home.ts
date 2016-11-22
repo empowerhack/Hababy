@@ -17,16 +17,12 @@ export class HomePage {
   goEnglish() {
     this.translate.use('en');
 
-    // push another page onto the history stack
-    // causing the nav controller to animate the new page in
-    this.navCtrl.push(DisclaimerPage);
+    this.navCtrl.setRoot(DisclaimerPage);
   }
 
   goArabic() {
     this.translate.use('ar');
 
-    // push another page onto the history stack
-    // causing the nav controller to animate the new page in
-    this.navCtrl.push(DisclaimerPage);
+    this.navCtrl.setRoot(DisclaimerPage);
   }
 }

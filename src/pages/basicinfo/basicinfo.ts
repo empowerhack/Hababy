@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslateService } from 'ng2-translate/ng2-translate';
 
-import { NavController } from 'ionic-angular';
+import { NavController, Events } from 'ionic-angular';
 import { PatientPage } from '../../patients/home/patient';
 
 @Component({
@@ -10,13 +10,15 @@ import { PatientPage } from '../../patients/home/patient';
 })
 export class BasicInfoPage {
 
-  constructor(public navCtrl: NavController, private translate: TranslateService) {  }
+  constructor(public navCtrl: NavController, public events: Events, private translate: TranslateService) {  }
 
   clickPregnant() {
+    this.events.publish('user:patient');
+
     // switch to Patient page as root
     this.navCtrl.setRoot(PatientPage)
       .then(function() {
-        this.navCtrl.popToRoot();
+         this.navCtrl.popToRoot();
       });
   }
 

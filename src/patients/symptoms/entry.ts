@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
-import { TranslateService } from 'ng2-translate/ng2-translate';
+import {TranslateService } from 'ng2-translate/ng2-translate';
 
 import { NavController } from 'ionic-angular';
 
-import { BasicInfoPage } from '../../pages/basicinfo/basicinfo';
+import { PatientPage } from '../home/patient';
 
 @Component({
-  templateUrl: 'patient.html'
+  templateUrl: 'entry.html'
 })
-export class PatientPage {
+export class SymptomEntryPage {
 
   constructor( public navCtrl: NavController,
       private translate: TranslateService ) {

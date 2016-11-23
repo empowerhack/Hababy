@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 import { DisclaimerPage } from '../pages/disclaimer/disclaimer';
 import { BasicInfoPage } from '../pages/basicinfo/basicinfo';
 import { PatientPage } from '../patients/home/patient';
+import { SymptomEntryPage } from '../patients/symptoms/entry';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
@@ -21,7 +22,8 @@ export function createTranslateLoader(http: Http) {
     HomePage,
     DisclaimerPage,
     BasicInfoPage,
-    PatientPage
+    PatientPage,
+    SymptomEntryPage
   ],
   imports: [
     HttpModule,
@@ -39,7 +41,8 @@ export function createTranslateLoader(http: Http) {
     HomePage,
     DisclaimerPage,
     BasicInfoPage,
-    PatientPage
+    PatientPage,
+    SymptomEntryPage
   ],
   providers: []
 })

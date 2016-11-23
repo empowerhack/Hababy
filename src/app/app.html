@@ -1,4 +1,4 @@
-<ion-menu [content]="content">
+<ion-menu id="appMenu" [content]="content">
 
   <ion-header>
     <ion-toolbar>
@@ -9,6 +9,24 @@
   <ion-content>
     <ion-list>
       <button ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        {{p.title}}
+      </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<ion-menu id="patientMenu" [content]="content">
+
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Pages</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <button ion-item *ngFor="let p of patientPages" (click)="openPage(p)">
         {{p.title}}
       </button>
     </ion-list>

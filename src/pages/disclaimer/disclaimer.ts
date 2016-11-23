@@ -13,9 +13,7 @@ export class DisclaimerPage {
   constructor(public navCtrl: NavController, private translate: TranslateService) {  }
 
   acceptDisclaimer() {
-    // push another page onto the history stack
-    // causing the nav controller to animate the new page in
-    this.navCtrl.push(BasicInfoPage);
+    this.navCtrl.setRoot(BasicInfoPage);
   }
 
 }

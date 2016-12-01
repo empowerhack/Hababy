@@ -7,4 +7,17 @@
   <div class="tagline">
     Support and information for your pregnancy
   </div>
+
+<p>
+  <button class="language" (click)="refresh()">Refresh</button> 
+  <button class="language" (click)="add()">Add</button>
+  <button class="language" (click)="delete()">Delete</button>
+</p>
+
+  <ion-list>
+    <ion-item *ngFor="let person of people">
+      {{person.firstname}} {{person.lastname}}
+    </ion-item>
+  </ion-list>
+
 </ion-content>

@@ -66,6 +66,16 @@ When running on a device, make sure it is already plugged in via USB, and that y
 
 * ionic run android
 
+To build in Android Studio - Import Gradle project from platforms/android/build.gradle.
+
+In the Build menu, select "Build APK".  When finished, use "Reveal in Finder". (should go to platforms/android/build/outputs/apk.
+
+Upload that .apk file to HockeyApp.
+
+Users may have to go to Settings -> Security, and enable installing apps from unknown sources.
+
+
+
 
 
 

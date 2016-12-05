@@ -1,5 +1,12 @@
 {
     "title" : "HaBaby",
+    "menu": {
+        "symptomEntry": "Symptom Entry",
+        "symptomLog": "My Symptom Log",
+        "pregnancyInfo": "Pregnancy Info",
+        "resources": "Location Resources",
+        "help": "Help and Settings"
+    },
     "disclaimer": {
         "title": "Disclaimer",
         "maintext": "Pregnancy can be wonderful, but it can also be stressful and scary. We are here to help you be safe, healthy, and informed during your pregnancy.",
@@ -14,6 +21,27 @@
     "patient": {
         "home": {
           "title": "HaBaby"
+        }
+    },
+    "help": {
+        "index": {
+          "title": "Help and Settings"
+        }
+    },
+    "pregnancy": {
+        "index": {
+          "title": "My Symptom Log"
+        }
+    },
+    "resources": {
+        "index": {
+          "title": "Where are you now?",
+          "selectLocation": "Please select your current location:"
+        }
+    },
+    "symptom": {
+        "log": {
+          "title": "My Symptom Log"
         }
     }
 }

@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import {TranslateService } from 'ng2-translate/ng2-translate';
 
-import { PatientPage } from '../home/patient';
+import { PatientPage } from '../patients/patient';
 
 @Component({
-  templateUrl: 'entry.html'
+  templateUrl: 'log.html'
 })
-export class SymptomEntryPage {
+export class SymptomLogPage {
 
   constructor( private translate: TranslateService ) {
   }

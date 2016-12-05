@@ -8,8 +8,12 @@ import { AboutPage } from '../pages/about/about';
 import { HomePage } from '../pages/home/home';
 import { DisclaimerPage } from '../pages/disclaimer/disclaimer';
 import { BasicInfoPage } from '../pages/basicinfo/basicinfo';
-import { PatientPage } from '../patients/home/patient';
-import { SymptomEntryPage } from '../patients/symptoms/entry';
+import { PatientPage } from '../pages/patients/patient';
+import { SymptomEntryPage } from '../pages/symptoms/entry';
+import { SymptomLogPage } from '../pages/symptoms/log';
+import { PregnancyInfoPage } from '../pages/pregnancy/index';
+import { LocationResourcesPage } from '../pages/resources/index';
+import { HelpSettingsPage } from '../pages/help/index';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
@@ -23,7 +27,11 @@ export function createTranslateLoader(http: Http) {
     DisclaimerPage,
     BasicInfoPage,
     PatientPage,
-    SymptomEntryPage
+    SymptomEntryPage,
+    SymptomLogPage,
+    PregnancyInfoPage,
+    LocationResourcesPage,
+    HelpSettingsPage
   ],
   imports: [
     HttpModule,
@@ -42,7 +50,11 @@ export function createTranslateLoader(http: Http) {
     DisclaimerPage,
     BasicInfoPage,
     PatientPage,
-    SymptomEntryPage
+    SymptomEntryPage,
+    SymptomLogPage,
+    PregnancyInfoPage,
+    LocationResourcesPage,
+    HelpSettingsPage
   ],
   providers: []
 })

@@ -4,8 +4,12 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 import { TranslateService } from 'ng2-translate/ng2-translate';
 
 import { HomePage } from '../pages/home/home';
-import { PatientPage } from '../patients/home/patient';
-import { SymptomEntryPage } from '../patients/symptoms/entry';
+import { PatientPage } from '../pages/patients/patient';
+import { SymptomEntryPage } from '../pages/symptoms/entry';
+import { SymptomLogPage } from '../pages/symptoms/log';
+import { PregnancyInfoPage } from '../pages/pregnancy/index';
+import { LocationResourcesPage } from '../pages/resources/index';
+import { HelpSettingsPage } from '../pages/help/index';
 
 
 @Component({
@@ -32,6 +36,7 @@ export class MyApp {
       StatusBar.styleDefault();
       Splashscreen.hide();
       this.initializeTranslateServiceConfig();
+
     });
 
     // set our app's pages
@@ -39,11 +44,7 @@ export class MyApp {
       { title: 'Home', component: HomePage }
     ];
 
-    // set patient section's pages
-    this.patientPages = [
-       { title: 'Patients', component: PatientPage },
-       { title: 'Symptom Entry', component: SymptomEntryPage }
-    ];
+    this.patientPages = []; // set after language set
 
     this.events.subscribe('user:patient', () => {
 
@@ -60,6 +61,17 @@ export class MyApp {
   enableMenu(isPatient) {
     this.menu.enable(!isPatient, 'appMenu');
     this.menu.enable(isPatient, 'patientMenu');
+  }
+
+  updateMenuTranslations() {
+      // set patient section's pages
+      this.patientPages = [
+       { title: this.translate.instant('menu.symptomEntry'), component: SymptomEntryPage },
+       { title: this.translate.instant('menu.symptomLog'), component: SymptomLogPage },
+       { title: this.translate.instant('menu.pregnancyInfo'), component: PregnancyInfoPage },
+       { title: this.translate.instant('menu.resources'), component: LocationResourcesPage },
+       { title: this.translate.instant('menu.help'), component: HelpSettingsPage }
+      ];
   }
 
   openPage(page: {title: string, component: any}) {
@@ -82,5 +94,9 @@ export class MyApp {
     this.translate.setDefaultLang('en');
 
     this.translate.use(userLang);
+
+    this.translate.onLangChange.subscribe((event: Event) => {
+        this.updateMenuTranslations();
+    });
   }
 }

@@ -8,25 +8,7 @@
 
   <ion-content>
     <ion-list>
-      <button ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
-      </button>
-    </ion-list>
-  </ion-content>
-
-</ion-menu>
-
-<ion-menu id="patientMenu" [content]="content">
-
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Pages</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <ion-content>
-    <ion-list>
-      <button ion-item *ngFor="let p of patientPages" (click)="openPage(p)">
+      <button ion-item *ngFor="let p of menuPages" (click)="openPage(p)">
         {{p.title}}
       </button>
     </ion-list>

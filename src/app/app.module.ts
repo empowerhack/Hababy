@@ -51,6 +51,7 @@ export function createTranslateLoader(http: Http) {
     HomePage,
     DisclaimerPage,
     BasicInfoPage,
+    PatientPage,
     ClinicianPage,
     SymptomEntryPage,
     SymptomLogPage,

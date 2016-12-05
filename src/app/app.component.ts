@@ -18,8 +18,7 @@ import { HelpSettingsPage } from '../pages/help/index';
 })
 export class MyApp {
   rootPage: any = HomePage;
-  pages: Array<{title: string, component: any}>;
-  patientPages: Array<{title: string, component: any}>;
+  menuPages: Array<{title: string, component: any}>;
 
   // the root nav is a child of the root app component
   // @ViewChild(Nav) gets a reference to the app's root nav
@@ -41,39 +40,56 @@ export class MyApp {
     });
 
     // set our app's pages
-    this.pages = [
+    this.menuPages = [
       { title: 'Home', component: HomePage }
     ];
 
-    this.patientPages = []; // set after language set
-
     this.events.subscribe('user:patient', () => {
+      this.updateMenuOptions("patient");
 
       // switch to Patient page as root
       this.nav.setRoot(PatientPage);
-      this.enableMenu(true);
     });
 
     this.events.subscribe('user:clinician', () => {
+      this.updateMenuOptions("clinician");
       this.nav.setRoot(ClinicianPage);
-      this.enableMenu(false);
     });
   }
 
   enableMenu(isPatient) {
-    this.menu.enable(!isPatient, 'appMenu');
-    this.menu.enable(isPatient, 'patientMenu');
+    this.updateMenuOptions("patient");
   }
 
-  updateMenuTranslations() {
-      // set patient section's pages
-      this.patientPages = [
-       { title: this.translate.instant('menu.symptomEntry'), component: SymptomEntryPage },
-       { title: this.translate.instant('menu.symptomLog'), component: SymptomLogPage },
-       { title: this.translate.instant('menu.pregnancyInfo'), component: PregnancyInfoPage },
-       { title: this.translate.instant('menu.resources'), component: LocationResourcesPage },
-       { title: this.translate.instant('menu.help'), component: HelpSettingsPage }
-      ];
+  updateMenuOptions(menu) {
+      if (menu == "patient")
+      {
+        // set patient section's pages
+        this.menuPages = [
+         { title: this.translate.instant('menu.symptomEntry'), component: SymptomEntryPage },
+         { title: this.translate.instant('menu.symptomLog'), component: SymptomLogPage },
+         { title: this.translate.instant('menu.pregnancyInfo'), component: PregnancyInfoPage },
+         { title: this.translate.instant('menu.resources'), component: LocationResourcesPage },
+         { title: this.translate.instant('menu.help'), component: HelpSettingsPage }
+        ];
+      }
+      else if (menu == "clinician")
+      {
+        // set clinician section's pages
+        this.menuPages = [
+         { title: this.translate.instant('menu.symptomEntry'), component: SymptomEntryPage },
+         { title: this.translate.instant('menu.pregnancyInfo'), component: PregnancyInfoPage },
+         { title: this.translate.instant('menu.resources'), component: LocationResourcesPage },
+         { title: this.translate.instant('menu.help'), component: HelpSettingsPage }
+        ];
+      }
+      else
+      {
+        // default
+        this.menuPages = [
+         { title: 'Home', component: HomePage }
+        ];
+      }
   }
 
   openPage(page: {title: string, component: any}) {
@@ -98,7 +114,7 @@ export class MyApp {
     this.translate.use(userLang);
 
     this.translate.onLangChange.subscribe((event: Event) => {
-        this.updateMenuTranslations();
+        this.updateMenuOptions("");
     });
   }
 }

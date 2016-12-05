@@ -5,6 +5,7 @@ import { TranslateService } from 'ng2-translate/ng2-translate';
 
 import { HomePage } from '../pages/home/home';
 import { PatientPage } from '../pages/patients/patient';
+import { ClinicianPage } from '../pages/clinicians/index';
 import { SymptomEntryPage } from '../pages/symptoms/entry';
 import { SymptomLogPage } from '../pages/symptoms/log';
 import { PregnancyInfoPage } from '../pages/pregnancy/index';
@@ -54,6 +55,7 @@ export class MyApp {
     });
 
     this.events.subscribe('user:clinician', () => {
+      this.nav.setRoot(ClinicianPage);
       this.enableMenu(false);
     });
   }

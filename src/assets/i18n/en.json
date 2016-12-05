@@ -18,6 +18,11 @@
         "pregnant": "I am pregnant",
         "caregiver": "I'm a caregiver"
     },
+    "clinician": {
+        "home": {
+          "title": "HaBaby"
+        }
+    },
     "patient": {
         "home": {
           "title": "HaBaby"

@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 import { DisclaimerPage } from '../pages/disclaimer/disclaimer';
 import { BasicInfoPage } from '../pages/basicinfo/basicinfo';
 import { PatientPage } from '../pages/patients/patient';
+import { ClinicianPage } from '../pages/clinicians/index';
 import { SymptomEntryPage } from '../pages/symptoms/entry';
 import { SymptomLogPage } from '../pages/symptoms/log';
 import { PregnancyInfoPage } from '../pages/pregnancy/index';
@@ -27,6 +28,7 @@ export function createTranslateLoader(http: Http) {
     DisclaimerPage,
     BasicInfoPage,
     PatientPage,
+    ClinicianPage,
     SymptomEntryPage,
     SymptomLogPage,
     PregnancyInfoPage,
@@ -49,7 +51,7 @@ export function createTranslateLoader(http: Http) {
     HomePage,
     DisclaimerPage,
     BasicInfoPage,
-    PatientPage,
+    ClinicianPage,
     SymptomEntryPage,
     SymptomLogPage,
     PregnancyInfoPage,

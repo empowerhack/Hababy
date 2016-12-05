@@ -15,5 +15,8 @@ export class BasicInfoPage {
   clickPregnant() {
     this.events.publish('user:patient');
   }
+  clickCaregiver() {
+    this.events.publish('user:clinician');
+  }
 
 }

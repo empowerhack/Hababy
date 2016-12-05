@@ -11,4 +11,21 @@
   <div>
     Symptom Entry Page
   </div>
+
+<p>
+  <input type="text" id="symptomNotes">
+  var symptomNotes = document.getElementById("symptomNotes");
+  {{symptomNotes}}
+
+  <button class="language" (click)="refresh()">Refresh</button> 
+  <button class="language" (click)="add(symptomNotes)">Add</button>
+  <button class="language" (click)="delete()">Delete</button>
+</p>
+
+  <ion-list>
+    <ion-item *ngFor="let symptom of symptom_log">
+      {{symptom.timestamp}} {{symptom.symptom1}} {{symptom.symptom2}} {{symptom.symptom3}} {{symptom.notes}}
+    </ion-item>
+  </ion-list>
+
 </ion-content>

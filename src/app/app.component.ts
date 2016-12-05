@@ -37,7 +37,7 @@ export class MyApp {
             name: "data.db",
             location: "default"
         }).then(() => {
-            db.executeSql("CREATE TABLE IF NOT EXISTS people (id INTEGER PRIMARY KEY AUTOINCREMENT, firstname TEXT, lastname TEXT)", {}).then((data) => {
+            db.executeSql("CREATE TABLE IF NOT EXISTS symptom_log (id INTEGER PRIMARY KEY AUTOINCREMENT, timestamp TEXT, symptom1 INTEGER, symptom2 INTEGER, symptom3 INTEGER, notes TEXT)", {}).then((data) => {
                 console.log("TABLE CREATED: ", data);
             }, (error) => {
                 console.error("Unable to execute sql", error);

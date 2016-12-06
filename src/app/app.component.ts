@@ -4,8 +4,13 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 import { TranslateService } from 'ng2-translate/ng2-translate';
 
 import { HomePage } from '../pages/home/home';
-import { PatientPage } from '../patients/home/patient';
-import { SymptomEntryPage } from '../patients/symptoms/entry';
+import { PatientPage } from '../pages/patients/patient';
+import { ClinicianPage } from '../pages/clinicians/index';
+import { SymptomEntryPage } from '../pages/symptoms/entry';
+import { SymptomLogPage } from '../pages/symptoms/log';
+import { PregnancyInfoPage } from '../pages/pregnancy/index';
+import { LocationResourcesPage } from '../pages/resources/index';
+import { HelpSettingsPage } from '../pages/help/index';
 
 
 @Component({
@@ -13,8 +18,7 @@ import { SymptomEntryPage } from '../patients/symptoms/entry';
 })
 export class MyApp {
   rootPage: any = HomePage;
-  pages: Array<{title: string, component: any}>;
-  patientPages: Array<{title: string, component: any}>;
+  menuPages: Array<{title: string, component: any}>;
 
   // the root nav is a child of the root app component
   // @ViewChild(Nav) gets a reference to the app's root nav
@@ -32,34 +36,60 @@ export class MyApp {
       StatusBar.styleDefault();
       Splashscreen.hide();
       this.initializeTranslateServiceConfig();
+
     });
 
     // set our app's pages
-    this.pages = [
+    this.menuPages = [
       { title: 'Home', component: HomePage }
     ];
 
-    // set patient section's pages
-    this.patientPages = [
-       { title: 'Patients', component: PatientPage },
-       { title: 'Symptom Entry', component: SymptomEntryPage }
-    ];
-
     this.events.subscribe('user:patient', () => {
+      this.updateMenuOptions("patient");
 
       // switch to Patient page as root
       this.nav.setRoot(PatientPage);
-      this.enableMenu(true);
     });
 
     this.events.subscribe('user:clinician', () => {
-      this.enableMenu(false);
+      this.updateMenuOptions("clinician");
+      this.nav.setRoot(ClinicianPage);
     });
   }
 
   enableMenu(isPatient) {
-    this.menu.enable(!isPatient, 'appMenu');
-    this.menu.enable(isPatient, 'patientMenu');
+    this.updateMenuOptions("patient");
+  }
+
+  updateMenuOptions(menu) {
+      if (menu == "patient")
+      {
+        // set patient section's pages
+        this.menuPages = [
+         { title: this.translate.instant('menu.symptomEntry'), component: SymptomEntryPage },
+         { title: this.translate.instant('menu.symptomLog'), component: SymptomLogPage },
+         { title: this.translate.instant('menu.pregnancyInfo'), component: PregnancyInfoPage },
+         { title: this.translate.instant('menu.resources'), component: LocationResourcesPage },
+         { title: this.translate.instant('menu.help'), component: HelpSettingsPage }
+        ];
+      }
+      else if (menu == "clinician")
+      {
+        // set clinician section's pages
+        this.menuPages = [
+         { title: this.translate.instant('menu.symptomEntry'), component: SymptomEntryPage },
+         { title: this.translate.instant('menu.pregnancyInfo'), component: PregnancyInfoPage },
+         { title: this.translate.instant('menu.resources'), component: LocationResourcesPage },
+         { title: this.translate.instant('menu.help'), component: HelpSettingsPage }
+        ];
+      }
+      else
+      {
+        // default
+        this.menuPages = [
+         { title: 'Home', component: HomePage }
+        ];
+      }
   }
 
   openPage(page: {title: string, component: any}) {
@@ -82,5 +112,9 @@ export class MyApp {
     this.translate.setDefaultLang('en');
 
     this.translate.use(userLang);
+
+    this.translate.onLangChange.subscribe((event: Event) => {
+        this.updateMenuOptions("");
+    });
   }
 }

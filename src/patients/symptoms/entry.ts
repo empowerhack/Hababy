@@ -11,6 +11,9 @@ export class SymptomEntryPage {
 
   public database: SQLite;
   public symptom_log: Array<Object>;
+  public notes: string;
+  public date: Date;
+  public formattedDate: string;
 
   constructor( public navCtrl: NavController, private translate: TranslateService, private platform: Platform) {
       platform.ready().then((readySource) => {
@@ -23,13 +26,17 @@ export class SymptomEntryPage {
 
         this.platform = platform;
 
+        this.notes= "";
+        this.date = new Date();
+        this.formattedDate = this.date.getDay() + "-" + this.date.getMonth() + "-" + this.date.getFullYear() + 
+                            ", " +this.date.getHours() + ":" + this.date.getMinutes();
+
       console.log('Platform ready from', readySource);
       });
   }
 
-
-  public add(symptomNotes) {
-        this.database.executeSql("INSERT INTO symptom_log (timestamp, symptom1, symptom2, symptom3, notes) VALUES ('2016-12-05 19:39:00', 1, 0, 1, ?)", [symptomNotes]).then((data) => {
+  public add() {
+        this.database.executeSql("INSERT INTO symptom_log (timestamp, symptom1, symptom2, symptom3, notes) VALUES (?, 1, 0, 1, ?)", [this.formattedDate, this.notes]).then((data) => {
             console.log("INSERTED: " + JSON.stringify(data));
         }, (error) => {
             console.log("ERROR: " + JSON.stringify(error.err));

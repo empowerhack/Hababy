@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
-import {TranslateService } from 'ng2-translate/ng2-translate';
 import { NavController, Platform } from 'ionic-angular';
-import { PatientPage } from '../home/patient';
 import {SQLite} from "ionic-native";
-import { SymptomLogPage } from '../log/log';
+import {TranslateService } from 'ng2-translate/ng2-translate';
+
 
 @Component({
-  templateUrl: 'entry.html'
+  selector: 'page-log',
+  templateUrl: 'log.html'
 })
-export class SymptomEntryPage {
+export class SymptomLogPage {
 
   public database: SQLite;
   public symptom_log: Array<Object>;
@@ -32,27 +32,7 @@ export class SymptomEntryPage {
       });
   }
 
-  public add() {
-        this.date = new Date();
-        this.formattedDate = this.date.getDay() + "-" + this.date.getMonth() + "-" + this.date.getFullYear() + 
-                            ", " +this.date.getHours() + ":" + this.date.getMinutes();
-        this.database.executeSql("INSERT INTO symptom_log (timestamp, symptom1, symptom2, symptom3, notes) VALUES (?, 1, 0, 1, ?)", [this.formattedDate, this.notes]).then((data) => {
-            console.log("INSERTED: " + JSON.stringify(data));
-        }, (error) => {
-            console.log("ERROR: " + JSON.stringify(error.err));
-        });
-        this.navCtrl.setRoot(SymptomLogPage);
-    }
-
-    public delete() {
-        this.database.executeSql("DELETE FROM symptom_log", []).then((data) => {
-            console.log("DELETED " + JSON.stringify(data));
-        }, (error) => {
-            console.log("ERROR: " + JSON.stringify(error.err));
-        });
-    }
-
-    public refresh() {
+  public refresh() {
         this.database.executeSql("SELECT * FROM symptom_log", []).then((data) => {
             this.symptom_log = [];
             if(data.rows.length > 0) {
@@ -65,4 +45,11 @@ export class SymptomEntryPage {
         });
     }
 
+  public delete() {
+        this.database.executeSql("DELETE FROM symptom_log", []).then((data) => {
+            console.log("DELETED " + JSON.stringify(data));
+        }, (error) => {
+            console.log("ERROR: " + JSON.stringify(error.err));
+        });
+    }
 }

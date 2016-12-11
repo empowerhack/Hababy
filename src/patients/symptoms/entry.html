@@ -3,36 +3,21 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>{{ "patient.home.title" | translate }}</ion-title>
+    <ion-title>{{ "symptomentry.title" | translate }}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <div>
-    Symptom Entry Page
-  </div>
+  <div class="newentry">{{ "symptomentry.newentry" | translate }}</div>
+  <div class="currentdate">Current date and time</div>
+  <div class="symptoms">[Symptom #]</div>
+  <div class="info">[Further info]</div>
 
-<p>
-  New Entry
-<ion-item>
-  <h3 id="today"></h3>
-  <script>
-    var today = new Date();
-    document.getElementById('today').innerHTML= today.toDateString();
-  </script>
-</ion-item>
-  <ion-item>
-      <ion-textarea type="notes" [value]="notes" [(ngModel)]="notes"></ion-textarea>
+  <div class="addnotes">{{ "symptomentry.notes" | translate }}</div>
+  <ion-item>    
+    <ion-textarea placeholder="Enter notes" type="notes" [value]="notes" [(ngModel)]="notes"></ion-textarea>
   </ion-item>
-  <button class="language" (click)="refresh()">Refresh</button> 
-  <button class="language" (click)="add()">Add</button>
-  <button class="language" (click)="delete()">Delete</button>
-</p>
 
-  <ion-list>
-    <ion-item *ngFor="let symptom of symptom_log">
-      {{symptom.timestamp}} {{symptom.symptom1}} {{symptom.symptom2}} {{symptom.symptom3}} {{symptom.notes}}
-    </ion-item>
-  </ion-list>
+  <button class="primary" (click)="add()">{{ "symptomentry.submit" | translate }}</button>
 
 </ion-content>

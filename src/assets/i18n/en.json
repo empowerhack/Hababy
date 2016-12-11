@@ -15,5 +15,18 @@
         "home": {
           "title": "HaBaby"
         }
+    },
+    "symptomentry": {
+        "title" : "Log your symptoms",
+        "newentry" : "New entry",
+        "notes" : "Any notes you would like to add?",
+        "submit": "Complete entry"
+    },
+    "symptomlog" : {
+        "title" : "Your symptom log",
+        "sortyby" : "Sort by:",
+        "date" : "Date",
+        "symptom": "Symptom"
     }
+
 }

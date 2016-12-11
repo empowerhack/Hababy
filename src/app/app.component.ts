@@ -5,7 +5,8 @@ import {TranslateService}from 'ng2-translate/ng2-translate';
 
 import {HomePage}from '../pages/home/home';
 import {PatientPage}from '../patients/home/patient';
-import { SymptomEntryPage}from '../patients/symptoms/entry';
+import {SymptomEntryPage}from '../patients/symptoms/entry';
+import {SymptomLogPage}from '../patients/log/log';
 
 @Component({
   templateUrl: 'app.html'
@@ -55,7 +56,8 @@ export class MyApp {
     // set patient section's pages
     this.patientPages = [
        { title: 'Patients', component: PatientPage },
-       { title: 'Symptom Entry', component: SymptomEntryPage }
+       { title: 'Symptom Entry', component: SymptomEntryPage },
+       { title: 'Symptom Log', component: SymptomLogPage}
     ];
 
     this.events.subscribe('user:patient', () => {

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {TranslateService } from 'ng2-translate/ng2-translate';
 
-import { NavController } from 'ionic-angular';
+import { NavController, Platform } from 'ionic-angular';
 
 import { DisclaimerPage } from '../disclaimer/disclaimer';
 
@@ -25,4 +25,7 @@ export class HomePage {
 
     this.navCtrl.setRoot(DisclaimerPage);
   }
+
 }
+
+

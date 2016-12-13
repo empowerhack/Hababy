@@ -3,12 +3,20 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>{{ "patient.home.title" | translate }}</ion-title>
+    <ion-title>{{ "symptom.entry.title" | translate }}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <div>
-    Symptom Entry Page
-  </div>
+  <div class="newentry">{{ "symptom.entry.newentry" | translate }}</div>
+  <div class="currentdate">Current date and time</div>
+  <div class="symptoms">[Symptom #]</div>
+  <div class="info">[Further info]</div>
+
+  <div class="addnotes">{{ "symptom.entry.notes" | translate }}</div>
+  <ion-item>    
+    <ion-textarea placeholder="Enter notes" type="notes" [value]="notes" [(ngModel)]="notes"></ion-textarea>
+  </ion-item>
+
+  <button class="primary" (click)="add()">{{ "symptom.entry.submit" | translate }}</button>
 </ion-content>

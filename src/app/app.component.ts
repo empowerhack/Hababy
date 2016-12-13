@@ -1,7 +1,7 @@
-import { Component, ViewChild } from '@angular/core';
-import { Platform, MenuController, Nav, Events  } from 'ionic-angular';
-import { StatusBar, Splashscreen } from 'ionic-native';
-import { TranslateService } from 'ng2-translate/ng2-translate';
+import{Component, ViewChild}from '@angular/core';
+import {Platform, MenuController, Nav, Events  }from 'ionic-angular';
+import {StatusBar, Splashscreen, SQLite}from 'ionic-native';
+import {TranslateService}from 'ng2-translate/ng2-translate';
 
 import { HomePage } from '../pages/home/home';
 import { PatientPage } from '../pages/patients/patient';
@@ -11,7 +11,6 @@ import { SymptomLogPage } from '../pages/symptoms/log';
 import { PregnancyInfoPage } from '../pages/pregnancy/index';
 import { LocationResourcesPage } from '../pages/resources/index';
 import { HelpSettingsPage } from '../pages/help/index';
-
 
 @Component({
   templateUrl: 'app.html'
@@ -36,6 +35,20 @@ export class MyApp {
       StatusBar.styleDefault();
       Splashscreen.hide();
       this.initializeTranslateServiceConfig();
+
+        let db = new SQLite();
+        db.openDatabase({
+            name: "data.db",
+            location: "default"
+        }).then(() => {
+            db.executeSql("CREATE TABLE IF NOT EXISTS symptom_log (id INTEGER PRIMARY KEY AUTOINCREMENT, timestamp TEXT, symptom1 INTEGER, symptom2 INTEGER, symptom3 INTEGER, notes TEXT)", {}).then((data) => {
+                console.log("TABLE CREATED: ", data);
+            }, (error) => {
+                console.error("Unable to execute sql", error);
+            })
+        }, (error) => {
+            console.error("Unable to open database", error);
+        });
 
     });
 
@@ -117,4 +130,10 @@ export class MyApp {
         this.updateMenuOptions("");
     });
   }
+
+
 }
+
+
+
+

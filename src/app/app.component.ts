@@ -1,13 +1,7 @@
-<<<<<<< HEAD
 import{Component, ViewChild}from '@angular/core';
 import {Platform, MenuController, Nav, Events  }from 'ionic-angular';
 import {StatusBar, Splashscreen, SQLite}from 'ionic-native';
 import {TranslateService}from 'ng2-translate/ng2-translate';
-=======
-import { Component, ViewChild } from '@angular/core';
-import { Platform, MenuController, Nav, Events  } from 'ionic-angular';
-import { StatusBar, Splashscreen } from 'ionic-native';
-import { TranslateService } from 'ng2-translate/ng2-translate';
 
 import { HomePage } from '../pages/home/home';
 import { PatientPage } from '../pages/patients/patient';
@@ -17,12 +11,6 @@ import { SymptomLogPage } from '../pages/symptoms/log';
 import { PregnancyInfoPage } from '../pages/pregnancy/index';
 import { LocationResourcesPage } from '../pages/resources/index';
 import { HelpSettingsPage } from '../pages/help/index';
->>>>>>> master
-
-import {HomePage}from '../pages/home/home';
-import {PatientPage}from '../patients/home/patient';
-import {SymptomEntryPage}from '../patients/symptoms/entry';
-import {SymptomLogPage}from '../patients/log/log';
 
 @Component({
   templateUrl: 'app.html'
@@ -48,7 +36,6 @@ export class MyApp {
       Splashscreen.hide();
       this.initializeTranslateServiceConfig();
 
-<<<<<<< HEAD
         let db = new SQLite();
         db.openDatabase({
             name: "data.db",
@@ -62,8 +49,7 @@ export class MyApp {
         }, (error) => {
             console.error("Unable to open database", error);
         });
-=======
->>>>>>> master
+
     });
 
     // set our app's pages
@@ -71,16 +57,6 @@ export class MyApp {
       { title: 'Home', component: HomePage }
     ];
 
-<<<<<<< HEAD
-    // set patient section's pages
-    this.patientPages = [
-       { title: 'Patients', component: PatientPage },
-       { title: 'Symptom Entry', component: SymptomEntryPage },
-       { title: 'Symptom Log', component: SymptomLogPage}
-    ];
-
-=======
->>>>>>> master
     this.events.subscribe('user:patient', () => {
       this.updateMenuOptions("patient");
 

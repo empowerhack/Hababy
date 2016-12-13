@@ -1,14 +1,9 @@
 import { Component } from '@angular/core';
 import {TranslateService } from 'ng2-translate/ng2-translate';
-<<<<<<< HEAD:src/patients/symptoms/entry.ts
 import { NavController, Platform } from 'ionic-angular';
-import { PatientPage } from '../home/patient';
 import {SQLite} from "ionic-native";
-import { SymptomLogPage } from '../log/log';
-=======
-
 import { PatientPage } from '../patients/patient';
->>>>>>> master:src/pages/symptoms/entry.ts
+import {SymptomLogPage} from '../symptoms/log';
 
 @Component({
   templateUrl: 'entry.html'

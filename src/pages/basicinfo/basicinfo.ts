@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { TranslateService } from 'ng2-translate/ng2-translate';
 
 import { NavController, Events } from 'ionic-angular';
-import { PatientPage } from '../../patients/home/patient';
+import { PatientPage } from '../patients/patient';
 
 @Component({
   selector: 'page-basicinfo',
@@ -14,6 +14,9 @@ export class BasicInfoPage {
 
   clickPregnant() {
     this.events.publish('user:patient');
+  }
+  clickCaregiver() {
+    this.events.publish('user:clinician');
   }
 
 }

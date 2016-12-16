@@ -19,23 +19,20 @@ export class SymptomEntryPage {
   constructor( public navCtrl: NavController, private translate: TranslateService, private platform: Platform) {
       platform.ready().then((readySource) => {
         this.database = new SQLite();
-        this.database.openDatabase({name: "data.db", location: "default"}).then(() => {
-            this.refresh();
-        }, (error) => {
-            console.log("ERROR: ", error);
-        });
-
+        this.database.openDatabase({name: "data.db", location: "default"})
         this.platform = platform;
         this.notes= "";
 
       console.log('Platform ready from', readySource);
+
+      var today=new Date();
+      document.getElementById('currentdate').innerHTML= today.toUTCString().split(' ').slice(0, 5).join(' ');
       });
   }
 
   public add() {
         this.date = new Date();
-        this.formattedDate = this.date.getDay() + "-" + this.date.getMonth() + "-" + this.date.getFullYear() + 
-                            ", " +this.date.getHours() + ":" + this.date.getMinutes();
+        this.formattedDate = this.date.toUTCString().split(' ').slice(0, 5).join(' ');
         this.database.executeSql("INSERT INTO symptom_log (timestamp, symptom1, symptom2, symptom3, notes) VALUES (?, 1, 0, 1, ?)", [this.formattedDate, this.notes]).then((data) => {
             console.log("INSERTED: " + JSON.stringify(data));
         }, (error) => {

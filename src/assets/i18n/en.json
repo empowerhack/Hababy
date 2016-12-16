@@ -48,7 +48,7 @@
     "symptom": {
         "log": {
           "title": "My Symptom Log",
-          "sortyby" : "Sort by:",
+          "sortby" : "Sort by:",
           "date" : "Date",
           "symptom": "Symptom"
         },

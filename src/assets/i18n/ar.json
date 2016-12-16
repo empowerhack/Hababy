@@ -47,7 +47,16 @@
     },
     "symptom": {
         "log": {
-          "title": "My Symptom Log"
+          "title": "My Symptom Log",
+         "sortby" : "Sort by:",
+          "date" : "Date",
+          "symptom": "Symptom"
+        },
+        "entry":{
+            "title" : "Log your symptoms",
+            "newentry" : "New entry",
+            "notes" : "Any notes you would like to add?",
+            "submit": "Complete entry"
         }
     }
 }

@@ -3,6 +3,7 @@ import { TranslateService } from 'ng2-translate/ng2-translate';
 import {SQLite} from "ionic-native";
 import { NavController, Platform } from 'ionic-angular';
 import { BasicInfoPage } from '../basicinfo/basicinfo';
+import { EditLogPage } from '../symptoms/editlog';
 
 @Component({
   templateUrl: 'log.html'
@@ -10,12 +11,8 @@ import { BasicInfoPage } from '../basicinfo/basicinfo';
 export class SymptomLogPage {
   public database: SQLite;
   public symptom_log: Array<Object>;
-  public symptom1: Array<Object>;
-  public symptom2: Array<Object>;
-
   public notes: string;
   public date: Date;
-  public formattedDate: string;
 
   constructor( public navCtrl: NavController, private translate: TranslateService, private platform: Platform) {
       platform.ready().then((readySource) => {
@@ -45,19 +42,6 @@ export class SymptomLogPage {
         this.navCtrl.setRoot(EditLogPage);
     }
 
-    public updateEntry(notes : String, timestamp : String) {
-      this.database.executeSql("UPDATE SET notes = :notes WHERE timestamp= :timestamp", [notes, timestamp]).then((data) => {
-         this.symptom_log = [];
-            if(data.rows.length > 0) {
-                for(var i = 0; i < data.rows.length; i++) {
-                    this.symptom_log.push({timestamp: data.rows.item(i).timestamp, symptom1: data.rows.item(i).symptom1, symptom2: data.rows.item(i).symptom2, symptom3: data.rows.item(i).symptom3, notes: data.rows.item(i).notes});
-                }
-            }
-        }, (error) => {
-            console.log("ERROR: " + JSON.stringify(error));
-        });
-    }
-
     public sortByDate() {
       this.database.executeSql("SELECT * FROM symptom_log ORDER BY timestamp DESC", []).then((data) => {
             this.symptom_log = [];
@@ -72,8 +56,6 @@ export class SymptomLogPage {
     }
 
     public sortBySymptom() {
-      this.symptom1 = [];
-      this.symptom2 = [];
       this.symptom_log = [];
       this.database.executeSql("SELECT * FROM symptom_log WHERE symptom1=1 ORDER BY timestamp DESC", []).then((data) => {
             if(data.rows.length > 0) {

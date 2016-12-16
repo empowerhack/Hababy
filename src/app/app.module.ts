@@ -12,6 +12,7 @@ import { PatientPage } from '../pages/patients/patient';
 import { ClinicianPage } from '../pages/clinicians/index';
 import { SymptomEntryPage } from '../pages/symptoms/entry';
 import { SymptomLogPage } from '../pages/symptoms/log';
+import { EditLogPage } from '../pages/symptoms/editlog';
 import { PregnancyInfoPage } from '../pages/pregnancy/index';
 import { LocationResourcesPage } from '../pages/resources/index';
 import { HelpSettingsPage } from '../pages/help/index';
@@ -31,6 +32,7 @@ export function createTranslateLoader(http: Http) {
     ClinicianPage,
     SymptomEntryPage,
     SymptomLogPage,
+    EditLogPage,
     PregnancyInfoPage,
     LocationResourcesPage,
     HelpSettingsPage
@@ -55,6 +57,7 @@ export function createTranslateLoader(http: Http) {
     ClinicianPage,
     SymptomEntryPage,
     SymptomLogPage,
+    EditLogPage,
     PregnancyInfoPage,
     LocationResourcesPage,
     HelpSettingsPage

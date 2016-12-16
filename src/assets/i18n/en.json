@@ -57,6 +57,10 @@
             "newentry" : "New entry",
             "notes" : "Any notes you would like to add?",
             "submit": "Complete entry"
+        },
+        "editlog": {
+            "title": "Edit your entry",
+            "submit": "Complete entry"
         }
     }
 

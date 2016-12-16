@@ -32,11 +32,29 @@ export class SymptomLogPage {
       console.log('Platform ready from', readySource);
       });
   }
+
     public delete() {
         this.database.executeSql("DELETE FROM symptom_log", []).then((data) => {
             console.log("DELETED " + JSON.stringify(data));
         }, (error) => {
             console.log("ERROR: " + JSON.stringify(error.err));
+        });
+    }
+
+    public update() {
+        this.navCtrl.setRoot(EditLogPage);
+    }
+
+    public updateEntry(notes : String, timestamp : String) {
+      this.database.executeSql("UPDATE SET notes = :notes WHERE timestamp= :timestamp", [notes, timestamp]).then((data) => {
+         this.symptom_log = [];
+            if(data.rows.length > 0) {
+                for(var i = 0; i < data.rows.length; i++) {
+                    this.symptom_log.push({timestamp: data.rows.item(i).timestamp, symptom1: data.rows.item(i).symptom1, symptom2: data.rows.item(i).symptom2, symptom3: data.rows.item(i).symptom3, notes: data.rows.item(i).notes});
+                }
+            }
+        }, (error) => {
+            console.log("ERROR: " + JSON.stringify(error));
         });
     }
 

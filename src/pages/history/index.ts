@@ -8,9 +8,9 @@ import { NavController } from 'ionic-angular';
 })
 export class MedicalHistoryPage {
 
-  constructor(public navCtrl: NavController, private translate: TranslateService) {  }
+  public nextPage;
 
-  public hadProblems() {
-    this.navCtrl.setRoot(HistoryProblemsPage);
+  constructor(public navCtrl: NavController, private translate: TranslateService) {
+    this.nextPage = HistoryProblemsPage;
   }
 }

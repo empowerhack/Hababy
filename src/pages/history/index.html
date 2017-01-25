@@ -11,5 +11,5 @@
   <div>
     My Medical History
   </div>
-  <button class="primary" (click)="hadProblems()">{{ "next" | translate }}</button>
+  <button class="primary" [navPush]="nextPage">{{ "next" | translate }}</button>
 </ion-content>

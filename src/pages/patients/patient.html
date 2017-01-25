@@ -9,10 +9,10 @@
 
 <ion-content padding>
   <div>
-    {{ "menu.symptomEntry" | translate }}
+  <button class="inline" [navPush]="historyPage">{{ "menu.medicalHistory" | translate }}</button>
   </div>
   <div>
-    {{ "menu.symptomLog" | translate }}
+    {{ "menu.symptomEntry" | translate }}
   </div>
   <div>
     {{ "menu.pregnancyInfo" | translate }}

@@ -11,7 +11,9 @@ import { BasicInfoPage } from '../pages/basicinfo/basicinfo';
 import { PatientPage } from '../pages/patients/patient';
 import { ClinicianPage } from '../pages/clinicians/index';
 import { SymptomEntryPage } from '../pages/symptoms/entry';
-import { SymptomLogPage } from '../pages/symptoms/log';
+import { MedicalHistoryPage } from '../pages/history/index';
+import { HistoryProblemsPage } from '../pages/history/problems';
+
 import { PregnancyInfoPage } from '../pages/pregnancy/index';
 import { LocationResourcesPage } from '../pages/resources/index';
 import { HelpSettingsPage } from '../pages/help/index';
@@ -30,7 +32,8 @@ export function createTranslateLoader(http: Http) {
     PatientPage,
     ClinicianPage,
     SymptomEntryPage,
-    SymptomLogPage,
+    MedicalHistoryPage,
+    HistoryProblemsPage,
     PregnancyInfoPage,
     LocationResourcesPage,
     HelpSettingsPage
@@ -54,7 +57,8 @@ export function createTranslateLoader(http: Http) {
     PatientPage,
     ClinicianPage,
     SymptomEntryPage,
-    SymptomLogPage,
+    MedicalHistoryPage,
+    HistoryProblemsPage,
     PregnancyInfoPage,
     LocationResourcesPage,
     HelpSettingsPage

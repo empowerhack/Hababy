@@ -1,7 +1,9 @@
 {
     "title" : "HaBaby",
+    "next" : "Next",
     "menu": {
         "title": "Menu",
+        "medicalHistory": "My Medical History",
         "symptomEntry": "Symptom Entry",
         "symptomLog": "My Symptom Log",
         "pregnancyInfo": "Pregnancy Info",

@@ -1,7 +1,9 @@
 {
     "title" : "HaBaby",
+    "next" : "Next",
     "menu": {
         "title": "Menu",
+        "medicalHistory": "My Medical History",
         "symptomEntry": "Symptom Entry",
         "symptomLog": "My Symptom Log",
         "pregnancyInfo": "Pregnancy Info",
@@ -32,6 +34,11 @@
     "help": {
         "index": {
           "title": "Help and Settings"
+        }
+    },
+    "history": {
+        "index": {
+          "title": "My Medical History"
         }
     },
     "pregnancy": {

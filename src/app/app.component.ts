@@ -7,7 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { PatientPage } from '../pages/patients/patient';
 import { ClinicianPage } from '../pages/clinicians/index';
 import { SymptomEntryPage } from '../pages/symptoms/entry';
-import { SymptomLogPage } from '../pages/symptoms/log';
+import { MedicalHistoryPage } from '../pages/history/index';
 import { PregnancyInfoPage } from '../pages/pregnancy/index';
 import { LocationResourcesPage } from '../pages/resources/index';
 import { HelpSettingsPage } from '../pages/help/index';
@@ -79,8 +79,8 @@ export class MyApp {
       {
         // set patient section's pages
         this.menuPages = [
+         { title: this.translate.instant('menu.medicalHistory'), component: MedicalHistoryPage },
          { title: this.translate.instant('menu.symptomEntry'), component: SymptomEntryPage },
-         { title: this.translate.instant('menu.symptomLog'), component: SymptomLogPage },
          { title: this.translate.instant('menu.pregnancyInfo'), component: PregnancyInfoPage },
          { title: this.translate.instant('menu.resources'), component: LocationResourcesPage },
          { title: this.translate.instant('menu.help'), component: HelpSettingsPage }

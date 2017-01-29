@@ -9,7 +9,52 @@
 
 <ion-content padding>
   <div>
-    My Medical History
+    <ion-label>{{ "history.index.name" | translate}}</ion-label>
+    <input type="text" placeholder="Name">
   </div>
+   <div>
+    <ion-item>
+      <ion-label>{{ "history.index.age" | translate}}</ion-label>
+      <ion-datetime displayFormat="m" [(ngModel)]="age"></ion-datetime>
+    </ion-item>
+  </div>
+   <div>
+    <ion-item>
+      <ion-label>{{ "history.index.kids" | translate}}</ion-label>
+      <ion-datetime displayFormat="m" [(ngModel)]="kids"></ion-datetime>
+    </ion-item>
+  </div>
+   <div>
+    <ion-item>
+      <ion-label>{{ "history.index.births" | translate}}</ion-label>
+      <ion-datetime displayFormat="m" [(ngModel)]="births"></ion-datetime>
+    </ion-item>
+  </div>
+   <div>
+    <ion-item>
+      <ion-label>{{ "history.index.cesarean" | translate}}</ion-label>
+      <ion-datetime displayFormat="m" [(ngModel)]="cesarean"></ion-datetime>
+    </ion-item>
+  </div>
+   <div>
+    <ion-item>
+      <ion-label>{{ "history.index.miscarriage" | translate}}</ion-label>
+      <ion-datetime displayFormat="m" [(ngModel)]="miscarriage"></ion-datetime>
+    </ion-item>
+  </div>
+   <div>
+    {{ "history.index.problems" | translate}}
+    <ion-list radio-group [(ngModel)]="problems">
+      <ion-item>
+        <ion-label>Yes</ion-label>
+        <ion-radio value="yes" checked></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>No</ion-label>
+        <ion-radio value="no"></ion-radio>
+      </ion-item>
+    </ion-list>
+  </div>
+
   <button class="primary" [navPush]="nextPage">{{ "next" | translate }}</button>
 </ion-content>

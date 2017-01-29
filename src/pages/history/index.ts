@@ -9,6 +9,12 @@ import { NavController } from 'ionic-angular';
 export class MedicalHistoryPage {
 
   public nextPage;
+  public age;
+  public kids;
+  public births;
+  public cesarean;
+  public miscarriage;
+  public problems;
 
   constructor(public navCtrl: NavController, private translate: TranslateService) {
     this.nextPage = HistoryProblemsPage;

@@ -38,7 +38,14 @@
     },
     "history": {
         "index": {
-          "title": "My Medical History"
+          "title": "My Medical History",
+          "name": "Name",
+          "age": "Age",
+          "kids": "How many children do you have?",
+          "births": "How many normal births have you had?",
+          "cesarean": "How many cesarean sections have you had?",
+          "miscarriage": "Have you had any miscarriages?",
+          "problems": "Did you have any problems in your pregnancies?"
         }
     },
     "pregnancy": {

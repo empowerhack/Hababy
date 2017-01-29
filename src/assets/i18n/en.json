@@ -1,6 +1,8 @@
 {
     "title" : "HaBaby",
     "next" : "Next",
+    "yes": "Yes",
+    "no": "No",
     "menu": {
         "title": "Menu",
         "medicalHistory": "My Medical History",
@@ -47,10 +49,16 @@
           "stuckduringdelivery": "My baby got stuck during delivery",
           "heavybleeding": "Heavy bleeding",
           "liverproblems": "Liver problems causing itching",
+          "livermedication": "Did you take medication for this?",
           "highbloodsugar": "My blood sugar was high",
+          "bloodsugartablets": "Did you take tablets for this?",
+          "bloodsugarinjections": "Did you take injections for this?",
           "bloodclots": "Blood clots",
           "deliveredearly": "I delivered my babies early before my due date",
+          "howmanyweeks": "Choose how many weeks",
           "highpressure": "High pressure/pre-eclampsia",
+          "highbpmedication": "Did you take medication for it?",
+          "highbpseizure": "Did you have a seizure because of this?",
           "cesarianproblems": {
             "smallbaby": "small baby",
             "bleeding": "bleeding",
@@ -62,6 +70,14 @@
             "babydistressed": "baby distressed in labor",
             "infection": "infection",
             "abnormality": "abnormality with baby"
+          },
+          "bleedingproblems": {
+            "whilepregnant": "while pregnant",
+            "afterdelivery": "after delivery"
+          },
+          "bloodclotareas": {
+            "legs": "legs",
+            "chest": "chest"
           }
         }
     },

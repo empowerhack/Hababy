@@ -20,8 +20,15 @@ export class HistoryProblemsPage {
      abnormality?: boolean } = {};
   wassmall: boolean;
   stuckduringdelivery: boolean;
-  heavybleeding: boolean;
-  liverproblems: boolean;
+  heavybleeding:
+   { had?: boolean,
+     whilepregnant?: boolean,
+     afterdelivery?: boolean
+   } = {};
+  liverproblems:
+   { had?: boolean,
+     medication?: boolean
+   } = {};
   highbloodsugar: boolean;
   bloodclots: boolean;
   deliveredearly: boolean;

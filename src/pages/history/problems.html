@@ -59,20 +59,36 @@
   </div>
   <ion-item>
     <ion-label>{{ "history.problems.wassmall" | translate }}</ion-label>
-    <ion-checkbox></ion-checkbox>
+    <ion-checkbox [(ngModel)]="wassmall"></ion-checkbox>
   </ion-item>
   <ion-item>
     <ion-label>{{ "history.problems.stuckduringdelivery" | translate }}</ion-label>
-    <ion-checkbox></ion-checkbox>
+    <ion-checkbox [(ngModel)]="stuckduringdelivery"></ion-checkbox>
   </ion-item>
   <ion-item>
     <ion-label>{{ "history.problems.heavybleeding" | translate }}</ion-label>
-    <ion-checkbox></ion-checkbox>
+    <ion-checkbox [(ngModel)]="heavybleeding.had"></ion-checkbox>
   </ion-item>
+  <div class="formsublist" *ngIf="heavybleeding.had">
+    <ion-item no-lines>
+      <ion-label>{{ "history.problems.bleedingproblems.whilepregnant" | translate }}</ion-label>
+      <ion-checkbox [(ngModel)]="heavybleeding.whilepregnant"></ion-checkbox>
+    </ion-item>
+    <ion-item no-lines>
+      <ion-label>{{ "history.problems.bleedingproblems.afterdelivery" | translate }}</ion-label>
+      <ion-checkbox [(ngModel)]="heavybleeding.afterdelivery"></ion-checkbox>
+    </ion-item>
+  </div>
   <ion-item>
     <ion-label>{{ "history.problems.liverproblems" | translate }}</ion-label>
-    <ion-checkbox></ion-checkbox>
+    <ion-checkbox [(ngModel)]="liverproblems.had"></ion-checkbox>
   </ion-item>
+  <div class="formsublist" *ngIf="liverproblems.had">
+    <ion-item no-lines>
+      <ion-label>{{ "history.problems.livermedication" | translate }}</ion-label>
+      <ion-toggle [(ngModel)]="liverproblems.medication"></ion-toggle>
+    </ion-item>
+  </div>
   <ion-item>
     <ion-label>{{ "history.problems.highbloodsugar" | translate }}</ion-label>
     <ion-checkbox></ion-checkbox>

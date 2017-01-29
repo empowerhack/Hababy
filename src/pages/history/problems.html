@@ -11,21 +11,51 @@
   <div>
     {{ "history.problems.title" | translate }}
   </div>
-  <ion-item>
+  <ion-item no-lines>
     <ion-label>{{ "history.problems.cesarian" | translate }}</ion-label>
     <ion-checkbox [(ngModel)]="cesarian.had" (ionChange)="onCesarian()"></ion-checkbox>
   </ion-item>
   <div class="formsublist" *ngIf="cesarian.had">Choose as many as apply:
-    <div class="formsubitem"><ion-checkbox [(ngModel)]="cesarian.smallbaby"></ion-checkbox> {{ "history.problems.cesarianproblems.smallbaby" | translate }}</div>
-    <div class="formsubitem"><ion-checkbox [(ngModel)]="cesarian.bigbaby"></ion-checkbox> {{ "history.problems.cesarianproblems.bigbaby" | translate }}</div>
-    <div class="formsubitem"><ion-checkbox [(ngModel)]="cesarian.bleeding"></ion-checkbox> {{ "history.problems.cesarianproblems.bleeding" | translate }}</div>
-    <div class="formsubitem"><ion-checkbox [(ngModel)]="cesarian.breech"></ion-checkbox> {{ "history.problems.cesarianproblems.breech" | translate }}</div>
-    <div class="formsubitem"><ion-checkbox [(ngModel)]="cesarian.highbp"></ion-checkbox> {{ "history.problems.cesarianproblems.highbp" | translate }}</div>
-    <div class="formsubitem"><ion-checkbox [(ngModel)]="cesarian.nolaborprogress"></ion-checkbox> {{ "history.problems.cesarianproblems.nolaborprogress" | translate }}</div>
-    <div class="formsubitem"><ion-checkbox [(ngModel)]="cesarian.nopushingprogress"></ion-checkbox> {{ "history.problems.cesarianproblems.nopushingprogress" | translate }}</div>
-    <div class="formsubitem"><ion-checkbox [(ngModel)]="cesarian.distressed"></ion-checkbox> {{ "history.problems.cesarianproblems.distressed" | translate }}</div>
-    <div class="formsubitem"><ion-checkbox [(ngModel)]="cesarian.infection"></ion-checkbox> {{ "history.problems.cesarianproblems.infection" | translate }}</div>
-    <div class="formsubitem"><ion-checkbox [(ngModel)]="cesarian.abnormality"></ion-checkbox> {{ "history.problems.cesarianproblems.abnormality" | translate }}</div>
+    <ion-item no-lines>
+      <ion-label>{{ "history.problems.cesarianproblems.smallbaby" | translate }}</ion-label>
+      <ion-checkbox [(ngModel)]="cesarian.smallbaby"></ion-checkbox>
+    </ion-item>
+    <ion-item no-lines>
+      <ion-label>{{ "history.problems.cesarianproblems.bigbaby" | translate }}</ion-label>
+      <ion-checkbox [(ngModel)]="cesarian.bigbaby"></ion-checkbox>
+    </ion-item>
+    <ion-item no-lines>
+      <ion-label>{{ "history.problems.cesarianproblems.bleeding" | translate }}</ion-label>
+      <ion-checkbox [(ngModel)]="cesarian.bleeding"></ion-checkbox>
+    </ion-item>
+    <ion-item no-lines>
+      <ion-label>{{ "history.problems.cesarianproblems.breech" | translate }}</ion-label>
+      <ion-checkbox [(ngModel)]="cesarian.breech"></ion-checkbox>
+    </ion-item>
+    <ion-item no-lines>
+      <ion-label>{{ "history.problems.cesarianproblems.highbp" | translate }}</ion-label>
+      <ion-checkbox [(ngModel)]="cesarian.highbp"></ion-checkbox>
+    </ion-item>
+    <ion-item no-lines>
+      <ion-label>{{ "history.problems.cesarianproblems.nolaborprogress" | translate }}</ion-label>
+      <ion-checkbox [(ngModel)]="cesarian.nolaborprogress"></ion-checkbox>
+    </ion-item>
+    <ion-item no-lines>
+      <ion-label>{{ "history.problems.cesarianproblems.nopushingprogress" | translate }}</ion-label>
+      <ion-checkbox [(ngModel)]="cesarian.nopushingprogress"></ion-checkbox>
+    </ion-item>
+    <ion-item no-lines>
+      <ion-label>{{ "history.problems.cesarianproblems.babydistressed" | translate }}</ion-label>
+      <ion-checkbox [(ngModel)]="cesarian.babydistressed"></ion-checkbox>
+    </ion-item>
+    <ion-item no-lines>
+      <ion-label>{{ "history.problems.cesarianproblems.infection" | translate }}</ion-label>
+      <ion-checkbox [(ngModel)]="cesarian.infection"></ion-checkbox>
+    </ion-item>
+    <ion-item no-lines>
+      <ion-label>{{ "history.problems.cesarianproblems.abnormality" | translate }}</ion-label>
+      <ion-checkbox [(ngModel)]="cesarian.abnormality"></ion-checkbox>
+    </ion-item>
   </div>
   <ion-item>
     <ion-label>{{ "history.problems.wassmall" | translate }}</ion-label>

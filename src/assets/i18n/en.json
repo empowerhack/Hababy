@@ -39,6 +39,23 @@
     "history": {
         "index": {
           "title": "My Medical History"
+        },
+        "problems": {
+          "title": "Experienced Problems in Pregnancy",
+          "cesarian": "Cesarian section",
+          "wassmall": "My baby was very small",
+          "stuckduringdelivery": "My baby got stuck during delivery",
+          "heavybleeding": "Heavy bleeding",
+          "liverproblems": "Liver problems causing itching",
+          "highbloodsugar": "My blood sugar was high",
+          "bloodclots": "Blood clots",
+          "deliveredearly": "I delivered my babies early before my due date",
+          "highpressure": "High pressure/pre-eclampsia",
+          "cesarianproblems": {
+            "smallbaby": "small baby",
+            "bleeding": "bleeding",
+            "bigbaby": "big baby"
+          }
         }
     },
     "pregnancy": {

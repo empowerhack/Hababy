@@ -9,6 +9,48 @@
 
 <ion-content padding>
   <div>
-    Experienced Problems in Pregnancy
+    {{ "history.problems.title" | translate }}
   </div>
+  <ion-item>
+    <ion-label>{{ "history.problems.cesarian" | translate }}</ion-label>
+    <ion-checkbox [(ngModel)]="cesarian.had" (ionChange)="onCesarian()"></ion-checkbox>
+  </ion-item>
+  <div *ngIf="cesarian.had">
+    <ion-checkbox [(ngModel)]="cesarian.smallbaby"></ion-checkbox> {{ "history.problems.cesarianproblems.smallbaby" | translate }}
+    <ion-checkbox></ion-checkbox> {{ "history.problems.cesarianproblems.bigbaby" | translate }}
+    <ion-checkbox></ion-checkbox> {{ "history.problems.cesarianproblems.bleeding" | translate }}
+  </div>
+  <ion-item>
+    <ion-label>{{ "history.problems.wassmall" | translate }}</ion-label>
+    <ion-checkbox></ion-checkbox>
+  </ion-item>
+  <ion-item>
+    <ion-label>{{ "history.problems.stuckduringdelivery" | translate }}</ion-label>
+    <ion-checkbox></ion-checkbox>
+  </ion-item>
+  <ion-item>
+    <ion-label>{{ "history.problems.heavybleeding" | translate }}</ion-label>
+    <ion-checkbox></ion-checkbox>
+  </ion-item>
+  <ion-item>
+    <ion-label>{{ "history.problems.liverproblems" | translate }}</ion-label>
+    <ion-checkbox></ion-checkbox>
+  </ion-item>
+  <ion-item>
+    <ion-label>{{ "history.problems.highbloodsugar" | translate }}</ion-label>
+    <ion-checkbox></ion-checkbox>
+  </ion-item>
+  <ion-item>
+    <ion-label>{{ "history.problems.bloodclots" | translate }}</ion-label>
+    <ion-checkbox></ion-checkbox>
+  </ion-item>
+  <ion-item>
+    <ion-label>{{ "history.problems.deliveredearly" | translate }}</ion-label>
+    <ion-checkbox></ion-checkbox>
+  </ion-item>
+  <ion-item>
+    <ion-label>{{ "history.problems.highpressure" | translate }}</ion-label>
+    <ion-checkbox></ion-checkbox>
+  </ion-item>
+  <button class="primary" (click)="saveAndContinue()">{{ "next" | translate }}</button>
 </ion-content>

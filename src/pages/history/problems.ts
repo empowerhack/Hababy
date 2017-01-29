@@ -8,7 +8,16 @@ export class HistoryProblemsPage {
 
   cesarian:
    { had?: boolean,
-     smallbaby?: boolean } = {};
+     smallbaby?: boolean,
+     bigbaby?: boolean,
+     bleeding?: boolean,
+     breech?: boolean,
+     highbp?: boolean,
+     nolaborprogress?: boolean,
+     nopushingprogress?: boolean,
+     babydistressed?: boolean,
+     infection?: boolean,
+     abnormality?: boolean } = {};
   wassmall: boolean;
   stuckduringdelivery: boolean;
   heavybleeding: boolean;
@@ -27,6 +36,6 @@ export class HistoryProblemsPage {
   }
 
   saveAndContinue() {
-    console.log("cesarian: " + this.cesarian.had);
+    console.log("cesarian bleeding: " + this.cesarian.bleeding);
   }
 }

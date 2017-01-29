@@ -54,7 +54,14 @@
           "cesarianproblems": {
             "smallbaby": "small baby",
             "bleeding": "bleeding",
-            "bigbaby": "big baby"
+            "bigbaby": "big baby",
+            "breech": "breech (legs first) baby",
+            "highbp": "high blood pressure/pre-eclampsia",
+            "nolaborprogress": "no progress in labor",
+            "nopushingprogress": "no progress when pushing in labor",
+            "babydistressed": "baby distressed in labor",
+            "infection": "infection",
+            "abnormality": "abnormality with baby"
           }
         }
     },

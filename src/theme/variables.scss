@@ -70,9 +70,9 @@ $colors: (
 $ionicons-font-path: "../assets/fonts";
 @import "ionicons";
 
-// Include HaBaby fonts
-$hababy-font-path: "../assets/fonts/NotoSans" !default;
-@font-face {
-  font-family: "NotoSans";
-  src: url("#{$hababy-font-path}/NotoSans-Regular.ttf") format("truetype");
-}
+
+// Fonts
+// --------------------------------------------------
+
+@import "roboto";
+@import "noto-sans";

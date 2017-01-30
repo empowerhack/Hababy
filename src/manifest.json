@@ -1,11 +1,11 @@
 {
-  "name": "Ionic",
-  "short_name": "Ionic",
+  "name": "HaBaby",
+  "short_name": "HaBaby",
   "start_url": "index.html",
   "display": "standalone",
   "icons": [{
-    "src": "assets/imgs/logo.png",
-    "sizes": "512x512",
+    "src": "assets/hababy_logo.png",
+    "sizes": "373x373",
     "type": "image/png"
   }],
   "background_color": "#4e8ef7",

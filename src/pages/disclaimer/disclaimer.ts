@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { TranslateService } from 'ng2-translate/ng2-translate';
-
 import { NavController } from 'ionic-angular';
-import { BasicInfoPage } from '../basicinfo/basicinfo';
+
+import { BasicInfoPage } from '../basic-info/basic-info';
 
 @Component({
   selector: 'page-disclaimer',
@@ -10,7 +9,9 @@ import { BasicInfoPage } from '../basicinfo/basicinfo';
 })
 export class DisclaimerPage {
 
-  constructor(public navCtrl: NavController, private translate: TranslateService) {  }
+  constructor(
+    private navCtrl: NavController
+  ) {}
 
   acceptDisclaimer() {
     this.navCtrl.setRoot(BasicInfoPage);

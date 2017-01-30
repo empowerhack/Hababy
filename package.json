@@ -1,7 +1,9 @@
 {
-  "name": "ionic-hello-world",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "name": "io.empowerhack.hababy",
+  "author": "HaBaby Team",
+  "homepage": "http://empowerhack.io/",
+  "description": "HaBaby: An Ionic project",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "ionic:build": "ionic-app-scripts build",
@@ -44,6 +46,5 @@
       "version": "",
       "locator": "ios"
     }
-  ],
-  "description": "HaBaby: An Ionic project"
+  ]
 }

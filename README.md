@@ -10,7 +10,7 @@ Set up Ionic 2 and Cordova.
 
 * Install Node.js **6** using Mac installer from https://nodejs.org/en/
 * Install cordova and ionic using npm: sudo npm install -g cordova ionic
-* The current version as of 13 Dec 2016 should be ionic 2.1.17 (run ionic -v)
+* The current version as of 30 Jan 2017 should be ionic 2.2.1 (run ionic -v)
 * You may need to install command-line deployment tools:
 ```
 xcode-select --install

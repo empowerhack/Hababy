@@ -1,32 +1,32 @@
-import{Component, ViewChild}from '@angular/core';
-import {Platform, MenuController, Nav, Events  }from 'ionic-angular';
-import {StatusBar, Splashscreen, SQLite}from 'ionic-native';
-import {TranslateService}from 'ng2-translate/ng2-translate';
+import { Component, ViewChild } from '@angular/core';
+import { Platform, MenuController, Nav, Events } from 'ionic-angular';
+import { StatusBar, Splashscreen, SQLite } from 'ionic-native';
+import { TranslateService } from 'ng2-translate';
 
+import { ClinicianPage } from '../pages/clinician/clinician';
+import { HelpSettingsPage } from '../pages/help-settings/help-settings';
+import { HistoryPage } from '../pages/history/history';
 import { HomePage } from '../pages/home/home';
-import { PatientPage } from '../pages/patients/patient';
-import { ClinicianPage } from '../pages/clinicians/index';
-import { SymptomEntryPage } from '../pages/symptoms/entry';
-import { MedicalHistoryPage } from '../pages/history/index';
-import { PregnancyInfoPage } from '../pages/pregnancy/index';
-import { LocationResourcesPage } from '../pages/resources/index';
-import { HelpSettingsPage } from '../pages/help/index';
+import { LocationResourcesPage } from '../pages/location-resources/location-resources';
+import { PatientPage } from '../pages/patient/patient';
+import { PregnancyPage } from '../pages/pregnancy/pregnancy';
+import { SymptomsEntryPage } from '../pages/symptoms-entry/symptoms-entry';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   rootPage: any = HomePage;
-  menuPages: Array<{title: string, component: any}>;
+  menuPages: Array<{ title: string, component: any }>;
 
   // the root nav is a child of the root app component
   // @ViewChild(Nav) gets a reference to the app's root nav
   @ViewChild(Nav) nav: Nav;
 
   constructor(platform: Platform,
-      public menu: MenuController,
-      public events: Events,
-      private translate: TranslateService
+    public menu: MenuController,
+    public events: Events,
+    private translate: TranslateService
   ) {
 
     platform.ready().then(() => {
@@ -36,19 +36,19 @@ export class MyApp {
       Splashscreen.hide();
       this.initializeTranslateServiceConfig();
 
-        let db = new SQLite();
-        db.openDatabase({
-            name: "data.db",
-            location: "default"
-        }).then(() => {
-            db.executeSql("CREATE TABLE IF NOT EXISTS symptom_log (id INTEGER PRIMARY KEY AUTOINCREMENT, timestamp TEXT, symptom1 INTEGER, symptom2 INTEGER, symptom3 INTEGER, notes TEXT)", {}).then((data) => {
-                console.log("TABLE CREATED: ", data);
-            }, (error) => {
-                console.error("Unable to execute sql", error);
-            })
+      let db = new SQLite();
+      db.openDatabase({
+        name: "data.db",
+        location: "default"
+      }).then(() => {
+        db.executeSql("CREATE TABLE IF NOT EXISTS symptom_log (id INTEGER PRIMARY KEY AUTOINCREMENT, timestamp TEXT, symptom1 INTEGER, symptom2 INTEGER, symptom3 INTEGER, notes TEXT)", {}).then((data) => {
+          console.log("TABLE CREATED: ", data);
         }, (error) => {
-            console.error("Unable to open database", error);
-        });
+          console.error("Unable to execute sql", error);
+        })
+      }, (error) => {
+        console.error("Unable to open database", error);
+      });
 
     });
 
@@ -75,37 +75,34 @@ export class MyApp {
   }
 
   updateMenuOptions(menu) {
-      if (menu == "patient")
-      {
-        // set patient section's pages
-        this.menuPages = [
-         { title: this.translate.instant('menu.medicalHistory'), component: MedicalHistoryPage },
-         { title: this.translate.instant('menu.symptomEntry'), component: SymptomEntryPage },
-         { title: this.translate.instant('menu.pregnancyInfo'), component: PregnancyInfoPage },
-         { title: this.translate.instant('menu.resources'), component: LocationResourcesPage },
-         { title: this.translate.instant('menu.help'), component: HelpSettingsPage }
-        ];
-      }
-      else if (menu == "clinician")
-      {
-        // set clinician section's pages
-        this.menuPages = [
-         { title: this.translate.instant('menu.symptomEntry'), component: SymptomEntryPage },
-         { title: this.translate.instant('menu.pregnancyInfo'), component: PregnancyInfoPage },
-         { title: this.translate.instant('menu.resources'), component: LocationResourcesPage },
-         { title: this.translate.instant('menu.help'), component: HelpSettingsPage }
-        ];
-      }
-      else
-      {
-        // default
-        this.menuPages = [
-         { title: 'Home', component: HomePage }
-        ];
-      }
+    if (menu == "patient") {
+      // set patient section's pages
+      this.menuPages = [
+        { title: this.translate.instant('menu.medicalHistory'), component: HistoryPage },
+        { title: this.translate.instant('menu.symptomEntry'), component: SymptomsEntryPage },
+        { title: this.translate.instant('menu.pregnancyInfo'), component: PregnancyPage },
+        { title: this.translate.instant('menu.resources'), component: LocationResourcesPage },
+        { title: this.translate.instant('menu.help'), component: HelpSettingsPage }
+      ];
+    }
+    else if (menu == "clinician") {
+      // set clinician section's pages
+      this.menuPages = [
+        { title: this.translate.instant('menu.symptomEntry'), component: SymptomsEntryPage },
+        { title: this.translate.instant('menu.pregnancyInfo'), component: PregnancyPage },
+        { title: this.translate.instant('menu.resources'), component: LocationResourcesPage },
+        { title: this.translate.instant('menu.help'), component: HelpSettingsPage }
+      ];
+    }
+    else {
+      // default
+      this.menuPages = [
+        { title: 'Home', component: HomePage }
+      ];
+    }
   }
 
-  openPage(page: {title: string, component: any}) {
+  openPage(page: { title: string, component: any }) {
 
     // the nav component was found using @ViewChild(Nav)
     // reset the nav to remove previous pages and only have this page
@@ -127,13 +124,8 @@ export class MyApp {
     this.translate.use(userLang);
 
     this.translate.onLangChange.subscribe((event: Event) => {
-        this.updateMenuOptions("");
+      this.updateMenuOptions("");
     });
   }
 
-
 }
-
-
-
-

@@ -1,22 +1,38 @@
 import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
 import { HttpModule, Http } from '@angular/http';
-import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate/ng2-translate';
+import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate';
 
 import { MyApp } from './app.component';
 import { AboutPage } from '../pages/about/about';
-import { HomePage } from '../pages/home/home';
+import { BasicInfoPage } from '../pages/basic-info/basic-info';
+import { ClinicianPage } from '../pages/clinician/clinician';
 import { DisclaimerPage } from '../pages/disclaimer/disclaimer';
-import { BasicInfoPage } from '../pages/basicinfo/basicinfo';
-import { PatientPage } from '../pages/patients/patient';
-import { ClinicianPage } from '../pages/clinicians/index';
-import { SymptomEntryPage } from '../pages/symptoms/entry';
-import { MedicalHistoryPage } from '../pages/history/index';
-import { HistoryProblemsPage } from '../pages/history/problems';
+import { HelpSettingsPage } from '../pages/help-settings/help-settings';
+import { HistoryPage } from '../pages/history/history';
+import { HistoryProblemsPage } from '../pages/history-problems/history-problems';
+import { HomePage } from '../pages/home/home';
+import { LocationResourcesPage } from '../pages/location-resources/location-resources';
+import { PatientPage } from '../pages/patient/patient';
+import { PregnancyPage } from '../pages/pregnancy/pregnancy';
+import { SymptomsEntryPage } from '../pages/symptoms-entry/symptoms-entry';
+import { SymptomsLogPage } from '../pages/symptoms-log/symptoms-log';
 
-import { PregnancyInfoPage } from '../pages/pregnancy/index';
-import { LocationResourcesPage } from '../pages/resources/index';
-import { HelpSettingsPage } from '../pages/help/index';
+export const pages = [
+  AboutPage,
+  BasicInfoPage,
+  ClinicianPage,
+  DisclaimerPage,
+  HelpSettingsPage,
+  HistoryPage,
+  HistoryProblemsPage,
+  HomePage,
+  LocationResourcesPage,
+  PatientPage,
+  PregnancyPage,
+  SymptomsEntryPage,
+  SymptomsLogPage
+];
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
@@ -25,18 +41,7 @@ export function createTranslateLoader(http: Http) {
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
-    HomePage,
-    DisclaimerPage,
-    BasicInfoPage,
-    PatientPage,
-    ClinicianPage,
-    SymptomEntryPage,
-    MedicalHistoryPage,
-    HistoryProblemsPage,
-    PregnancyInfoPage,
-    LocationResourcesPage,
-    HelpSettingsPage
+    pages
   ],
   imports: [
     HttpModule,
@@ -50,18 +55,7 @@ export function createTranslateLoader(http: Http) {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
-    HomePage,
-    DisclaimerPage,
-    BasicInfoPage,
-    PatientPage,
-    ClinicianPage,
-    SymptomEntryPage,
-    MedicalHistoryPage,
-    HistoryProblemsPage,
-    PregnancyInfoPage,
-    LocationResourcesPage,
-    HelpSettingsPage
+    pages
   ],
   providers: []
 })

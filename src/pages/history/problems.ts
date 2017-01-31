@@ -29,10 +29,25 @@ export class HistoryProblemsPage {
    { had?: boolean,
      medication?: boolean
    } = {};
-  highbloodsugar: boolean;
-  bloodclots: boolean;
-  deliveredearly: boolean;
-  highpressure: boolean;
+  highbloodsugar:
+   { had?: boolean,
+     tablets?: boolean,
+     injections?: boolean
+   } = {};
+  bloodclots:
+   { had?: boolean,
+     legs?: boolean,
+     chest?: boolean
+   } = {};
+  deliveredearly:
+  { did?: boolean,
+     weeks?: string
+   } = {};
+  highpressure:
+   { had?: boolean,
+     medication?: boolean,
+     seizure?: boolean
+   } = {};
 
 
   constructor( private translate: TranslateService ) {

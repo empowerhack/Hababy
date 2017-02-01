@@ -9,6 +9,178 @@
 
 <ion-content padding>
   <div>
-    Experienced Problems in Pregnancy
+    {{ "history.problems.title" | translate }}
   </div>
+  <ion-item no-lines>
+    <ion-label>{{ "history.problems.cesarian" | translate }}</ion-label>
+    <ion-checkbox [(ngModel)]="cesarian.had" (ionChange)="onCesarian()"></ion-checkbox>
+  </ion-item>
+  <div class="formsublist" *ngIf="cesarian.had">Choose as many as apply:
+    <ion-item no-lines>
+      <ion-label>{{ "history.problems.cesarianproblems.smallbaby" | translate }}</ion-label>
+      <ion-checkbox [(ngModel)]="cesarian.smallbaby"></ion-checkbox>
+    </ion-item>
+    <ion-item no-lines>
+      <ion-label>{{ "history.problems.cesarianproblems.bigbaby" | translate }}</ion-label>
+      <ion-checkbox [(ngModel)]="cesarian.bigbaby"></ion-checkbox>
+    </ion-item>
+    <ion-item no-lines>
+      <ion-label>{{ "history.problems.cesarianproblems.bleeding" | translate }}</ion-label>
+      <ion-checkbox [(ngModel)]="cesarian.bleeding"></ion-checkbox>
+    </ion-item>
+    <ion-item no-lines>
+      <ion-label>{{ "history.problems.cesarianproblems.breech" | translate }}</ion-label>
+      <ion-checkbox [(ngModel)]="cesarian.breech"></ion-checkbox>
+    </ion-item>
+    <ion-item no-lines>
+      <ion-label>{{ "history.problems.cesarianproblems.highbp" | translate }}</ion-label>
+      <ion-checkbox [(ngModel)]="cesarian.highbp"></ion-checkbox>
+    </ion-item>
+    <ion-item no-lines>
+      <ion-label>{{ "history.problems.cesarianproblems.nolaborprogress" | translate }}</ion-label>
+      <ion-checkbox [(ngModel)]="cesarian.nolaborprogress"></ion-checkbox>
+    </ion-item>
+    <ion-item no-lines>
+      <ion-label>{{ "history.problems.cesarianproblems.nopushingprogress" | translate }}</ion-label>
+      <ion-checkbox [(ngModel)]="cesarian.nopushingprogress"></ion-checkbox>
+    </ion-item>
+    <ion-item no-lines>
+      <ion-label>{{ "history.problems.cesarianproblems.babydistressed" | translate }}</ion-label>
+      <ion-checkbox [(ngModel)]="cesarian.babydistressed"></ion-checkbox>
+    </ion-item>
+    <ion-item no-lines>
+      <ion-label>{{ "history.problems.cesarianproblems.infection" | translate }}</ion-label>
+      <ion-checkbox [(ngModel)]="cesarian.infection"></ion-checkbox>
+    </ion-item>
+    <ion-item no-lines>
+      <ion-label>{{ "history.problems.cesarianproblems.abnormality" | translate }}</ion-label>
+      <ion-checkbox [(ngModel)]="cesarian.abnormality"></ion-checkbox>
+    </ion-item>
+  </div>
+  <ion-item>
+    <ion-label>{{ "history.problems.wassmall" | translate }}</ion-label>
+    <ion-checkbox [(ngModel)]="wassmall"></ion-checkbox>
+  </ion-item>
+  <ion-item>
+    <ion-label>{{ "history.problems.stuckduringdelivery" | translate }}</ion-label>
+    <ion-checkbox [(ngModel)]="stuckduringdelivery"></ion-checkbox>
+  </ion-item>
+  <ion-item>
+    <ion-label>{{ "history.problems.heavybleeding" | translate }}</ion-label>
+    <ion-checkbox [(ngModel)]="heavybleeding.had"></ion-checkbox>
+  </ion-item>
+  <div class="formsublist" *ngIf="heavybleeding.had">
+    <ion-item no-lines>
+      <ion-label>{{ "history.problems.bleedingproblems.whilepregnant" | translate }}</ion-label>
+      <ion-checkbox [(ngModel)]="heavybleeding.whilepregnant"></ion-checkbox>
+    </ion-item>
+    <ion-item no-lines>
+      <ion-label>{{ "history.problems.bleedingproblems.afterdelivery" | translate }}</ion-label>
+      <ion-checkbox [(ngModel)]="heavybleeding.afterdelivery"></ion-checkbox>
+    </ion-item>
+  </div>
+  <ion-item>
+    <ion-label>{{ "history.problems.liverproblems" | translate }}</ion-label>
+    <ion-checkbox [(ngModel)]="liverproblems.had"></ion-checkbox>
+  </ion-item>
+  <div class="formsublist" *ngIf="liverproblems.had">
+      <ion-list radio-group [(ngModel)]="liverproblems.medication">
+        <ion-list-header>{{ "history.problems.livermedication" | translate }}</ion-list-header>
+        <ion-item>
+          <ion-label>{{ "yes" | translate }}</ion-label>
+          <ion-radio value="yes"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{ "no" | translate }}</ion-label>
+          <ion-radio value="no"></ion-radio>
+        </ion-item>
+      </ion-list>
+  </div>
+  <ion-item>
+    <ion-label>{{ "history.problems.highbloodsugar" | translate }}</ion-label>
+    <ion-checkbox [(ngModel)]="highbloodsugar.had"></ion-checkbox>
+  </ion-item>
+  <div class="formsublist" *ngIf="highbloodsugar.had">
+      <ion-list radio-group [(ngModel)]="highbloodsugar.tablets">
+        <ion-list-header>{{ "history.problems.bloodsugartablets" | translate }}</ion-list-header>
+        <ion-item>
+          <ion-label>{{ "yes" | translate }}</ion-label>
+          <ion-radio value="yes"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{ "no" | translate }}</ion-label>
+          <ion-radio value="no"></ion-radio>
+        </ion-item>
+      </ion-list>
+      <ion-list radio-group [(ngModel)]="highbloodsugar.injections">
+        <ion-list-header>{{ "history.problems.bloodsugarinjections" | translate }}</ion-list-header>
+        <ion-item>
+          <ion-label>{{ "yes" | translate }}</ion-label>
+          <ion-radio value="yes"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{ "no" | translate }}</ion-label>
+          <ion-radio value="no"></ion-radio>
+        </ion-item>
+      </ion-list>
+  </div>
+  <ion-item>
+    <ion-label>{{ "history.problems.bloodclots" | translate }}</ion-label>
+    <ion-checkbox [(ngModel)]="bloodclots.had"></ion-checkbox>
+  </ion-item>
+  <div class="formsublist" *ngIf="bloodclots.had">
+    <ion-item no-lines>
+      <ion-label>{{ "history.problems.bloodclotareas.legs" | translate }}</ion-label>
+      <ion-checkbox [(ngModel)]="bloodclots.legs"></ion-checkbox>
+    </ion-item>
+    <ion-item no-lines>
+      <ion-label>{{ "history.problems.bloodclotareas.chest" | translate }}</ion-label>
+      <ion-checkbox [(ngModel)]="bloodclots.chest"></ion-checkbox>
+    </ion-item>
+  </div>
+  <ion-item>
+    <ion-label>{{ "history.problems.deliveredearly" | translate }}</ion-label>
+    <ion-checkbox [(ngModel)]="deliveredearly.did"></ion-checkbox>
+  </ion-item>
+  <div class="formsublist" *ngIf="deliveredearly.did">
+    <ion-item>
+      <ion-select [(ngModel)]="deliveredearly.weeks" placeholder="{{ 'history.problems.howmanyweeks' | translate }}">
+        <ion-option value="1">1</ion-option>
+        <ion-option value="2">2</ion-option>
+        <ion-option value="3">3</ion-option>
+        <ion-option value="4">4</ion-option>
+        <ion-option value="5">5</ion-option>
+        <ion-option value="6">6</ion-option>
+      </ion-select>
+    </ion-item>
+  </div>
+  <ion-item>
+    <ion-label>{{ "history.problems.highpressure" | translate }}</ion-label>
+    <ion-checkbox [(ngModel)]="highpressure.had"></ion-checkbox>
+  </ion-item>
+  <div class="formsublist" *ngIf="highpressure.had">
+      <ion-list radio-group [(ngModel)]="highpressure.medication">
+        <ion-list-header>{{ "history.problems.highbpmedication" | translate }}</ion-list-header>
+        <ion-item>
+          <ion-label>{{ "yes" | translate }}</ion-label>
+          <ion-radio value="true"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{ "no" | translate }}</ion-label>
+          <ion-radio value="false"></ion-radio>
+        </ion-item>
+      </ion-list>
+      <ion-list radio-group [(ngModel)]="highpressure.seizure">
+        <ion-list-header>{{ "history.problems.highbpseizure" | translate }}</ion-list-header>
+        <ion-item>
+          <ion-label>{{ "yes" | translate }}</ion-label>
+          <ion-radio value="true"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{ "no" | translate }}</ion-label>
+          <ion-radio value="false"></ion-radio>
+        </ion-item>
+      </ion-list>
+  </div>
+  <button class="primary" (click)="saveAndContinue()">{{ "next" | translate }}</button>
 </ion-content>

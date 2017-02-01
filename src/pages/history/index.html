@@ -43,17 +43,17 @@
     </ion-item>
   </div>
    <div>
-    {{ "history.index.problems" | translate}}
     <ion-list radio-group [(ngModel)]="problems">
-      <ion-item>
-        <ion-label>Yes</ion-label>
-        <ion-radio value="yes" checked></ion-radio>
-      </ion-item>
-      <ion-item>
-        <ion-label>No</ion-label>
-        <ion-radio value="no"></ion-radio>
-      </ion-item>
-    </ion-list>
+        <ion-list-header>{{ "history.index.problems" | translate }}</ion-list-header>
+        <ion-item>
+          <ion-label>{{ "yes" | translate }}</ion-label>
+          <ion-radio value="yes"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{ "no" | translate }}</ion-label>
+          <ion-radio value="no"></ion-radio>
+        </ion-item>
+      </ion-list>
   </div>
 
   <button class="primary" [navPush]="nextPage">{{ "next" | translate }}</button>

@@ -69,7 +69,7 @@ $colors: (
 // The premium icon font for Ionic. For more info, please see:
 // http://ionicframework.com/docs/v2/ionicons/
 
-@import "ionic.ionicons";
+@import "ionicons";
 
 
 // Fonts
@@ -81,5 +81,5 @@ $hababy-font-path: "../assets/fonts/NotoSans" !default;
   font-family: "NotoSans";
   src: url("#{$hababy-font-path}/NotoSans-Regular.ttf") format("truetype");
 }
-@import "roboto";
-@import "noto-sans";
+// @import "roboto";
+// @import "noto-sans";

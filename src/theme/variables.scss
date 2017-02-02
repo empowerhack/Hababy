@@ -1,5 +1,7 @@
 // Ionic Variables and Theming. For more info, please see:
 // http://ionicframework.com/docs/v2/theming/
+$font-path: "../assets/fonts";
+
 @import "ionic.globals";
 
 
@@ -67,8 +69,11 @@ $colors: (
 // The premium icon font for Ionic. For more info, please see:
 // http://ionicframework.com/docs/v2/ionicons/
 
-$ionicons-font-path: "../assets/fonts";
-@import "ionicons";
+@import "ionic.ionicons";
+
+
+// Fonts
+// --------------------------------------------------
 
 // Include HaBaby fonts
 $hababy-font-path: "../assets/fonts/NotoSans" !default;
@@ -76,3 +81,5 @@ $hababy-font-path: "../assets/fonts/NotoSans" !default;
   font-family: "NotoSans";
   src: url("#{$hababy-font-path}/NotoSans-Regular.ttf") format("truetype");
 }
+@import "roboto";
+@import "noto-sans";

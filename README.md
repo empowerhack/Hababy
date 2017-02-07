@@ -48,6 +48,28 @@ Run the HaBaby.xcodeproj project in the platforms/ios folder in XCode.
 
 Make sure your account is set up and the team/provisioning profile in Settings->General.  You can have it generate a provisioning profile even with a free Developer account: [http://stackoverflow.com/questions/4952820/test-ios-app-on-device-without-apple-developer-program-or-jailbreak](http://stackoverflow.com/questions/4952820/test-ios-app-on-device-without-apple-developer-program-or-jailbreak)
 
+
+Build Process
+
+* In XCode, sign in using Empowerhack's Apple ID (ask for details), in Preferences->Accounts
+* Run `ios build ios --prod` to set up the project
+* Open the XCode project (Platforms/iOS/HaBaby.xcodeproj)
+* Select the HaBaby target, then under General -> Signing -> Team, choose Kimi Laurie
+* Leave "Automatically manage signing" ON
+* Plug your device in to your Mac via USB so that XCode can add the device ID to the provisioning profile
+* When XCode finishes processing your device info, you may have to hit "Register Device" under Status
+* Try running on your device to test
+* In the dropdown in the upper left of XCode, set the build target to “Generic iOS Device”.
+* In the Product menu, select Archive.  This should take a bit of time.
+* When complete, it may show you a window with the new archive, but if it doesn’t, go to the Window menu and select Organizer.
+* Select the new archive and hit the Export… button.
+In the subsequent screens, choose
+-Save for Ad Hoc Deployment
+-Export one app for all compatible devices
+-Uncheck “Include manifest…”
+-Leave bitcode setting (not sure if it matters for this purpose)
+* If everything works, it should prompt you to save the exported file
+
 #### Android
 
 * Install JDK 8 (http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)

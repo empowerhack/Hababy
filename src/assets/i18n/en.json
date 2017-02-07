@@ -40,7 +40,14 @@
     },
     "history": {
         "index": {
-          "title": "My Medical History"
+          "title": "My Medical History",
+          "name": "Name",
+          "age": "Age",
+          "kids": "How many children do you have?",
+          "births": "How many normal births have you had?",
+          "cesarean": "How many cesarean sections have you had?",
+          "miscarriage": "How many miscarriages have you had?",
+          "problems": "Did you have any problems in your pregnancies?"
         },
         "problems": {
           "title": "Experienced Problems in Pregnancy",
@@ -95,7 +102,7 @@
     "symptom": {
         "log": {
           "title": "My Symptom Log",
-          "sortyby" : "Sort by:",
+          "sortby" : "Sort by:",
           "date" : "Date",
           "symptom": "Symptom"
         },
@@ -103,6 +110,10 @@
             "title" : "Log your symptoms",
             "newentry" : "New entry",
             "notes" : "Any notes you would like to add?",
+            "submit": "Complete entry"
+        },
+        "editlog": {
+            "title": "Edit your entry",
             "submit": "Complete entry"
         }
     }

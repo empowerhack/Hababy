@@ -8,6 +8,7 @@ import { PatientPage } from '../pages/patients/patient';
 import { ClinicianPage } from '../pages/clinicians/index';
 import { SymptomEntryPage } from '../pages/symptoms/entry';
 import { MedicalHistoryPage } from '../pages/history/index';
+import { HistoryProblemsPage } from '../pages/history/problems';
 import { PregnancyInfoPage } from '../pages/pregnancy/index';
 import { LocationResourcesPage } from '../pages/resources/index';
 import { HelpSettingsPage } from '../pages/help/index';

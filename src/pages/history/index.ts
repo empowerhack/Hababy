@@ -4,6 +4,7 @@ import { HistoryProblemsPage } from '../history/problems';
 import { NavController } from 'ionic-angular';
 
 @Component({
+  selector: 'page-historyindex',
   templateUrl: 'index.html'
 })
 export class MedicalHistoryPage {
@@ -17,6 +18,13 @@ export class MedicalHistoryPage {
   public problems;
 
   constructor(public navCtrl: NavController, private translate: TranslateService) {
-    this.nextPage = HistoryProblemsPage;
+    
+  }
+
+  public enterProblems() {
+     if(this.problems == 'yes') {
+      console.log(this.problems);
+      this.navCtrl.push(HistoryProblemsPage);
+    }
   }
 }

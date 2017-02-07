@@ -9,8 +9,8 @@
 
 <ion-content padding>
   <div>
-    <ion-label>{{ "history.index.name" | translate}}</ion-label>
-    <input type="text" placeholder="Name">
+    <ion-label class="name">{{ "history.index.name" | translate}}</ion-label>
+    <input type="text" class="name-input" placeholder="Name">
   </div>
    <div>
     <ion-item>
@@ -56,5 +56,5 @@
       </ion-list>
   </div>
 
-  <button class="primary" [navPush]="nextPage">{{ "next" | translate }}</button>
+  <button class="primary" (click)="enterProblems()">{{ "next" | translate }}</button>
 </ion-content>

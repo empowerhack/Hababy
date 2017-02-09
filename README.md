@@ -52,7 +52,7 @@ Make sure your account is set up and the team/provisioning profile in Settings->
 Build Process
 
 * In XCode, sign in using Empowerhack's Apple ID (ask for details), in Preferences->Accounts
-* Run `ios build ios --prod` to set up the project
+* Run `ionic build ios --prod` to set up the project
 * Open the XCode project (Platforms/iOS/HaBaby.xcodeproj)
 * Select the HaBaby target, then under General -> Signing -> Team, choose Kimi Laurie
 * Leave "Automatically manage signing" ON
@@ -70,6 +70,16 @@ In the subsequent screens, choose
 -Leave bitcode setting (not sure if it matters for this purpose)
 * If everything works, it should prompt you to save the exported file
 
+Adding a device for the HockeyApp release
+
+* Find the user in the HockeyApp dashboard (TODO: write out location in the dashboard)
+* Copy the user's device UDID
+* Go to Apple's developer website, sign in
+* Under Provisioning Profiles, edit 'XC iOS Ad Hoc: *'
+* Check the box for the new device and Generate the profile again
+* Back in XCode, go to Accounts, view details of the EmpowerHack apple account
+* Find the 'XC iOS Ad Hoc: *" in Provisioning Profiles, and download it again
+
 #### Android
 
 * Install JDK 8 (http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
@@ -79,6 +89,7 @@ export ANDROID_HOME=/Users/derek/Library/Android/sdk/
 * Add Android target: ionic platform add android
 
 Run in Simulator
+
 * Download desired System Image by running: /Users/derek/Library/Android/sdk/tools/android sdk
 * Create an Android Virtual Device by running: /Users/derek/Library/Android/sdk/tools/android avd
 * ionic build android

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import {TranslateService } from 'ng2-translate/ng2-translate';
 import { NavController, Platform } from 'ionic-angular';
-import {SQLite} from "ionic-native";
 import { PatientPage } from '../patients/patient';
 import {SymptomLogPage} from '../symptoms/log';
 import {Database} from "../../providers/database";

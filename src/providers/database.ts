@@ -53,6 +53,22 @@ export class Database {
 
     }
 
+    public updateSymptom(timestamp, notes)
+    {
+        return new Promise((resolve, reject) => {
+          this.storage.executeSql("UPDATE symptom_log SET notes = :notes WHERE timestamp = :timestamp", [notes, timestamp]).then((data) => {
+              let symptom_log = [];
+              for(var i = 0; i < data.rows.length; i++) {
+                  symptom_log.push({timestamp: data.rows.item(i).timestamp, symptom1: data.rows.item(i).symptom1, symptom2: data.rows.item(i).symptom2, symptom3: data.rows.item(i).symptom3, notes: data.rows.item(i).notes});
+              }
+
+              resolve(symptom_log);
+          }, (error) => {
+              reject(error);
+          });
+        });
+    }
+
     public deleteAllSymptoms() {
         return new Promise((resolve, reject) => {
           this.storage.executeSql("DELETE FROM symptom_log", []).then((data) => {

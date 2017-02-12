@@ -18,19 +18,21 @@ export class Database {
         if (!this.isOpen) {
             this.storage = new SQLite();
 
-            this.storage.openDatabase({name: "data.db", location: "default"}).then(() => {
-               this.storage.executeSql("CREATE TABLE IF NOT EXISTS symptom_log (id INTEGER PRIMARY KEY AUTOINCREMENT, timestamp TEXT, symptom1 INTEGER, symptom2 INTEGER, symptom3 INTEGER, notes TEXT)", {}).then((data) => {
-                  console.log("TABLE CREATED: ", data);
-                }, (error) => {
+            this.storage.openDatabase({name: "data.db", location: "default"})
+            .then( (data) => {
+                this.isOpen = true;
+
+                return this.storage.executeSql("CREATE TABLE IF NOT EXISTS symptom_log (id INTEGER PRIMARY KEY AUTOINCREMENT, timestamp TEXT, symptom1 INTEGER, symptom2 INTEGER, symptom3 INTEGER, notes TEXT)", {});
+            })
+            .then((data) => {
+                console.log("TABLE CREATED: ", data);
+
+                return this.storage.executeSql("CREATE TABLE IF NOT EXISTS patient_history (id INTEGER PRIMARY KEY AUTOINCREMENT, timestamp TEXT, problems TEXT)", {});
+            })
+            .catch((error) => {
                   console.error("Unable to execute sql", error);
-                })
-
-               this.isOpen = true;
-
-            }, (error) => {
-                console.error("Unable to open database", error);
             });
-        }
+      }
     }
 
     // add up to three symptoms plus notes
@@ -118,6 +120,64 @@ export class Database {
                   reject(error);
               });
             }
+        });
+    }
+
+    public clearHistory() {
+        return new Promise((resolve, reject) => {
+          this.storage.executeSql("DELETE FROM patient_history", []).then((data) => {
+              resolve(data);
+          }, (error) => {
+              reject(error);
+          });
+        });
+    }
+
+    public getProblems()
+    {
+        return new Promise((resolve, reject) => {
+            this.storage.executeSql("SELECT * FROM patient_history", []).then((data) => {
+                var problems = {};
+
+                if (data.rows.length > 0) {
+                    var problemJSON = data.rows.item(0).problems;
+                    console.log("loaded problems JSON: " + problemJSON);
+                    if (problemJSON && problemJSON.length > 0)
+                    {
+                      problems = JSON.parse(problemJSON);
+                      resolve(problems);
+                    }
+                    else {
+                      resolve(null);
+                    }
+                }
+                else
+                {
+                   // no data, add a new row
+                   var date = new Date();
+                   var formattedDate = date.toUTCString().split(' ').slice(0, 5).join(' ');
+                   this.storage.executeSql("INSERT INTO patient_history (timestamp, problems) VALUES (?, ?)", [formattedDate, ""]).then((data) => {
+                      resolve(null);
+                   }, (error) => {
+                      reject(error);
+                   });
+                }
+
+              }, (error) => {
+                  reject(error);
+              });
+            });
+     }
+
+    public updateProblems(problemsJSON)
+    {
+        // console.log("updateProblems " + problemsJSON);
+        return new Promise((resolve, reject) => {
+          this.storage.executeSql("UPDATE patient_history SET problems = :problems", [problemsJSON]).then((data) => {
+              resolve(data);
+          }, (error) => {
+              reject(error);
+          });
         });
     }
 }

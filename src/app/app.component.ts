@@ -1,7 +1,9 @@
-import{Component, ViewChild}from '@angular/core';
+import {Component, ViewChild}from '@angular/core';
 import {Platform, MenuController, Nav, Events  }from 'ionic-angular';
-import {StatusBar, Splashscreen, SQLite}from 'ionic-native';
+import {StatusBar, Splashscreen}from 'ionic-native';
 import {TranslateService}from 'ng2-translate/ng2-translate';
+
+import { Database } from "../providers/database";
 
 import { HomePage } from '../pages/home/home';
 import { PatientPage } from '../pages/patients/patient';
@@ -14,7 +16,8 @@ import { LocationResourcesPage } from '../pages/resources/index';
 import { HelpSettingsPage } from '../pages/help/index';
 
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
+  providers: [ Database ]
 })
 export class MyApp {
   rootPage: any = HomePage;
@@ -36,21 +39,6 @@ export class MyApp {
       StatusBar.styleDefault();
       Splashscreen.hide();
       this.initializeTranslateServiceConfig();
-
-        let db = new SQLite();
-        db.openDatabase({
-            name: "data.db",
-            location: "default"
-        }).then(() => {
-            db.executeSql("CREATE TABLE IF NOT EXISTS symptom_log (id INTEGER PRIMARY KEY AUTOINCREMENT, timestamp TEXT, symptom1 INTEGER, symptom2 INTEGER, symptom3 INTEGER, notes TEXT)", {}).then((data) => {
-                console.log("TABLE CREATED: ", data);
-            }, (error) => {
-                console.error("Unable to execute sql", error);
-            })
-        }, (error) => {
-            console.error("Unable to open database", error);
-        });
-
     });
 
     // set our app's pages

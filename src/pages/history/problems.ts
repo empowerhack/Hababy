@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
 import {TranslateService } from 'ng2-translate/ng2-translate';
+import { MedicalInfoPage } from '../history/info';
+import { NavController } from 'ionic-angular';
 
 @Component({
   templateUrl: 'problems.html'
 })
+
+
 export class HistoryProblemsPage {
 
   cesarian:
@@ -50,7 +54,7 @@ export class HistoryProblemsPage {
    } = {};
 
 
-  constructor( private translate: TranslateService ) {
+  constructor(public navCtrl: NavController, private translate: TranslateService ) {
   }
 
   onCesarian() {
@@ -59,5 +63,6 @@ export class HistoryProblemsPage {
 
   saveAndContinue() {
     console.log("cesarian bleeding: " + this.cesarian.bleeding);
+    this.navCtrl.push(MedicalInfoPage);
   }
 }

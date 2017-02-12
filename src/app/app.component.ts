@@ -9,6 +9,7 @@ import { ClinicianPage } from '../pages/clinicians/index';
 import { SymptomEntryPage } from '../pages/symptoms/entry';
 import { MedicalHistoryPage } from '../pages/history/index';
 import { HistoryProblemsPage } from '../pages/history/problems';
+import { MedicalInfoPage } from '../pages/history/info';
 import { PregnancyInfoPage } from '../pages/pregnancy/index';
 import { LocationResourcesPage } from '../pages/resources/index';
 import { HelpSettingsPage } from '../pages/help/index';

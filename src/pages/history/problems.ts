@@ -1,63 +1,93 @@
 import { Component } from '@angular/core';
-import {TranslateService } from 'ng2-translate/ng2-translate';
+import { NavController } from 'ionic-angular';
+import { TranslateService } from 'ng2-translate/ng2-translate';
+import { Database} from "../../providers/database";
 
 @Component({
   templateUrl: 'problems.html'
 })
 export class HistoryProblemsPage {
 
-  cesarian:
-   { had?: boolean,
-     smallbaby?: boolean,
-     bigbaby?: boolean,
-     bleeding?: boolean,
-     breech?: boolean,
-     highbp?: boolean,
-     nolaborprogress?: boolean,
-     nopushingprogress?: boolean,
-     babydistressed?: boolean,
-     infection?: boolean,
-     abnormality?: boolean } = {};
-  wassmall: boolean;
-  stuckduringdelivery: boolean;
-  heavybleeding:
-   { had?: boolean,
-     whilepregnant?: boolean,
-     afterdelivery?: boolean
-   } = {};
-  liverproblems:
-   { had?: boolean,
-     medication?: boolean
-   } = {};
-  highbloodsugar:
-   { had?: boolean,
-     tablets?: boolean,
-     injections?: boolean
-   } = {};
-  bloodclots:
-   { had?: boolean,
-     legs?: boolean,
-     chest?: boolean
-   } = {};
-  deliveredearly:
-  { did?: boolean,
-     weeks?: string
-   } = {};
-  highpressure:
-   { had?: boolean,
-     medication?: boolean,
-     seizure?: boolean
-   } = {};
+  problems: {
+    cesarian?:
+     { had?: boolean,
+       smallbaby?: boolean,
+       bigbaby?: boolean,
+       bleeding?: boolean,
+       breech?: boolean,
+       highbp?: boolean,
+       nolaborprogress?: boolean,
+       nopushingprogress?: boolean,
+       babydistressed?: boolean,
+       infection?: boolean,
+       abnormality?: boolean },
+    wassmall?: boolean,
+    stuckduringdelivery?: boolean,
+    heavybleeding?:
+     { had?: boolean,
+       whilepregnant?: boolean,
+       afterdelivery?: boolean
+     },
+    liverproblems?:
+     { had?: boolean,
+       medication?: boolean
+     },
+    highbloodsugar?:
+     { had?: boolean,
+       tablets?: boolean,
+       injections?: boolean
+     },
+    bloodclots?:
+     { had?: boolean,
+       legs?: boolean,
+       chest?: boolean
+     },
+    deliveredearly?:
+    { did?: boolean,
+       weeks?: string
+     },
+    highpressure?:
+     { had?: boolean,
+       medication?: boolean,
+       seizure?: boolean
+     }
+  } = {
+    cesarian: {},
+    heavybleeding: {},
+    liverproblems: {},
+    highbloodsugar: {},
+    bloodclots: {},
+    deliveredearly: {},
+    highpressure: {}
+  };
 
+  constructor( public navCtrl: NavController, private translate: TranslateService, private database: Database ) {
+  }
 
-  constructor( private translate: TranslateService ) {
+  public ionViewDidEnter() {
+      this.loadProblems();
+  }
+
+  loadProblems()
+  {
+     this.database.getProblems().then((result) => {
+         if (result) {
+            this.problems = result;
+          }
+      }, (error) => {
+          console.log("ERROR: ", error);
+      });
   }
 
   onCesarian() {
-    console.log("cesarian change: " + this.cesarian.had);
   }
 
   saveAndContinue() {
-    console.log("cesarian bleeding: " + this.cesarian.bleeding);
+      // save values
+      this.database.updateProblems( JSON.stringify(this.problems)).then((result) => {
+          console.log("problems saved");
+      }, (error) => {
+          console.log("ERROR: ", error);
+      });
   }
 }

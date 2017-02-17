@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslateService } from 'ng2-translate/ng2-translate';
 import { HistoryProblemsPage } from '../history/problems';
+import { MedicalInfoPage } from '../history/info';
 import { NavController } from 'ionic-angular';
 
 @Component({
@@ -22,9 +23,13 @@ export class MedicalHistoryPage {
   }
 
   public enterProblems() {
-     if(this.problems == 'yes') {
+     if(this.problems == 'true') {
       console.log(this.problems);
       this.navCtrl.push(HistoryProblemsPage);
+    }
+    else {
+      console.log(this.problems);
+      this.navCtrl.push(MedicalInfoPage);
     }
   }
 }

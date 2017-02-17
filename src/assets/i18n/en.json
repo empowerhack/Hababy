@@ -86,6 +86,23 @@
             "legs": "legs",
             "chest": "chest"
           }
+        },
+        "info": {
+            "smeartest": {
+                "question": "Have you had a cervical smear test?",
+                "normal": "Was it normal?",
+                "surgery": "Did you have laser surgery?"
+            },
+            "contraception" : "Are you currently using contraception?",
+            "contraceptiontype": {
+                "whichone":"Which one?",
+                "pill": "pill",
+                "injection": "injection",
+                "coil": "coil"
+            },
+            "smoke": "Do you smoke?",
+            "alcohol": "Do you drink alcohol?",
+            "medication": "Are you taking any medications"
         }
     },
     "pregnancy": {

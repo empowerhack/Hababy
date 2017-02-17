@@ -1,11 +1,19 @@
 import { Component } from '@angular/core';
+<<<<<<< HEAD
 import { NavController } from 'ionic-angular';
 import { TranslateService } from 'ng2-translate/ng2-translate';
 import { Database} from "../../providers/database";
+=======
+import {TranslateService } from 'ng2-translate/ng2-translate';
+import { MedicalInfoPage } from '../history/info';
+import { NavController } from 'ionic-angular';
+>>>>>>> mt/datastoring
 
 @Component({
   templateUrl: 'problems.html'
 })
+
+
 export class HistoryProblemsPage {
 
   problems: {
@@ -68,6 +76,7 @@ export class HistoryProblemsPage {
       this.loadProblems();
   }
 
+<<<<<<< HEAD
   loadProblems()
   {
      this.database.getProblems().then((result) => {
@@ -77,17 +86,25 @@ export class HistoryProblemsPage {
       }, (error) => {
           console.log("ERROR: ", error);
       });
+=======
+  constructor(public navCtrl: NavController, private translate: TranslateService ) {
+>>>>>>> mt/datastoring
   }
 
   onCesarian() {
   }
 
   saveAndContinue() {
+<<<<<<< HEAD
       // save values
       this.database.updateProblems( JSON.stringify(this.problems)).then((result) => {
           console.log("problems saved");
       }, (error) => {
           console.log("ERROR: ", error);
       });
+=======
+    console.log("cesarian bleeding: " + this.cesarian.bleeding);
+    this.navCtrl.push(MedicalInfoPage);
+>>>>>>> mt/datastoring
   }
 }

@@ -23,7 +23,7 @@
         </ion-list>
     </div>
     <div class="formsublist" *ngIf="smeartest == 'true'">
-      <ion-list radio-group [(ngModel)]="smeartest.normal">
+      <ion-list radio-group [(ngModel)]="smeartestnormal">
         <ion-list-header>{{ "history.info.smeartest.normal" | translate }}</ion-list-header>
         <ion-item>
           <ion-label>{{ "yes" | translate }}</ion-label>
@@ -34,6 +34,100 @@
           <ion-radio value="false"></ion-radio>
         </ion-item>
       </ion-list>
-  </div>
+    </div>
+    <div class="formsublist" *ngIf="smeartestnormal == 'false'">
+      <ion-list radio-group [(ngModel)]="smeartestsurgery">
+        <ion-list-header>{{ "history.info.smeartest.surgery" | translate }}</ion-list-header>
+        <ion-item>
+          <ion-label>{{ "yes" | translate }}</ion-label>
+          <ion-radio value="true"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{ "no" | translate }}</ion-label>
+          <ion-radio value="false"></ion-radio>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <div>
+        <ion-list radio-group [(ngModel)]="contraception">
+            <ion-list-header>{{ "history.info.contraception" | translate }}</ion-list-header>
+            <ion-item>
+                <ion-label>{{ "yes" | translate }}</ion-label>
+                <ion-radio value="true" ngDefaultControl></ion-radio>
+            </ion-item>
+             <ion-item>
+                <ion-label>{{ "no" | translate }}</ion-label>
+                <ion-radio value="false"></ion-radio>
+            </ion-item>
+        </ion-list>
+    </div>
+    <div class="formsublist" *ngIf="contraception == 'true'">
+      <ion-list radio-group [(ngModel)]="contraceptiontype">
+        <ion-list-header>{{ "history.info.contraceptiontype.whichone" | translate }}</ion-list-header>
+        <ion-item>
+          <ion-label>{{ "history.info.contraceptiontype.pill" | translate }}</ion-label>
+          <ion-radio value="pill"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{ "history.info.contraceptiontype.injection" | translate }}</ion-label>
+          <ion-radio value="injection"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{ "history.info.contraceptiontype.coil" | translate}}</ion-label>
+          <ion-radio value="coil"></ion-radio>
+        </ion-item>
+      </ion-list>
+    </div>
+    
+    <div>
+        <ion-list radio-group [(ngModel)]="smoke">
+            <ion-list-header>{{ "history.info.smoke" | translate }}</ion-list-header>
+            <ion-item>
+                <ion-label>{{ "yes" | translate }}</ion-label>
+                <ion-radio value="true" ngDefaultControl></ion-radio>
+            </ion-item>
+             <ion-item>
+                <ion-label>{{ "no" | translate }}</ion-label>
+                <ion-radio value="false"></ion-radio>
+            </ion-item>
+        </ion-list>
+    </div>
+
+    <div>
+        <ion-list radio-group [(ngModel)]="alcohol">
+            <ion-list-header>{{ "history.info.alcohol" | translate }}</ion-list-header>
+            <ion-item>
+                <ion-label>{{ "yes" | translate }}</ion-label>
+                <ion-radio value="true" ngDefaultControl></ion-radio>
+            </ion-item>
+             <ion-item>
+                <ion-label>{{ "no" | translate }}</ion-label>
+                <ion-radio value="false"></ion-radio>
+            </ion-item>
+        </ion-list>
+    </div>
+
+    <div>
+        <ion-list radio-group [(ngModel)]="medication">
+            <ion-list-header>{{ "history.info.medication" | translate }}</ion-list-header>
+            <ion-item>
+                <ion-label>{{ "yes" | translate }}</ion-label>
+                <ion-radio value="true" ngDefaultControl></ion-radio>
+            </ion-item>
+             <ion-item>
+                <ion-label>{{ "no" | translate }}</ion-label>
+                <ion-radio value="false"></ion-radio>
+            </ion-item>
+        </ion-list>
+    </div>
+
+    <div class="formsublist" *ngIf="medication == 'true'">
+       Please list them below:
+    <input type="text" class="name-input" placeholder="Name">
+    </div>
+
+    <button class="primary" (click)="goBack()">{{ "previous" | translate }}</button>
+    <button class="primary" (click)="enterInfo()">{{ "next" | translate }}</button>
 
 </ion-content>

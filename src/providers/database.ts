@@ -180,4 +180,40 @@ export class Database {
           });
         });
     }
+
+    public getCurrentProblems()
+    {
+        return new Promise((resolve, reject) => {
+            this.storage.executeSql("SELECT * FROM patient_history", []).then((data) => {
+                var problems = {};
+
+                if (data.rows.length > 0) {
+                    var problemJSON = data.rows.item(0).problems;
+                    console.log("loaded problems JSON: " + problemJSON);
+                    if (problemJSON && problemJSON.length > 0)
+                    {
+                      problems = JSON.parse(problemJSON);
+                      resolve(problems);
+                    }
+                    else {
+                      resolve(null);
+                    }
+                }
+                else
+                {
+                   // no data, add a new row
+                   var date = new Date();
+                   var formattedDate = date.toUTCString().split(' ').slice(0, 5).join(' ');
+                   this.storage.executeSql("INSERT INTO patient_history (timestamp, problems) VALUES (?, ?)", [formattedDate, ""]).then((data) => {
+                      resolve(null);
+                   }, (error) => {
+                      reject(error);
+                   });
+                }
+
+              }, (error) => {
+                  reject(error);
+              });
+            });
+    }
 }

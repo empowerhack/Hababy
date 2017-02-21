@@ -299,8 +299,8 @@
           </ion-list>
         </div>
       </ion-list>
-      <ion-list radio-group [(ngModel)]="problems.hyperthryroidism.have">
-        <ion-list-header>{{ "history.currentproblems.hyperthryroidism" | translate }}</ion-list-header>
+      <ion-list radio-group [(ngModel)]="problems.hyperthyroidism.have">
+        <ion-list-header>{{ "history.currentproblems.hyperthyroidism" | translate }}</ion-list-header>
         <ion-item>
           <ion-label>{{ "yes" | translate }}</ion-label>
           <ion-radio value="true"></ion-radio>
@@ -309,8 +309,8 @@
           <ion-label>{{ "no" | translate }}</ion-label>
           <ion-radio value="false"></ion-radio>
         </ion-item>
-        <div class="formsublist" *ngIf="problems.hyperthryroidism.have">
-          <ion-list radio-group [(ngModel)]="problems.hyperthryroidism.tablets">
+        <div class="formsublist" *ngIf="problems.hyperthyroidism.have">
+          <ion-list radio-group [(ngModel)]="problems.hyperthyroidism.tablets">
             <ion-list-header>{{ "history.currentproblems.tablets" | translate }}</ion-list-header>
             <ion-item>
               <ion-label>{{ "yes" | translate }}</ion-label>

@@ -27,7 +27,8 @@ export class Database {
             .then((data) => {
                 console.log("TABLE CREATED: ", data);
 
-                return this.storage.executeSql("CREATE TABLE IF NOT EXISTS patient_history (id INTEGER PRIMARY KEY AUTOINCREMENT, timestamp TEXT, problems TEXT)", {});
+                // return this.storage.executeSql("DROP TABLE IF EXISTS patient_history", {});
+                return this.storage.executeSql("CREATE TABLE IF NOT EXISTS patient_history (id INTEGER PRIMARY KEY AUTOINCREMENT, timestamp TEXT, pregnancyproblems TEXT, currentproblems TEXT)", {});
             })
             .catch((error) => {
                   console.error("Unable to execute sql", error);
@@ -133,19 +134,19 @@ export class Database {
         });
     }
 
-    public getProblems()
+    public getHistory(column)
     {
         return new Promise((resolve, reject) => {
             this.storage.executeSql("SELECT * FROM patient_history", []).then((data) => {
-                var problems = {};
+                var result = {};
 
                 if (data.rows.length > 0) {
-                    var problemJSON = data.rows.item(0).problems;
-                    console.log("loaded problems JSON: " + problemJSON);
-                    if (problemJSON && problemJSON.length > 0)
+                    var columnJSON = data.rows.item(0)[column];
+                    console.log("loaded JSON: " + columnJSON);
+                    if (columnJSON && columnJSON.length > 0)
                     {
-                      problems = JSON.parse(problemJSON);
-                      resolve(problems);
+                      result = JSON.parse(columnJSON);
+                      resolve(result);
                     }
                     else {
                       resolve(null);
@@ -156,7 +157,7 @@ export class Database {
                    // no data, add a new row
                    var date = new Date();
                    var formattedDate = date.toUTCString().split(' ').slice(0, 5).join(' ');
-                   this.storage.executeSql("INSERT INTO patient_history (timestamp, problems) VALUES (?, ?)", [formattedDate, ""]).then((data) => {
+                   this.storage.executeSql("INSERT INTO patient_history (timestamp, pregnancyproblems, currentproblems) VALUES (?, ?, ?)", [formattedDate, "", ""]).then((data) => {
                       resolve(null);
                    }, (error) => {
                       reject(error);
@@ -167,13 +168,13 @@ export class Database {
                   reject(error);
               });
             });
-     }
+    }
 
-    public updateProblems(problemsJSON)
+    public updateHistory(column, historyJSON)
     {
-        // console.log("updateProblems " + problemsJSON);
+        // console.log("updateProblems " + historyJSON);
         return new Promise((resolve, reject) => {
-          this.storage.executeSql("UPDATE patient_history SET problems = :problems", [problemsJSON]).then((data) => {
+          this.storage.executeSql("UPDATE patient_history SET " + column + " = :" + column, [historyJSON]).then((data) => {
               resolve(data);
           }, (error) => {
               reject(error);
@@ -181,39 +182,4 @@ export class Database {
         });
     }
 
-    public getCurrentProblems()
-    {
-        return new Promise((resolve, reject) => {
-            this.storage.executeSql("SELECT * FROM patient_history", []).then((data) => {
-                var problems = {};
-
-                if (data.rows.length > 0) {
-                    var problemJSON = data.rows.item(0).problems;
-                    console.log("loaded problems JSON: " + problemJSON);
-                    if (problemJSON && problemJSON.length > 0)
-                    {
-                      problems = JSON.parse(problemJSON);
-                      resolve(problems);
-                    }
-                    else {
-                      resolve(null);
-                    }
-                }
-                else
-                {
-                   // no data, add a new row
-                   var date = new Date();
-                   var formattedDate = date.toUTCString().split(' ').slice(0, 5).join(' ');
-                   this.storage.executeSql("INSERT INTO patient_history (timestamp, problems) VALUES (?, ?)", [formattedDate, ""]).then((data) => {
-                      resolve(null);
-                   }, (error) => {
-                      reject(error);
-                   });
-                }
-
-              }, (error) => {
-                  reject(error);
-              });
-            });
-    }
 }

@@ -19,32 +19,32 @@
     </ion-item>
   </div>
    <div>
-    <ion-item>
+    <ion-item text-wrap>
       <ion-label>{{ "history.index.kids" | translate}}</ion-label>
       <ion-datetime displayFormat="m" [(ngModel)]="kids"></ion-datetime>
     </ion-item>
   </div>
    <div>
-    <ion-item>
+    <ion-item text-wrap>
       <ion-label>{{ "history.index.births" | translate}}</ion-label>
       <ion-datetime displayFormat="m" [(ngModel)]="births"></ion-datetime>
     </ion-item>
   </div>
    <div>
-    <ion-item>
+    <ion-item text-wrap>
       <ion-label>{{ "history.index.cesarean" | translate}}</ion-label>
       <ion-datetime displayFormat="m" [(ngModel)]="cesarean"></ion-datetime>
     </ion-item>
   </div>
    <div>
-    <ion-item>
+    <ion-item text-wrap>
       <ion-label>{{ "history.index.miscarriage" | translate}}</ion-label>
       <ion-datetime displayFormat="m" [(ngModel)]="miscarriage"></ion-datetime>
     </ion-item>
   </div>
    <div>
     <ion-list radio-group [(ngModel)]="problems">
-        <ion-list-header>{{ "history.index.problems" | translate }}</ion-list-header>
+        <ion-list-header text-wrap>{{ "history.index.problems" | translate }}</ion-list-header>
         <ion-item>
           <ion-label>{{ "yes" | translate }}</ion-label>
           <ion-radio value="true"></ion-radio>

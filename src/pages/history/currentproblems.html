@@ -31,7 +31,7 @@
         </ion-item>
         <div class="formsublist" *ngIf="problems.highbloodpressure.have">
           <ion-list radio-group [(ngModel)]="problems.highbloodpressure.medication">
-            <ion-list-header>{{ "history.currentproblems.medication" | translate }}</ion-list-header>
+            <ion-list-header text-wrap>{{ "history.currentproblems.medication" | translate }}</ion-list-header>
             <ion-item>
               <ion-label>{{ "yes" | translate }}</ion-label>
               <ion-radio value="true"></ion-radio>
@@ -55,7 +55,7 @@
         </ion-item>
         <div class="formsublist" *ngIf="problems.diabetes.have">
           <ion-list radio-group [(ngModel)]="problems.diabetes.tablets">
-            <ion-list-header>{{ "history.currentproblems.tablets" | translate }}</ion-list-header>
+            <ion-list-header text-wrap>{{ "history.currentproblems.tablets" | translate }}</ion-list-header>
             <ion-item>
               <ion-label>{{ "yes" | translate }}</ion-label>
               <ion-radio value="true"></ion-radio>
@@ -66,7 +66,7 @@
             </ion-item>
           </ion-list>
           <ion-list radio-group [(ngModel)]="problems.diabetes.injections">
-            <ion-list-header>{{ "history.currentproblems.injections" | translate }}</ion-list-header>
+            <ion-list-header text-wrap>{{ "history.currentproblems.injections" | translate }}</ion-list-header>
             <ion-item>
               <ion-label>{{ "yes" | translate }}</ion-label>
               <ion-radio value="true"></ion-radio>
@@ -90,7 +90,7 @@
         </ion-item>
         <div class="formsublist" *ngIf="problems.kidneydisease.have">
           <ion-list radio-group [(ngModel)]="problems.kidneydisease.tablets">
-            <ion-list-header>{{ "history.currentproblems.tablets" | translate }}</ion-list-header>
+            <ion-list-header text-wrap>{{ "history.currentproblems.tablets" | translate }}</ion-list-header>
             <ion-item>
               <ion-label>{{ "yes" | translate }}</ion-label>
               <ion-radio value="true"></ion-radio>
@@ -125,7 +125,7 @@
         </ion-item>
         <div class="formsublist" *ngIf="problems.heartdisease.have">
           <ion-list radio-group [(ngModel)]="problems.heartdisease.tablets">
-            <ion-list-header>{{ "history.currentproblems.tablets" | translate }}</ion-list-header>
+            <ion-list-header text-wrap>{{ "history.currentproblems.tablets" | translate }}</ion-list-header>
             <ion-item>
               <ion-label>{{ "yes" | translate }}</ion-label>
               <ion-radio value="true"></ion-radio>
@@ -160,7 +160,7 @@
         </ion-item>
         <div class="formsublist" *ngIf="problems.sicklecelldisease.have">
           <ion-list radio-group [(ngModel)]="problems.sicklecelldisease.tablets">
-            <ion-list-header>{{ "history.currentproblems.tablets" | translate }}</ion-list-header>
+            <ion-list-header text-wrap>{{ "history.currentproblems.tablets" | translate }}</ion-list-header>
             <ion-item>
               <ion-label>{{ "yes" | translate }}</ion-label>
               <ion-radio value="true"></ion-radio>
@@ -184,7 +184,7 @@
         </ion-item>
         <div class="formsublist" *ngIf="problems.epilepsy.have">
           <ion-list radio-group [(ngModel)]="problems.epilepsy.tablets">
-            <ion-list-header>{{ "history.currentproblems.tablets" | translate }}</ion-list-header>
+            <ion-list-header text-wrap>{{ "history.currentproblems.tablets" | translate }}</ion-list-header>
             <ion-item>
               <ion-label>{{ "yes" | translate }}</ion-label>
               <ion-radio value="true"></ion-radio>
@@ -218,7 +218,7 @@
         </ion-item>
         <div class="formsublist" *ngIf="problems.asthma.have">
           <ion-list radio-group [(ngModel)]="problems.asthma.tablets">
-            <ion-list-header>{{ "history.currentproblems.tablets" | translate }}</ion-list-header>
+            <ion-list-header text-wrap>{{ "history.currentproblems.tablets" | translate }}</ion-list-header>
             <ion-item>
               <ion-label>{{ "yes" | translate }}</ion-label>
               <ion-radio value="true"></ion-radio>
@@ -229,7 +229,7 @@
             </ion-item>
           </ion-list>
           <ion-list radio-group [(ngModel)]="problems.asthma.inhaler">
-            <ion-list-header>{{ "history.currentproblems.inhaler" | translate }}</ion-list-header>
+            <ion-list-header text-wrap>{{ "history.currentproblems.inhaler" | translate }}</ion-list-header>
             <ion-item>
               <ion-label>{{ "yes" | translate }}</ion-label>
               <ion-radio value="true"></ion-radio>
@@ -275,7 +275,7 @@
         </ion-item>
         <div class="formsublist" *ngIf="problems.hypothyroidism.have">
           <ion-list radio-group [(ngModel)]="problems.hypothyroidism.tablets">
-            <ion-list-header>{{ "history.currentproblems.tablets" | translate }}</ion-list-header>
+            <ion-list-header text-wrap>{{ "history.currentproblems.tablets" | translate }}</ion-list-header>
             <ion-item>
               <ion-label>{{ "yes" | translate }}</ion-label>
               <ion-radio value="true"></ion-radio>
@@ -286,7 +286,7 @@
             </ion-item>
           </ion-list>
           <ion-list radio-group [(ngModel)]="problems.hypothyroidism.overactivetreatment">
-            <ion-list-header>{{ "history.currentproblems.overactive" | translate }}</ion-list-header>
+            <ion-list-header text-wrap>{{ "history.currentproblems.overactive" | translate }}</ion-list-header>
             <ion-item>
               <ion-label>{{ "yes" | translate }}</ion-label>
               <ion-radio value="true"></ion-radio>
@@ -310,7 +310,7 @@
         </div>
       </ion-list>
       <ion-list radio-group [(ngModel)]="problems.hyperthyroidism.have">
-        <ion-list-header>{{ "history.currentproblems.hyperthyroidism" | translate }}</ion-list-header>
+        <ion-list-header text-wrap>{{ "history.currentproblems.hyperthyroidism" | translate }}</ion-list-header>
         <ion-item>
           <ion-label>{{ "yes" | translate }}</ion-label>
           <ion-radio value="true"></ion-radio>
@@ -321,7 +321,7 @@
         </ion-item>
         <div class="formsublist" *ngIf="problems.hyperthyroidism.have">
           <ion-list radio-group [(ngModel)]="problems.hyperthyroidism.tablets">
-            <ion-list-header>{{ "history.currentproblems.tablets" | translate }}</ion-list-header>
+            <ion-list-header text-wrap>{{ "history.currentproblems.tablets" | translate }}</ion-list-header>
             <ion-item>
               <ion-label>{{ "yes" | translate }}</ion-label>
               <ion-radio value="true"></ion-radio>
@@ -392,7 +392,7 @@
         </div>
       </ion-list>
       <ion-list radio-group [(ngModel)]="problems.hemophilia.have">
-        <ion-list-header>{{ "history.currentproblems.hemophilia" | translate }}</ion-list-header>
+        <ion-list-header text-wrap>{{ "history.currentproblems.hemophilia" | translate }}</ion-list-header>
         <ion-item>
           <ion-label>{{ "yes" | translate }}</ion-label>
           <ion-radio value="true"></ion-radio>
@@ -424,7 +424,7 @@
             </ion-item>
           </ion-list>
           <ion-list radio-group [(ngModel)]="problems.bloodclots.tablets">
-            <ion-list-header>{{ "history.currentproblems.tablets" | translate }}</ion-list-header>
+            <ion-list-header text-wrap>{{ "history.currentproblems.tablets" | translate }}</ion-list-header>
             <ion-item>
               <ion-label>{{ "yes" | translate }}</ion-label>
               <ion-radio value="true"></ion-radio>
@@ -483,7 +483,7 @@
         </ion-item>
         <div class="formsublist" *ngIf="problems.crohns.have">
           <ion-list radio-group [(ngModel)]="problems.crohns.tablets">
-            <ion-list-header>{{ "history.currentproblems.tablets" | translate }}</ion-list-header>
+            <ion-list-header text-wrap>{{ "history.currentproblems.tablets" | translate }}</ion-list-header>
             <ion-item>
               <ion-label>{{ "yes" | translate }}</ion-label>
               <ion-radio value="true"></ion-radio>
@@ -494,7 +494,7 @@
             </ion-item>
           </ion-list>
           <ion-list radio-group [(ngModel)]="problems.crohns.surgery">
-            <ion-list-header>{{ "history.currentproblems.surgery" | translate }}</ion-list-header>
+            <ion-list-header text-wrap>{{ "history.currentproblems.surgery" | translate }}</ion-list-header>
             <ion-item>
               <ion-label>{{ "yes" | translate }}</ion-label>
               <ion-radio value="true"></ion-radio>
@@ -507,7 +507,7 @@
         </div>
       </ion-list>
       <ion-list radio-group [(ngModel)]="problems.depression.have">
-        <ion-list-header>{{ "history.currentproblems.depression" | translate }}</ion-list-header>
+        <ion-list-header text-wrap>{{ "history.currentproblems.depression" | translate }}</ion-list-header>
         <ion-item>
           <ion-label>{{ "yes" | translate }}</ion-label>
           <ion-radio value="true"></ion-radio>
@@ -518,7 +518,7 @@
         </ion-item>
         <div class="formsublist" *ngIf="problems.depression.have">
           <ion-list radio-group [(ngModel)]="problems.depression.tablets">
-            <ion-list-header>{{ "history.currentproblems.tablets" | translate }}</ion-list-header>
+            <ion-list-header text-wrap>{{ "history.currentproblems.tablets" | translate }}</ion-list-header>
             <ion-item>
               <ion-label>{{ "yes" | translate }}</ion-label>
               <ion-radio value="true"></ion-radio>

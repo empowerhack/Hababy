@@ -193,6 +193,16 @@
               <ion-label>{{ "no" | translate }}</ion-label>
               <ion-radio value="false"></ion-radio>
             </ion-item>
+            <div class="formsublist" *ngIf="problems.epilepsy.tablets">
+              <ion-item>
+                <ion-label stacked>{{ "history.currentproblems.pleaselist" | translate }}</ion-label>
+                <ion-input [(ngModel)]="problems.epilepsy.whichtablets" ></ion-input>
+              </ion-item>
+            </div>
+            <ion-item>
+              <ion-label stacked>{{ "history.currentproblems.lastseizure" | translate }}</ion-label>
+              <ion-input [(ngModel)]="problems.epilepsy.seizure" ></ion-input>
+            </ion-item>
           </ion-list>
         </div>
       </ion-list>
@@ -320,6 +330,16 @@
               <ion-label>{{ "no" | translate }}</ion-label>
               <ion-radio value="false"></ion-radio>
             </ion-item>
+            <div class="formsublist" *ngIf="problems.hyperthyroidism.tablets">
+              <ion-item>
+                <ion-label>{{ "history.currentproblems.carmibazole" | translate }}</ion-label>
+                <ion-checkbox [(ngModel)]="problems.hyperthyroidism.carmibazole"></ion-checkbox>
+              </ion-item>
+              <ion-item>
+                <ion-label>{{ "history.currentproblems.propylthiuracil" | translate }}</ion-label>
+                <ion-checkbox [(ngModel)]="problems.hyperthyroidism.propylthiuracil"></ion-checkbox>
+              </ion-item>
+            </div>
           </ion-list>
         </div>
       </ion-list>
@@ -393,6 +413,16 @@
           <ion-radio value="false"></ion-radio>
         </ion-item>
         <div class="formsublist" *ngIf="problems.bloodclots.have">
+          <ion-list>
+            <ion-item>
+              <ion-label>{{ "history.currentproblems.legs" | translate }}</ion-label>
+              <ion-checkbox [(ngModel)]="problems.bloodclots.legs"></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>{{ "history.currentproblems.lungs" | translate }}</ion-label>
+              <ion-checkbox [(ngModel)]="problems.bloodclots.lungs"></ion-checkbox>
+            </ion-item>
+          </ion-list>
           <ion-list radio-group [(ngModel)]="problems.bloodclots.tablets">
             <ion-list-header>{{ "history.currentproblems.tablets" | translate }}</ion-list-header>
             <ion-item>
@@ -499,6 +529,12 @@
             </ion-item>
           </ion-list>
         </div>
+      </ion-list>
+      <ion-list>
+        <ion-item>
+          <ion-label>{{ "history.currentproblems.other" | translate }}</ion-label>
+          <ion-textarea [(ngModel)]="problems.other"></ion-textarea>
+        </ion-item>
       </ion-list>
     </div>
   </ion-list>

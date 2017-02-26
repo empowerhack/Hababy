@@ -11,7 +11,7 @@
 <ion-content padding>
     <div>
         <ion-list radio-group [(ngModel)]="smeartest">
-            <ion-list-header>{{ "history.info.smeartest.question" | translate }}</ion-list-header>
+            <ion-list-header text-wrap>{{ "history.info.smeartest.question" | translate }}</ion-list-header>
             <ion-item>
                 <ion-label>{{ "yes" | translate }}</ion-label>
                 <ion-radio value="true" ngDefaultControl></ion-radio>
@@ -51,7 +51,7 @@
 
     <div>
         <ion-list radio-group [(ngModel)]="contraception">
-            <ion-list-header>{{ "history.info.contraception" | translate }}</ion-list-header>
+            <ion-list-header text-wrap>{{ "history.info.contraception" | translate }}</ion-list-header>
             <ion-item>
                 <ion-label>{{ "yes" | translate }}</ion-label>
                 <ion-radio value="true" ngDefaultControl></ion-radio>
@@ -79,7 +79,7 @@
         </ion-item>
       </ion-list>
     </div>
-    
+
     <div>
         <ion-list radio-group [(ngModel)]="smoke">
             <ion-list-header>{{ "history.info.smoke" | translate }}</ion-list-header>

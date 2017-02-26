@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="io.empowerhack.hababy" version="0.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="io.empowerhack.hababy" version="0.0.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>HaBaby</name>
   <description>An awesome Ionic/Cordova app.</description>
   <author email="derek@tactilepix.com" href="http://empowerhack.io/">HaBaby Team</author>
@@ -10,6 +10,8 @@
   <allow-navigation href="http://192.168.0.102:8100"/>
   <allow-navigation href="http://192.168.0.4:8100"/>
   <allow-navigation href="http://ionic.local/*"/>
+  <allow-navigation href="http://10.29.21.44:8100"/>
+  <allow-navigation href="http://10.27.31.122:8100"/>
   <allow-intent href="http://*/*"/>
   <allow-intent href="https://*/*"/>
   <allow-intent href="tel:*"/>

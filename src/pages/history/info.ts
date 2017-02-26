@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 import { TranslateService } from 'ng2-translate/ng2-translate';
-import { HistoryProblemsPage } from '../history/problems';
+import { CurrentProblemsPage } from '../history/currentproblems';
 import { NavController } from 'ionic-angular';
 
 @Component({
   templateUrl: 'info.html'
 })
 export class MedicalInfoPage {
-
 
   smeartest
   smeartestnormal
@@ -28,6 +27,7 @@ export class MedicalInfoPage {
 
   enterInfo() {
     console.log("Save info and go to next page");
+    this.navCtrl.push(CurrentProblemsPage);
   }
 
 }

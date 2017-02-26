@@ -1,0 +1,542 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ "history.index.title" | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list radio-group [(ngModel)]="problems.have">
+    <ion-list-header>{{ "history.currentproblems.title" | translate }}</ion-list-header>
+    <ion-item>
+      <ion-label>{{ "yes" | translate }}</ion-label>
+      <ion-radio value="true"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{ "no" | translate }}</ion-label>
+      <ion-radio value="false"></ion-radio>
+    </ion-item>
+    <div class="formsublist" *ngIf="problems.have">
+      <ion-list radio-group [(ngModel)]="problems.highbloodpressure.have">
+        <ion-list-header>{{ "history.currentproblems.highbloodpressure" | translate }}</ion-list-header>
+        <ion-item>
+          <ion-label>{{ "yes" | translate }}</ion-label>
+          <ion-radio value="true"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{ "no" | translate }}</ion-label>
+          <ion-radio value="false"></ion-radio>
+        </ion-item>
+        <div class="formsublist" *ngIf="problems.highbloodpressure.have">
+          <ion-list radio-group [(ngModel)]="problems.highbloodpressure.medication">
+            <ion-list-header text-wrap>{{ "history.currentproblems.medication" | translate }}</ion-list-header>
+            <ion-item>
+              <ion-label>{{ "yes" | translate }}</ion-label>
+              <ion-radio value="true"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>{{ "no" | translate }}</ion-label>
+              <ion-radio value="false"></ion-radio>
+            </ion-item>
+          </ion-list>
+        </div>
+      </ion-list>
+      <ion-list radio-group [(ngModel)]="problems.diabetes.have">
+        <ion-list-header>{{ "history.currentproblems.diabetes" | translate }}</ion-list-header>
+        <ion-item>
+          <ion-label>{{ "yes" | translate }}</ion-label>
+          <ion-radio value="true"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{ "no" | translate }}</ion-label>
+          <ion-radio value="false"></ion-radio>
+        </ion-item>
+        <div class="formsublist" *ngIf="problems.diabetes.have">
+          <ion-list radio-group [(ngModel)]="problems.diabetes.tablets">
+            <ion-list-header text-wrap>{{ "history.currentproblems.tablets" | translate }}</ion-list-header>
+            <ion-item>
+              <ion-label>{{ "yes" | translate }}</ion-label>
+              <ion-radio value="true"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>{{ "no" | translate }}</ion-label>
+              <ion-radio value="false"></ion-radio>
+            </ion-item>
+          </ion-list>
+          <ion-list radio-group [(ngModel)]="problems.diabetes.injections">
+            <ion-list-header text-wrap>{{ "history.currentproblems.injections" | translate }}</ion-list-header>
+            <ion-item>
+              <ion-label>{{ "yes" | translate }}</ion-label>
+              <ion-radio value="true"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>{{ "no" | translate }}</ion-label>
+              <ion-radio value="false"></ion-radio>
+            </ion-item>
+          </ion-list>
+        </div>
+      </ion-list>
+      <ion-list radio-group [(ngModel)]="problems.kidneydisease.have">
+        <ion-list-header>{{ "history.currentproblems.kidneydisease" | translate }}</ion-list-header>
+        <ion-item>
+          <ion-label>{{ "yes" | translate }}</ion-label>
+          <ion-radio value="true"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{ "no" | translate }}</ion-label>
+          <ion-radio value="false"></ion-radio>
+        </ion-item>
+        <div class="formsublist" *ngIf="problems.kidneydisease.have">
+          <ion-list radio-group [(ngModel)]="problems.kidneydisease.tablets">
+            <ion-list-header text-wrap>{{ "history.currentproblems.tablets" | translate }}</ion-list-header>
+            <ion-item>
+              <ion-label>{{ "yes" | translate }}</ion-label>
+              <ion-radio value="true"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>{{ "no" | translate }}</ion-label>
+              <ion-radio value="false"></ion-radio>
+            </ion-item>
+          </ion-list>
+          <ion-list radio-group [(ngModel)]="problems.kidneydisease.injections">
+            <ion-list-header>{{ "history.currentproblems.injections" | translate }}</ion-list-header>
+            <ion-item>
+              <ion-label>{{ "yes" | translate }}</ion-label>
+              <ion-radio value="true"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>{{ "no" | translate }}</ion-label>
+              <ion-radio value="false"></ion-radio>
+            </ion-item>
+          </ion-list>
+        </div>
+      </ion-list>
+      <ion-list radio-group [(ngModel)]="problems.heartdisease.have">
+        <ion-list-header>{{ "history.currentproblems.heartdisease" | translate }}</ion-list-header>
+        <ion-item>
+          <ion-label>{{ "yes" | translate }}</ion-label>
+          <ion-radio value="true"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{ "no" | translate }}</ion-label>
+          <ion-radio value="false"></ion-radio>
+        </ion-item>
+        <div class="formsublist" *ngIf="problems.heartdisease.have">
+          <ion-list radio-group [(ngModel)]="problems.heartdisease.tablets">
+            <ion-list-header text-wrap>{{ "history.currentproblems.tablets" | translate }}</ion-list-header>
+            <ion-item>
+              <ion-label>{{ "yes" | translate }}</ion-label>
+              <ion-radio value="true"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>{{ "no" | translate }}</ion-label>
+              <ion-radio value="false"></ion-radio>
+            </ion-item>
+          </ion-list>
+          <ion-list radio-group [(ngModel)]="problems.heartdisease.surgery">
+            <ion-list-header>{{ "history.currentproblems.surgery" | translate }}</ion-list-header>
+            <ion-item>
+              <ion-label>{{ "yes" | translate }}</ion-label>
+              <ion-radio value="true"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>{{ "no" | translate }}</ion-label>
+              <ion-radio value="false"></ion-radio>
+            </ion-item>
+          </ion-list>
+        </div>
+      </ion-list>
+      <ion-list radio-group [(ngModel)]="problems.sicklecelldisease.have">
+        <ion-list-header>{{ "history.currentproblems.sicklecelldisease" | translate }}</ion-list-header>
+        <ion-item>
+          <ion-label>{{ "yes" | translate }}</ion-label>
+          <ion-radio value="true"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{ "no" | translate }}</ion-label>
+          <ion-radio value="false"></ion-radio>
+        </ion-item>
+        <div class="formsublist" *ngIf="problems.sicklecelldisease.have">
+          <ion-list radio-group [(ngModel)]="problems.sicklecelldisease.tablets">
+            <ion-list-header text-wrap>{{ "history.currentproblems.tablets" | translate }}</ion-list-header>
+            <ion-item>
+              <ion-label>{{ "yes" | translate }}</ion-label>
+              <ion-radio value="true"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>{{ "no" | translate }}</ion-label>
+              <ion-radio value="false"></ion-radio>
+            </ion-item>
+          </ion-list>
+        </div>
+      </ion-list>
+      <ion-list radio-group [(ngModel)]="problems.epilepsy.have">
+        <ion-list-header>{{ "history.currentproblems.epilepsy" | translate }}</ion-list-header>
+        <ion-item>
+          <ion-label>{{ "yes" | translate }}</ion-label>
+          <ion-radio value="true"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{ "no" | translate }}</ion-label>
+          <ion-radio value="false"></ion-radio>
+        </ion-item>
+        <div class="formsublist" *ngIf="problems.epilepsy.have">
+          <ion-list radio-group [(ngModel)]="problems.epilepsy.tablets">
+            <ion-list-header text-wrap>{{ "history.currentproblems.tablets" | translate }}</ion-list-header>
+            <ion-item>
+              <ion-label>{{ "yes" | translate }}</ion-label>
+              <ion-radio value="true"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>{{ "no" | translate }}</ion-label>
+              <ion-radio value="false"></ion-radio>
+            </ion-item>
+            <div class="formsublist" *ngIf="problems.epilepsy.tablets">
+              <ion-item>
+                <ion-label stacked>{{ "history.currentproblems.pleaselist" | translate }}</ion-label>
+                <ion-input [(ngModel)]="problems.epilepsy.whichtablets" ></ion-input>
+              </ion-item>
+            </div>
+            <ion-item>
+              <ion-label stacked>{{ "history.currentproblems.lastseizure" | translate }}</ion-label>
+              <ion-input [(ngModel)]="problems.epilepsy.seizure" ></ion-input>
+            </ion-item>
+          </ion-list>
+        </div>
+      </ion-list>
+      <ion-list radio-group [(ngModel)]="problems.asthma.have">
+        <ion-list-header>{{ "history.currentproblems.asthma" | translate }}</ion-list-header>
+        <ion-item>
+          <ion-label>{{ "yes" | translate }}</ion-label>
+          <ion-radio value="true"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{ "no" | translate }}</ion-label>
+          <ion-radio value="false"></ion-radio>
+        </ion-item>
+        <div class="formsublist" *ngIf="problems.asthma.have">
+          <ion-list radio-group [(ngModel)]="problems.asthma.tablets">
+            <ion-list-header text-wrap>{{ "history.currentproblems.tablets" | translate }}</ion-list-header>
+            <ion-item>
+              <ion-label>{{ "yes" | translate }}</ion-label>
+              <ion-radio value="true"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>{{ "no" | translate }}</ion-label>
+              <ion-radio value="false"></ion-radio>
+            </ion-item>
+          </ion-list>
+          <ion-list radio-group [(ngModel)]="problems.asthma.inhaler">
+            <ion-list-header text-wrap>{{ "history.currentproblems.inhaler" | translate }}</ion-list-header>
+            <ion-item>
+              <ion-label>{{ "yes" | translate }}</ion-label>
+              <ion-radio value="true"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>{{ "no" | translate }}</ion-label>
+              <ion-radio value="false"></ion-radio>
+            </ion-item>
+          </ion-list>
+        </div>
+      </ion-list>
+      <ion-list radio-group [(ngModel)]="problems.tuberculosis.have">
+        <ion-list-header>{{ "history.currentproblems.tuberculosis" | translate }}</ion-list-header>
+        <ion-item>
+          <ion-label>{{ "yes" | translate }}</ion-label>
+          <ion-radio value="true"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{ "no" | translate }}</ion-label>
+          <ion-radio value="false"></ion-radio>
+        </ion-item>
+      </ion-list>
+      <ion-list radio-group [(ngModel)]="problems.irritablebowel.have">
+        <ion-list-header>{{ "history.currentproblems.irritablebowel" | translate }}</ion-list-header>
+        <ion-item>
+          <ion-label>{{ "yes" | translate }}</ion-label>
+          <ion-radio value="true"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{ "no" | translate }}</ion-label>
+          <ion-radio value="false"></ion-radio>
+        </ion-item>
+      </ion-list>
+      <ion-list radio-group [(ngModel)]="problems.hypothyroidism.have">
+        <ion-list-header>{{ "history.currentproblems.hypothyroidism" | translate }}</ion-list-header>
+        <ion-item>
+          <ion-label>{{ "yes" | translate }}</ion-label>
+          <ion-radio value="true"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{ "no" | translate }}</ion-label>
+          <ion-radio value="false"></ion-radio>
+        </ion-item>
+        <div class="formsublist" *ngIf="problems.hypothyroidism.have">
+          <ion-list radio-group [(ngModel)]="problems.hypothyroidism.tablets">
+            <ion-list-header text-wrap>{{ "history.currentproblems.tablets" | translate }}</ion-list-header>
+            <ion-item>
+              <ion-label>{{ "yes" | translate }}</ion-label>
+              <ion-radio value="true"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>{{ "no" | translate }}</ion-label>
+              <ion-radio value="false"></ion-radio>
+            </ion-item>
+          </ion-list>
+          <ion-list radio-group [(ngModel)]="problems.hypothyroidism.overactivetreatment">
+            <ion-list-header text-wrap>{{ "history.currentproblems.overactive" | translate }}</ion-list-header>
+            <ion-item>
+              <ion-label>{{ "yes" | translate }}</ion-label>
+              <ion-radio value="true"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>{{ "no" | translate }}</ion-label>
+              <ion-radio value="false"></ion-radio>
+            </ion-item>
+          </ion-list>
+          <ion-list radio-group [(ngModel)]="problems.hypothyroidism.graves">
+            <ion-list-header>{{ "history.currentproblems.graves" | translate }}</ion-list-header>
+            <ion-item>
+              <ion-label>{{ "yes" | translate }}</ion-label>
+              <ion-radio value="true"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>{{ "no" | translate }}</ion-label>
+              <ion-radio value="false"></ion-radio>
+            </ion-item>
+          </ion-list>
+        </div>
+      </ion-list>
+      <ion-list radio-group [(ngModel)]="problems.hyperthyroidism.have">
+        <ion-list-header text-wrap>{{ "history.currentproblems.hyperthyroidism" | translate }}</ion-list-header>
+        <ion-item>
+          <ion-label>{{ "yes" | translate }}</ion-label>
+          <ion-radio value="true"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{ "no" | translate }}</ion-label>
+          <ion-radio value="false"></ion-radio>
+        </ion-item>
+        <div class="formsublist" *ngIf="problems.hyperthyroidism.have">
+          <ion-list radio-group [(ngModel)]="problems.hyperthyroidism.tablets">
+            <ion-list-header text-wrap>{{ "history.currentproblems.tablets" | translate }}</ion-list-header>
+            <ion-item>
+              <ion-label>{{ "yes" | translate }}</ion-label>
+              <ion-radio value="true"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>{{ "no" | translate }}</ion-label>
+              <ion-radio value="false"></ion-radio>
+            </ion-item>
+            <div class="formsublist" *ngIf="problems.hyperthyroidism.tablets">
+              <ion-item>
+                <ion-label>{{ "history.currentproblems.carmibazole" | translate }}</ion-label>
+                <ion-checkbox [(ngModel)]="problems.hyperthyroidism.carmibazole"></ion-checkbox>
+              </ion-item>
+              <ion-item>
+                <ion-label>{{ "history.currentproblems.propylthiuracil" | translate }}</ion-label>
+                <ion-checkbox [(ngModel)]="problems.hyperthyroidism.propylthiuracil"></ion-checkbox>
+              </ion-item>
+            </div>
+          </ion-list>
+        </div>
+      </ion-list>
+      <ion-list radio-group [(ngModel)]="problems.migraine.have">
+        <ion-list-header>{{ "history.currentproblems.migraine" | translate }}</ion-list-header>
+        <ion-item>
+          <ion-label>{{ "yes" | translate }}</ion-label>
+          <ion-radio value="true"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{ "no" | translate }}</ion-label>
+          <ion-radio value="false"></ion-radio>
+        </ion-item>
+        <div class="formsublist" *ngIf="problems.migraine.have">
+          <ion-list radio-group [(ngModel)]="problems.migraine.tablets">
+            <ion-list-header>{{ "history.currentproblems.tablets" | translate }}</ion-list-header>
+            <ion-item>
+              <ion-label>{{ "yes" | translate }}</ion-label>
+              <ion-radio value="true"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>{{ "no" | translate }}</ion-label>
+              <ion-radio value="false"></ion-radio>
+            </ion-item>
+          </ion-list>
+        </div>
+      </ion-list>
+      <ion-list radio-group [(ngModel)]="problems.lupus.have">
+        <ion-list-header>{{ "history.currentproblems.lupus" | translate }}</ion-list-header>
+        <ion-item>
+          <ion-label>{{ "yes" | translate }}</ion-label>
+          <ion-radio value="true"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{ "no" | translate }}</ion-label>
+          <ion-radio value="false"></ion-radio>
+        </ion-item>
+        <div class="formsublist" *ngIf="problems.lupus.have">
+          <ion-list radio-group [(ngModel)]="problems.lupus.medication">
+            <ion-list-header>{{ "history.currentproblems.medication" | translate }}</ion-list-header>
+            <ion-item>
+              <ion-label>{{ "yes" | translate }}</ion-label>
+              <ion-radio value="true"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>{{ "no" | translate }}</ion-label>
+              <ion-radio value="false"></ion-radio>
+            </ion-item>
+          </ion-list>
+        </div>
+      </ion-list>
+      <ion-list radio-group [(ngModel)]="problems.hemophilia.have">
+        <ion-list-header text-wrap>{{ "history.currentproblems.hemophilia" | translate }}</ion-list-header>
+        <ion-item>
+          <ion-label>{{ "yes" | translate }}</ion-label>
+          <ion-radio value="true"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{ "no" | translate }}</ion-label>
+          <ion-radio value="false"></ion-radio>
+        </ion-item>
+      </ion-list>
+      <ion-list radio-group [(ngModel)]="problems.bloodclots.have">
+        <ion-list-header>{{ "history.currentproblems.bloodclots" | translate }}</ion-list-header>
+        <ion-item>
+          <ion-label>{{ "yes" | translate }}</ion-label>
+          <ion-radio value="true"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{ "no" | translate }}</ion-label>
+          <ion-radio value="false"></ion-radio>
+        </ion-item>
+        <div class="formsublist" *ngIf="problems.bloodclots.have">
+          <ion-list>
+            <ion-item>
+              <ion-label>{{ "history.currentproblems.legs" | translate }}</ion-label>
+              <ion-checkbox [(ngModel)]="problems.bloodclots.legs"></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>{{ "history.currentproblems.lungs" | translate }}</ion-label>
+              <ion-checkbox [(ngModel)]="problems.bloodclots.lungs"></ion-checkbox>
+            </ion-item>
+          </ion-list>
+          <ion-list radio-group [(ngModel)]="problems.bloodclots.tablets">
+            <ion-list-header text-wrap>{{ "history.currentproblems.tablets" | translate }}</ion-list-header>
+            <ion-item>
+              <ion-label>{{ "yes" | translate }}</ion-label>
+              <ion-radio value="true"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>{{ "no" | translate }}</ion-label>
+              <ion-radio value="false"></ion-radio>
+            </ion-item>
+          </ion-list>
+          <ion-list radio-group [(ngModel)]="problems.bloodclots.injections">
+            <ion-list-header>{{ "history.currentproblems.injections" | translate }}</ion-list-header>
+            <ion-item>
+              <ion-label>{{ "yes" | translate }}</ion-label>
+              <ion-radio value="true"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>{{ "no" | translate }}</ion-label>
+              <ion-radio value="false"></ion-radio>
+            </ion-item>
+          </ion-list>
+        </div>
+      </ion-list>
+      <ion-list radio-group [(ngModel)]="problems.hiv.have">
+        <ion-list-header>{{ "history.currentproblems.hiv" | translate }}</ion-list-header>
+        <ion-item>
+          <ion-label>{{ "yes" | translate }}</ion-label>
+          <ion-radio value="true"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{ "no" | translate }}</ion-label>
+          <ion-radio value="false"></ion-radio>
+        </ion-item>
+        <div class="formsublist" *ngIf="problems.hiv.have">
+          <ion-list radio-group [(ngModel)]="problems.hiv.tablets">
+            <ion-list-header>{{ "history.currentproblems.tablets" | translate }}</ion-list-header>
+            <ion-item>
+              <ion-label>{{ "yes" | translate }}</ion-label>
+              <ion-radio value="true"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>{{ "no" | translate }}</ion-label>
+              <ion-radio value="false"></ion-radio>
+            </ion-item>
+          </ion-list>
+        </div>
+      </ion-list>
+      <ion-list radio-group [(ngModel)]="problems.crohns.have">
+        <ion-list-header>{{ "history.currentproblems.crohns" | translate }}</ion-list-header>
+        <ion-item>
+          <ion-label>{{ "yes" | translate }}</ion-label>
+          <ion-radio value="true"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{ "no" | translate }}</ion-label>
+          <ion-radio value="false"></ion-radio>
+        </ion-item>
+        <div class="formsublist" *ngIf="problems.crohns.have">
+          <ion-list radio-group [(ngModel)]="problems.crohns.tablets">
+            <ion-list-header text-wrap>{{ "history.currentproblems.tablets" | translate }}</ion-list-header>
+            <ion-item>
+              <ion-label>{{ "yes" | translate }}</ion-label>
+              <ion-radio value="true"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>{{ "no" | translate }}</ion-label>
+              <ion-radio value="false"></ion-radio>
+            </ion-item>
+          </ion-list>
+          <ion-list radio-group [(ngModel)]="problems.crohns.surgery">
+            <ion-list-header text-wrap>{{ "history.currentproblems.surgery" | translate }}</ion-list-header>
+            <ion-item>
+              <ion-label>{{ "yes" | translate }}</ion-label>
+              <ion-radio value="true"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>{{ "no" | translate }}</ion-label>
+              <ion-radio value="false"></ion-radio>
+            </ion-item>
+          </ion-list>
+        </div>
+      </ion-list>
+      <ion-list radio-group [(ngModel)]="problems.depression.have">
+        <ion-list-header text-wrap>{{ "history.currentproblems.depression" | translate }}</ion-list-header>
+        <ion-item>
+          <ion-label>{{ "yes" | translate }}</ion-label>
+          <ion-radio value="true"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{ "no" | translate }}</ion-label>
+          <ion-radio value="false"></ion-radio>
+        </ion-item>
+        <div class="formsublist" *ngIf="problems.depression.have">
+          <ion-list radio-group [(ngModel)]="problems.depression.tablets">
+            <ion-list-header text-wrap>{{ "history.currentproblems.tablets" | translate }}</ion-list-header>
+            <ion-item>
+              <ion-label>{{ "yes" | translate }}</ion-label>
+              <ion-radio value="true"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>{{ "no" | translate }}</ion-label>
+              <ion-radio value="false"></ion-radio>
+            </ion-item>
+          </ion-list>
+        </div>
+      </ion-list>
+      <ion-list>
+        <ion-item>
+          <ion-label>{{ "history.currentproblems.other" | translate }}</ion-label>
+          <ion-textarea [(ngModel)]="problems.other"></ion-textarea>
+        </ion-item>
+      </ion-list>
+    </div>
+  </ion-list>
+  <button class="primary" (click)="saveAndContinue()">{{ "next" | translate }}</button>
+</ion-content>

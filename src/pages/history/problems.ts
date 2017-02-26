@@ -73,7 +73,7 @@ export class HistoryProblemsPage {
 
   loadProblems()
   {
-     this.database.getProblems().then((result) => {
+     this.database.getHistory("pregnancyproblems").then((result) => {
          if (result) {
             this.problems = result;
           }
@@ -87,7 +87,7 @@ export class HistoryProblemsPage {
 
   saveAndContinue() {
       // save values
-      this.database.updateProblems( JSON.stringify(this.problems)).then((result) => {
+      this.database.updateHistory("pregnancyproblems", JSON.stringify(this.problems)).then((result) => {
           console.log("problems saved");
       }, (error) => {
           console.log("ERROR: ", error);

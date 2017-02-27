@@ -27,8 +27,8 @@ export class Database {
             .then((data) => {
                 console.log("TABLE CREATED: ", data);
 
+                return this.storage.executeSql("CREATE TABLE IF NOT EXISTS patient_history (id INTEGER PRIMARY KEY AUTOINCREMENT, timestamp TEXT, pregnancyproblems TEXT, currentproblems TEXT, medications TEXT)", {});
                 // return this.storage.executeSql("DROP TABLE IF EXISTS patient_history", {});
-                return this.storage.executeSql("CREATE TABLE IF NOT EXISTS patient_history (id INTEGER PRIMARY KEY AUTOINCREMENT, timestamp TEXT, pregnancyproblems TEXT, currentproblems TEXT)", {});
             })
             .catch((error) => {
                   console.error("Unable to execute sql", error);
@@ -138,10 +138,10 @@ export class Database {
     {
         return new Promise((resolve, reject) => {
             this.storage.executeSql("SELECT * FROM patient_history", []).then((data) => {
-                var result = {};
+                let result = {};
 
                 if (data.rows.length > 0) {
-                    var columnJSON = data.rows.item(0)[column];
+                    let columnJSON = data.rows.item(0)[column];
                     console.log("loaded JSON: " + columnJSON);
                     if (columnJSON && columnJSON.length > 0)
                     {
@@ -172,7 +172,6 @@ export class Database {
 
     public updateHistory(column, historyJSON)
     {
-        // console.log("updateProblems " + historyJSON);
         return new Promise((resolve, reject) => {
           this.storage.executeSql("UPDATE patient_history SET " + column + " = :" + column, [historyJSON]).then((data) => {
               resolve(data);
@@ -181,5 +180,4 @@ export class Database {
           });
         });
     }
-
 }

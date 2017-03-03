@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { TranslateService } from 'ng2-translate/ng2-translate';
 import { Database} from "../../providers/database";
 import { PatientHistory } from '../../models/patienthistory';
+import { MedicationsPage } from './medications';
 
 @Component({
   templateUrl: 'currentproblems.html'
@@ -118,7 +118,7 @@ export class CurrentProblemsPage {
     depression: {}
   };
 
-  constructor( public navCtrl: NavController, private translate: TranslateService, private database: Database ) {
+  constructor( public navCtrl: NavController, private database: Database ) {
   }
 
   public ionViewDidEnter() {
@@ -140,7 +140,7 @@ export class CurrentProblemsPage {
       // save values
       this.database.patientHistory.currentProblems = this.problems;
       this.database.updateHistory().then((result) => {
-          // this.navCtrl.push(MedicalInfoPage);
+          this.navCtrl.push(MedicationsPage);
           console.log("problems saved");
       }, (error) => {
           console.log("ERROR: ", error);

@@ -11,11 +11,52 @@ export class PatientHistory {
     	if (attributes.pregnancyproblems && attributes.pregnancyproblems.length > 0) {
 			this.pregnancyProblems = JSON.parse(attributes.pregnancyproblems);
 		}
+		else {
+            this.pregnancyProblems = {
+				cesarian: {},
+				heavybleeding: {},
+				liverproblems: {},
+				highbloodsugar: {},
+				bloodclots: {},
+				deliveredearly: {},
+				highpressure: {}
+		    };
+		}
     	if (attributes.currentproblems && attributes.currentproblems.length > 0) {
 			this.currentProblems = JSON.parse(attributes.currentproblems);
 		}
+		else {
+			this.currentProblems = {
+				highbloodpressure: {},
+				diabetes: {},
+				kidneydisease: {},
+				heartdisease: {},
+				sicklecelldisease: {},
+				epilepsy: {},
+				asthma: {},
+				tuberculosis: {},
+				irritablebowel: {},
+				hypothyroidism: {},
+				hyperthyroidism: {},
+				migraine: {},
+				lupus: {},
+				hemophilia: {},
+				bloodclots: {},
+				hiv: {},
+				crohns: {},
+				depression: {}
+			  };
+		}
     	if (attributes.medications && attributes.medications.length > 0) {
 			this.medications = JSON.parse(attributes.medications);
+		}
+		else {
+			this.medications = {
+				surgery: {},
+				medications: {},
+				allergies: {},
+				bloodtype: ''
+			}
 		}
     }
 
@@ -35,9 +76,12 @@ export class PatientHistory {
                    // no data, add a new row
                    var date = new Date();
                    var formattedDate = date.toUTCString().split(' ').slice(0, 5).join(' ');
+				   var history = new PatientHistory({});
 
-                   storage.executeSql("INSERT INTO patient_history (timestamp, pregnancyproblems, currentproblems) VALUES (?, ?, ?)", [formattedDate, "", ""]).then((data) => {
-                      resolve(new PatientHistory({}));
+                   storage.executeSql("INSERT INTO patient_history (timestamp, pregnancyproblems, currentproblems, medications) VALUES (?, ?, ?, ?)",
+                   	[formattedDate, JSON.stringify(history.pregnancyProblems), JSON.stringify(history.currentProblems), JSON.stringify(history.medications)])
+                   	.then((data) => {
+                      resolve(history);
                    }, (error) => {
                       reject(error);
                    });
@@ -68,11 +112,11 @@ export class PatientHistory {
 
         	sql += "pregnancyproblems = :pregnancyproblems"
       		sql += ", currentproblems = :currentproblems "
-      		// sql += "medications = :medications "
+      		sql += ", medications = :medications "
 
 			values.push(JSON.stringify(this.pregnancyProblems));
 			values.push(JSON.stringify(this.currentProblems));
-			// values.push(JSON.stringify(this.medications));
+			values.push(JSON.stringify(this.medications));
 
         	storage.executeSql(sql, values).then((data) => {
               	resolve(data);

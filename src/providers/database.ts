@@ -30,9 +30,9 @@ export class Database {
             })
             .then((data) => {
                 console.log("TABLE CREATED: ", data);
+                // this.storage.executeSql("DROP TABLE IF EXISTS patient_history", {});
 
-                // return this.storage.executeSql("DROP TABLE IF EXISTS patient_history", {});
-                return this.storage.executeSql("CREATE TABLE IF NOT EXISTS patient_history (id INTEGER PRIMARY KEY AUTOINCREMENT, timestamp TEXT, pregnancyproblems TEXT, currentproblems TEXT)", {});
+                return this.storage.executeSql("CREATE TABLE IF NOT EXISTS patient_history (id INTEGER PRIMARY KEY AUTOINCREMENT, timestamp TEXT, pregnancyproblems TEXT, currentproblems TEXT, medications TEXT)", {});
             })
             .catch((error) => {
                   console.error("Unable to execute sql", error);
@@ -132,6 +132,7 @@ export class Database {
     public getHistory()
     {
         return new Promise((resolve, reject) => {
+
             if (this.patientHistory) {
                 // already loaded
                 resolve(this.patientHistory);
@@ -159,6 +160,4 @@ export class Database {
     public clearHistory() {
         return PatientHistory.clear(this.storage);
     }
-
-
 }

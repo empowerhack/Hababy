@@ -1,0 +1,140 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ "history.index.title" | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list radio-group [(ngModel)]="medications.surgery.had">
+    <ion-list-header>{{ "history.medications.surgery.question" | translate }}</ion-list-header>
+    <ion-item>
+      <ion-label>{{ "yes" | translate }}</ion-label>
+      <ion-radio value="yes"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{ "no" | translate }}</ion-label>
+      <ion-radio value="no"></ion-radio>
+    </ion-item>
+  </ion-list>
+
+  <div *ngIf="medications.surgery.had == 'yes'" class="formsublist">
+    <ion-item>
+      <ion-label>{{ "history.medications.surgery.cesarion" | translate }}</ion-label>
+      <ion-checkbox [(ngModel)]="medications.surgery.cesarion"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{ "history.medications.surgery.galbladder" | translate }}</ion-label>
+      <ion-checkbox [(ngModel)]="medications.surgery.galbladder"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{ "history.medications.surgery.appendix" | translate }}</ion-label>
+      <ion-checkbox [(ngModel)]="medications.surgery.appendix"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{ "history.medications.surgery.bowel" | translate }}</ion-label>
+      <ion-checkbox [(ngModel)]="medications.surgery.bowel"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{ "history.medications.surgery.tubes" | translate }}</ion-label>
+      <ion-checkbox [(ngModel)]="medications.surgery.tubes"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{ "history.medications.surgery.heart" | translate }}</ion-label>
+      <ion-checkbox [(ngModel)]="medications.surgery.heart"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{ "history.medications.surgery.brain" | translate }}</ion-label>
+      <ion-checkbox [(ngModel)]="medications.surgery.brain"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{ "history.medications.surgery.other" | translate }}</ion-label>
+      <ion-checkbox [(ngModel)]="medications.surgery.other"></ion-checkbox>
+    </ion-item>
+    <ion-item *ngIf="medications.surgery.other">
+      <ion-label stacked>{{ "history.medications.surgery.list" | translate }}</ion-label>
+      <ion-input [(ngModel)]="medications.surgery.othersurgery"></ion-input>
+    </ion-item>
+  </div>
+
+    <ion-list radio-group [(ngModel)]="medications.medications.had">
+      <ion-list-header>{{ "history.medications.medications.question" | translate }}</ion-list-header>
+      <ion-item>
+        <ion-label>{{ "yes" | translate }}</ion-label>
+        <ion-radio value="yes"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{ "no" | translate }}</ion-label>
+        <ion-radio value="no"></ion-radio>
+      </ion-item>
+    </ion-list>
+
+  <ion-item *ngIf="medications.medications.had == 'yes'" class="formsublist">
+    <ion-label stacked>{{ "history.medications.medications.list" | translate }}</ion-label>
+    <ion-input [(ngModel)]="medications.medications.which"></ion-input>
+  </ion-item>
+
+  <ion-list radio-group [(ngModel)]="medications.allergies.had">
+    <ion-list-header>{{ "history.medications.allergies.question" | translate }}</ion-list-header>
+    <ion-item>
+      <ion-label>{{ "yes" | translate }}</ion-label>
+      <ion-radio value="yes"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{ "no" | translate }}</ion-label>
+      <ion-radio value="no"></ion-radio>
+    </ion-item>
+  </ion-list>
+
+  <ion-item *ngIf="medications.allergies.had == 'yes'" class="formsublist">
+    <ion-label stacked>{{ "history.medications.allergies.list" | translate }}</ion-label>
+    <ion-input [(ngModel)]="medications.allergies.which"></ion-input>
+  </ion-item>
+
+
+    <ion-list radio-group [(ngModel)]="medications.bloodtype">
+      <ion-list-header>{{ "history.medications.bloodtype.question" | translate }}</ion-list-header>
+      <ion-item>
+        <ion-label>{{ "history.medications.bloodtype.dontknow" | translate }}</ion-label>
+        <ion-radio value="don't know"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>A-</ion-label>
+        <ion-radio value="A-"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>A+</ion-label>
+        <ion-radio value="A+"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>B-</ion-label>
+        <ion-radio value="B-"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>B+</ion-label>
+        <ion-radio value="B+"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>AB-</ion-label>
+        <ion-radio value="AB-"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>AB+</ion-label>
+        <ion-radio value="AB+"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>O-</ion-label>
+        <ion-radio value="0-"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>O+</ion-label>
+        <ion-radio value="0+"></ion-radio>
+      </ion-item>
+    </ion-list>
+
+  <button class="primary" (click)="goBack()">{{ "previous" | translate }}</button>
+    <button class="primary" (click)="saveAndContinue()">{{ "next" | translate }}</button>
+</ion-content>

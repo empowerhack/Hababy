@@ -104,6 +104,32 @@
             "alcohol": "Do you drink alcohol?",
             "medication": "Are you taking any medications"
         },
+        "medications": {
+            "surgery": {
+                "question": "Have you had any surgery before?",
+                "cesarion": "Cesarion section",
+                "galbladder": "Gal bladder removal",
+                "appendix": "Appendix removal",
+                "bowel": "Bowel surgery",
+                "tubes": "Tubes/ovaries surgery",
+                "heart": "Heart surgery",
+                "brain": "Brain surgery",
+                "other": "Other",
+                "list": "Please list them below"
+            },
+            "medications": {
+                "question": "Are you on any medications?",
+                "list": "Please list them below"
+            },
+            "allergies": {
+                "question": "Do you have any allergies to any medications?",
+                "list": "Please list them below"
+            },
+            "bloodtype": {
+                "question": "What is your blood type?",
+                "dontknow": "Don't know"
+            }
+        },
         "currentproblems": {
           "title": "Do you have any medical problems?",
           "highbloodpressure": "High blood pressure",

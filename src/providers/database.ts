@@ -8,15 +8,19 @@
 import { Injectable } from '@angular/core';
 import {SQLite} from 'ionic-native';
 
+import { PatientHistory } from '../models/patienthistory';
+
 @Injectable()
 export class Database {
 
     private storage: SQLite;
     private isOpen: boolean;
+    public  patientHistory: PatientHistory;
 
     public constructor() {
         if (!this.isOpen) {
             this.storage = new SQLite();
+            this.patientHistory = null;
 
             this.storage.openDatabase({name: "data.db", location: "default"})
             .then( (data) => {
@@ -26,9 +30,9 @@ export class Database {
             })
             .then((data) => {
                 console.log("TABLE CREATED: ", data);
+                // this.storage.executeSql("DROP TABLE IF EXISTS patient_history", {});
 
                 return this.storage.executeSql("CREATE TABLE IF NOT EXISTS patient_history (id INTEGER PRIMARY KEY AUTOINCREMENT, timestamp TEXT, pregnancyproblems TEXT, currentproblems TEXT, medications TEXT)", {});
-                // return this.storage.executeSql("DROP TABLE IF EXISTS patient_history", {});
             })
             .catch((error) => {
                   console.error("Unable to execute sql", error);
@@ -124,60 +128,36 @@ export class Database {
         });
     }
 
-    public clearHistory() {
-        return new Promise((resolve, reject) => {
-          this.storage.executeSql("DELETE FROM patient_history", []).then((data) => {
-              resolve(data);
-          }, (error) => {
-              reject(error);
-          });
-        });
-    }
-
-    public getHistory(column)
+    // returns Promise
+    public getHistory()
     {
         return new Promise((resolve, reject) => {
-            this.storage.executeSql("SELECT * FROM patient_history", []).then((data) => {
-                let result = {};
 
-                if (data.rows.length > 0) {
-                    let columnJSON = data.rows.item(0)[column];
-                    console.log("loaded JSON: " + columnJSON);
-                    if (columnJSON && columnJSON.length > 0)
-                    {
-                      result = JSON.parse(columnJSON);
-                      resolve(result);
-                    }
-                    else {
-                      resolve(null);
-                    }
-                }
-                else
-                {
-                   // no data, add a new row
-                   var date = new Date();
-                   var formattedDate = date.toUTCString().split(' ').slice(0, 5).join(' ');
-                   this.storage.executeSql("INSERT INTO patient_history (timestamp, pregnancyproblems, currentproblems) VALUES (?, ?, ?)", [formattedDate, "", ""]).then((data) => {
-                      resolve(null);
-                   }, (error) => {
-                      reject(error);
-                   });
-                }
+            if (this.patientHistory) {
+                // already loaded
+                resolve(this.patientHistory);
+            }
+            else {
+                PatientHistory.load(this.storage)
+                .then((data: PatientHistory) => {
+                    this.patientHistory = data;
+                    resolve(this.patientHistory);
 
-              }, (error) => {
+                }, (error) => {
                   reject(error);
-              });
-            });
+                });
+            }
+        });
     }
 
-    public updateHistory(column, historyJSON)
+    // returns Promise
+    public updateHistory()
     {
-        return new Promise((resolve, reject) => {
-          this.storage.executeSql("UPDATE patient_history SET " + column + " = :" + column, [historyJSON]).then((data) => {
-              resolve(data);
-          }, (error) => {
-              reject(error);
-          });
-        });
+        return this.patientHistory.save(this.storage);
+    }
+
+    // returns Promise
+    public clearHistory() {
+        return PatientHistory.clear(this.storage);
     }
 }

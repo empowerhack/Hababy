@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Database} from "../../providers/database";
+import { PatientHistory } from '../../models/patienthistory';
 import { MedicationsPage } from './medications';
-
 
 @Component({
   templateUrl: 'currentproblems.html'
@@ -127,25 +127,23 @@ export class CurrentProblemsPage {
 
   loadProblems()
   {
-     this.database.getHistory("currentproblems").then((result) => {
+     this.database.getHistory().then((result) => {
          if (result) {
-            this.problems = result;
-          }
+            this.problems = result["currentProblems"];
+         }
       }, (error) => {
           console.log("ERROR: ", error);
       });
-  }
-
-  onCesarian() {
   }
 
   saveAndContinue() {
       // save values
-      this.database.updateHistory("currentproblems", JSON.stringify(this.problems)).then((result) => {
+      this.database.patientHistory.currentProblems = this.problems;
+      this.database.updateHistory().then((result) => {
+          this.navCtrl.push(MedicationsPage);
           console.log("problems saved");
       }, (error) => {
           console.log("ERROR: ", error);
       });
-    this.navCtrl.push(MedicationsPage);
   }
 }

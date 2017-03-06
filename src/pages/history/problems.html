@@ -13,7 +13,7 @@
   </div>
   <ion-item no-lines>
     <ion-label>{{ "history.problems.cesarian" | translate }}</ion-label>
-    <ion-checkbox [(ngModel)]="problems.cesarian.had" (ionChange)="onCesarian()"></ion-checkbox>
+    <ion-checkbox [(ngModel)]="problems.cesarian.had"></ion-checkbox>
   </ion-item>
   <div class="formsublist" *ngIf="problems.cesarian.had">Choose as many as apply:
     <ion-item no-lines>

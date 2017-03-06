@@ -73,25 +73,25 @@ export class HistoryProblemsPage {
 
   loadProblems()
   {
-     this.database.getHistory("pregnancyproblems").then((result) => {
+     this.database.getHistory().then((result) => {
          if (result) {
-            this.problems = result;
+            // initialize page with history
+            this.problems = result["pregnancyProblems"];
           }
       }, (error) => {
           console.log("ERROR: ", error);
       });
   }
 
-  onCesarian() {
-  }
-
   saveAndContinue() {
+
       // save values
-      this.database.updateHistory("pregnancyproblems", JSON.stringify(this.problems)).then((result) => {
+      this.database.patientHistory.pregnancyProblems = this.problems;
+      this.database.updateHistory().then((result) => {
+          this.navCtrl.push(MedicalInfoPage);
           console.log("problems saved");
       }, (error) => {
           console.log("ERROR: ", error);
       });
-    this.navCtrl.push(MedicalInfoPage);
   }
 }

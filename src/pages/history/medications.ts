@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Database} from "../../providers/database";
+import { PatientHistory } from '../../models/patienthistory';
 
 @Component({
   templateUrl: 'medications.html'
@@ -43,21 +44,21 @@ export class MedicationsPage {
   }
 
   loadMedications() {
-    this.database.getHistory('medications').then((result) => {
-      if (result) {
-        this.medications = result;
-      }
-    }, (error) => {
-      console.log('ERROR', error);
-    })
+      this.database.getHistory().then((result) => {
+         if (result) {
+            this.medications = result["medications"];
+         }
+      }, (error) => {
+          console.log("ERROR: ", error);
+      });
   }
 
   saveAndContinue() {
       // save values
-      this.database.updateHistory('medications', JSON.stringify(this.medications)).then((result) => {
+      this.database.patientHistory.medications = this.medications;
+      this.database.updateHistory().then((result) => {
           console.log("medications saved");
           //navigate to next page
-
       }, (error) => {
           console.log("ERROR: ", error);
       });
@@ -66,7 +67,4 @@ export class MedicationsPage {
   goBack() {
     this.navCtrl.pop();
   }
-
-
-
 }

@@ -12,7 +12,6 @@
   <allow-navigation href="http://ionic.local/*"/>
   <allow-navigation href="http://10.29.21.44:8100"/>
   <allow-navigation href="http://10.27.31.122:8100"/>
-  <allow-navigation href="http://192.168.1.168:8100"/>
   <allow-intent href="http://*/*"/>
   <allow-intent href="https://*/*"/>
   <allow-intent href="tel:*"/>

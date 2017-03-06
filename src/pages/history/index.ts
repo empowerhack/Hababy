@@ -3,6 +3,7 @@ import { TranslateService } from 'ng2-translate/ng2-translate';
 import { HistoryProblemsPage } from '../history/problems';
 import { MedicalInfoPage } from '../history/info';
 import { NavController } from 'ionic-angular';
+import { Database} from "../../providers/database";
 
 @Component({
   selector: 'page-historyindex',
@@ -18,8 +19,18 @@ export class MedicalHistoryPage {
   public miscarriage;
   public problems;
 
-  constructor(public navCtrl: NavController, private translate: TranslateService) {
-    
+  constructor(public navCtrl: NavController, private translate: TranslateService, private database: Database) {
+
+  }
+
+  public ionViewDidEnter() {
+     this.database.getHistory().then((result) => {
+         if (result) {
+            // initialize page with history
+          }
+      }, (error) => {
+          console.log("ERROR: ", error);
+      });
   }
 
   public enterProblems() {

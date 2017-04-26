@@ -1,5 +1,6 @@
 {
     "title" : "HaBaby",
+    "tagline" : "Support and information for your pregnancy",
     "next" : "Next",
     "yes": "Yes",
     "no": "No",
@@ -25,7 +26,9 @@
     },
     "clinician": {
         "home": {
-          "title": "HaBaby"
+          "title": "HaBaby",
+          "patientlog": "Patient Log",
+          "newpatient": "New Patient"
         }
     },
     "patient": {

@@ -9,6 +9,7 @@ import { Injectable } from '@angular/core';
 import {SQLite} from 'ionic-native';
 
 import { PatientHistory } from '../models/patienthistory';
+import { Patient } from '../models/patient';
 
 @Injectable()
 export class Database {
@@ -33,6 +34,13 @@ export class Database {
                 // this.storage.executeSql("DROP TABLE IF EXISTS patient_history", {});
 
                 return this.storage.executeSql("CREATE TABLE IF NOT EXISTS patient_history (id INTEGER PRIMARY KEY AUTOINCREMENT, timestamp TEXT, pregnancyproblems TEXT, currentproblems TEXT, medications TEXT)", {});
+            })
+            .then((data) => {
+                console.log("TABLE CREATED: ", data);
+                // this.storage.executeSql("DROP TABLE IF EXISTS patients", {});
+
+                // for clinicians - can have multiple patients
+                return Patient.create_table(this.storage);
             })
             .catch((error) => {
                   console.error("Unable to execute sql", error);
@@ -128,6 +136,8 @@ export class Database {
         });
     }
 
+    // USER MEDICAL HISTORY
+
     // returns Promise
     public getHistory()
     {
@@ -159,5 +169,19 @@ export class Database {
     // returns Promise
     public clearHistory() {
         return PatientHistory.clear(this.storage);
+    }
+
+    // PATIENTS
+
+    // returns Promise
+    public getPatients()
+    {
+        return Patient.load(this.storage);
+    }
+
+    // generic function to save a model instance
+    public save(instance)
+    {
+        return instance.save(this.storage);
     }
 }

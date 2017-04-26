@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="io.empowerhack.hababy" version="0.0.4" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="io.empowerhack.hababy" version="0.0.5" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>HaBaby</name>
-  <description>An awesome Ionic/Cordova app.</description>
+  <description>Support and information for your pregnancy</description>
   <author email="derek@tactilepix.com" href="http://empowerhack.io/">HaBaby Team</author>
   <content src="index.html"/>
   <access origin="*"/>

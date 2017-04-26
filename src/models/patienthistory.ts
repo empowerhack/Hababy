@@ -6,27 +6,27 @@ export class PatientHistory {
 	public currentProblems: any;
 	public medications: any;
 
-    constructor(attributes: any )
+  constructor(attributes: any )
     {
     	if (attributes.pregnancyproblems && attributes.pregnancyproblems.length > 0) {
-			this.pregnancyProblems = JSON.parse(attributes.pregnancyproblems);
-		}
-		else {
-            this.pregnancyProblems = {
-				cesarian: {},
-				heavybleeding: {},
-				liverproblems: {},
-				highbloodsugar: {},
-				bloodclots: {},
-				deliveredearly: {},
-				highpressure: {}
-		    };
-		}
+			    this.pregnancyProblems = JSON.parse(attributes.pregnancyproblems);
+		  }
+		  else {
+          this.pregnancyProblems = {
+              cesarian: {},
+              heavybleeding: {},
+              liverproblems: {},
+              highbloodsugar: {},
+              bloodclots: {},
+              deliveredearly: {},
+              highpressure: {}
+          };
+      }
     	if (attributes.currentproblems && attributes.currentproblems.length > 0) {
-			this.currentProblems = JSON.parse(attributes.currentproblems);
-		}
-		else {
-			this.currentProblems = {
+			  this.currentProblems = JSON.parse(attributes.currentproblems);
+		  }
+		  else {
+			  this.currentProblems = {
 				highbloodpressure: {},
 				diabetes: {},
 				kidneydisease: {},

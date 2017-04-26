@@ -9,18 +9,14 @@
 
 <ion-content padding>
   <div>
-    {{ "menu.medicalHistory" | translate }}
+    {{ "clinician.home.patientlog" | translate }}
   </div>
-  <div>
-    {{ "menu.symptomEntry" | translate }}
-  </div>
-  <div>
-    {{ "menu.pregnancyInfo" | translate }}
-  </div>
-  <div>
-    {{ "menu.resources" | translate }}
-  </div>
-  <div>
-    {{ "menu.help" | translate }}
-  </div>
+  <ion-list>
+    <ion-item *ngFor="let patient of patients">
+      {{patient.patientid}}
+      {{patient.risk}}
+    </ion-item>
+
+    <button (click)="newPatient()">{{ "clinician.home.newpatient" | translate }}</button>
+  </ion-list>
 </ion-content>

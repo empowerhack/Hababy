@@ -11,12 +11,13 @@
   <div>
     {{ "clinician.home.patientlog" | translate }}
   </div>
-  <ion-list>
+  <ion-list class="patientlog">
     <ion-item *ngFor="let patient of patients">
-      {{patient.patientid}}
-      {{patient.risk}}
+      <span class="patientid">{{patient.patientid}}</span>
+      <span class="patientrisk {{patient.risk}}">{{patient.risk}} risk</span>
+      <span class="patientcreated">{{patient.created}}</span>
     </ion-item>
 
-    <button (click)="newPatient()">{{ "clinician.home.newpatient" | translate }}</button>
+    <button class="primary" (click)="newPatient()">{{ "clinician.home.newpatient" | translate }}</button>
   </ion-list>
 </ion-content>

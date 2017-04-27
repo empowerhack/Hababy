@@ -30,14 +30,14 @@ export class Database {
                 return this.storage.executeSql("CREATE TABLE IF NOT EXISTS symptom_log (id INTEGER PRIMARY KEY AUTOINCREMENT, timestamp TEXT, symptom1 INTEGER, symptom2 INTEGER, symptom3 INTEGER, notes TEXT)", {});
             })
             .then((data) => {
-                console.log("TABLE CREATED: ", data);
+                // console.log("TABLE CREATED: ", data);
                 // this.storage.executeSql("DROP TABLE IF EXISTS patient_history", {});
 
-                return this.storage.executeSql("CREATE TABLE IF NOT EXISTS patient_history (id INTEGER PRIMARY KEY AUTOINCREMENT, timestamp TEXT, pregnancyproblems TEXT, currentproblems TEXT, medications TEXT)", {});
+                return PatientHistory.create_table(this.storage);
             })
             .then((data) => {
-                console.log("TABLE CREATED: ", data);
-                // this.storage.executeSql("DROP TABLE IF EXISTS patients", {});
+                // console.log("TABLE CREATED: ", data);
+                // return this.storage.executeSql("DROP TABLE IF EXISTS patients", {});
 
                 // for clinicians - can have multiple patients
                 return Patient.create_table(this.storage);

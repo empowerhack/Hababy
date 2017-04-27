@@ -60,6 +60,12 @@ export class PatientHistory {
 		}
     }
 
+  // creates patient history table
+  static create_table(storage)
+  {
+      return storage.executeSql("CREATE TABLE IF NOT EXISTS patient_history (id INTEGER PRIMARY KEY AUTOINCREMENT, timestamp TEXT, pregnancyproblems TEXT, currentproblems TEXT, medications TEXT)", {});
+  }
+
 	// loads history from SQL storage (there should only be one record to load)
     static load(storage) {
        return new Promise((resolve, reject) => {

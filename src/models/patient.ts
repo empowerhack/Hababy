@@ -4,7 +4,7 @@ export class Patient {
   public id: string;        // database ID
 	public patientid: string; // ID for display
 	public risk: string;
-	public created: Date;
+	public created: string;
 
   constructor(attributes: any )
   {
@@ -30,7 +30,7 @@ export class Patient {
       }
 
       if (attributes.created) {
-        this.created = attributes.created;
+          this.created = attributes.created;
       }
   }
 
@@ -51,7 +51,7 @@ export class Patient {
 
 					    // found data
 					    for (var i = 0; i < data.rows.length; ++i) {
-					        patients.push(new Patient(data.rows.item(0)));
+					        patients.push(new Patient(data.rows.item(i)));
               }
 
               resolve(patients);

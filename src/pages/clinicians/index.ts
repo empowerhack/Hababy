@@ -34,7 +34,12 @@ export class ClinicianPage {
 
       // for now, just create a new patient directly
       // TODO: go to new patient page
-      var newPatient = new Patient({ risk: "low" });
+      var riskInt = Math.floor(Math.random() * 3);
+      var risk = "low";
+      if (riskInt > 2) { risk = "high" }
+      else if (riskInt > 1) { risk = "medium" }
+
+      var newPatient = new Patient({ risk: risk });
       this.database.save(newPatient).then((result) => {
           this.loadPatients();
       }, (error) => {

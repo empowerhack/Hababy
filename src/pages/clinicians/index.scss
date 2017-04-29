@@ -1,16 +1,25 @@
-.scroll-content {
-  text-align: center;
-}
-h2.apptitle {
-  font-size: 24px;
-  padding-top: 2em;
-  padding-bottom: 1em;
-}
-.language {
-  margin: 20px 32px;
+.patientlog .patientid {
   font-size: 12px;
+  font-weight: bold;
+  float: left;
 }
-.tagline {
-  margin-top: 48px;
+.patientlog .patientrisk {
+  font-size: 12px;
+  font-weight: bold;
+  float: right;
+}
+.patientlog .patientcreated {
   font-size: 11px;
+  float: left;
+  clear: both;
+  color: #666;
+}
+.high {
+  color: #a00;
+}
+.medium {
+  color: #c60;
+}
+.low {
+  color: #060;
 }

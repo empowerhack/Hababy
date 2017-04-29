@@ -80,7 +80,6 @@ export class MyApp {
       {
         // set clinician section's pages
         this.menuPages = [
-         { title: this.translate.instant('menu.symptomEntry'), component: SymptomEntryPage },
          { title: this.translate.instant('menu.pregnancyInfo'), component: PregnancyInfoPage },
          { title: this.translate.instant('menu.resources'), component: LocationResourcesPage },
          { title: this.translate.instant('menu.help'), component: HelpSettingsPage }

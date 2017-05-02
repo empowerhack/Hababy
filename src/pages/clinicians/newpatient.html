@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ "clinician.newpatient.title" | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div>
+    {{ "clinician.newpatient.patientid" | translate }}
+  </div>
+  <ion-item>
+    <ion-label>{{ "clinician.newpatient.yearborn.title" | translate }}</ion-label>
+    <ion-select [selectOptions]="yearSelectOptions">
+      <ion-option *ngFor="let year of birthYears" [value]="year">{{year}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <button class="primary" (click)="saveAndContinue()">{{ "next" | translate }}</button>
+</ion-content>

@@ -29,6 +29,33 @@
           "title": "HaBaby",
           "patientlog": "Patient Log",
           "newpatient": "New Patient"
+        },
+        "newpatient": {
+          "title": "New Patient",
+          "patientid": "Patient ID",
+          "yearborn": {
+            "title": "Year Born",
+            "select": "select year"
+          },
+          "gestation": {
+            "title": "Gestation",
+            "week": "week",
+            "weeks": "weeks"
+          },
+          "bloodpressure": {
+            "title": "Booking Blood Pressure",
+            "lower": "lower",
+            "upper": "upper"
+          },
+          "bloodtype": "Blood Type",
+          "rhesus": {
+             "title": "Rhesus Status",
+             "positive": "positive",
+             "negative": "negative",
+             "unknown": "unknown"
+          },
+          "previous": "How many previous pregnancies?",
+          "otherdetails": "Details of any other measurements"
         }
     },
     "patient": {

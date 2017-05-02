@@ -11,6 +11,7 @@ import { DisclaimerPage } from '../pages/disclaimer/disclaimer';
 import { BasicInfoPage } from '../pages/basicinfo/basicinfo';
 import { PatientPage } from '../pages/patients/patient';
 import { ClinicianPage } from '../pages/clinicians/index';
+import { ClinicianNewPatientPage } from '../pages/clinicians/newpatient';
 import { SymptomLogPage } from '../pages/symptoms/log';
 import { SymptomEntryPage } from '../pages/symptoms/entry';
 import { EditLogPage } from '../pages/symptoms/editlog';
@@ -37,6 +38,7 @@ export function createTranslateLoader(http: Http) {
     BasicInfoPage,
     PatientPage,
     ClinicianPage,
+    ClinicianNewPatientPage,
     SymptomLogPage,
     SymptomEntryPage,
     EditLogPage,
@@ -67,6 +69,7 @@ export function createTranslateLoader(http: Http) {
     BasicInfoPage,
     PatientPage,
     ClinicianPage,
+    ClinicianNewPatientPage,
     SymptomLogPage,
     SymptomEntryPage,
     EditLogPage,

@@ -1,0 +1,25 @@
+.patientlog .patientid {
+  font-size: 12px;
+  font-weight: bold;
+  float: left;
+}
+.patientlog .patientrisk {
+  font-size: 12px;
+  font-weight: bold;
+  float: right;
+}
+.patientlog .patientcreated {
+  font-size: 11px;
+  float: left;
+  clear: both;
+  color: #666;
+}
+.high {
+  color: #a00;
+}
+.medium {
+  color: #c60;
+}
+.low {
+  color: #060;
+}

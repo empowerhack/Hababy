@@ -5,6 +5,7 @@ export class Patient {
 	public patientid: string; // ID for display
 	public risk: string;
 	public created: string;
+	public info: any;
 
   constructor(attributes: any )
   {
@@ -32,12 +33,20 @@ export class Patient {
       if (attributes.created) {
           this.created = attributes.created;
       }
+
+    	if (attributes.info && attributes.info.length > 0) {
+			    this.info = JSON.parse(attributes.info);
+		  }
+		  else {
+          this.info = {
+          };
+      }
   }
 
   // creates patient table
   static create_table(storage)
   {
-      return storage.executeSql("CREATE TABLE IF NOT EXISTS patients (id INTEGER PRIMARY KEY AUTOINCREMENT, created TIMESTAMP DEFAULT CURRENT_TIMESTAMP, patientid TEXT, risk TEXT)", {});
+      return storage.executeSql("CREATE TABLE IF NOT EXISTS patients (id INTEGER PRIMARY KEY AUTOINCREMENT, created TIMESTAMP DEFAULT CURRENT_TIMESTAMP, patientid TEXT, risk TEXT, info TEXT)", {});
   }
 
 	// loads all patients from SQL storage
@@ -80,16 +89,18 @@ export class Patient {
 
       if (this.id === null) {
         // new patient
-        sql = "INSERT INTO patients (patientid, risk) VALUES (?, ?)";
+        sql = "INSERT INTO patients (patientid, risk, info) VALUES (?, ?, ?)";
       }
       else {
         sql = "UPDATE patients SET ";
         sql += "patientid = :patientid"
         sql += ", risk = :risk "
+        sql += ", info = :info "
       }
 
       values.push(this.patientid);
       values.push(this.risk);
+      values.push(JSON.stringify(this.info));
 
       // console.log(sql);
       // console.log(values);

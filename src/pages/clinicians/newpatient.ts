@@ -9,7 +9,7 @@ import { Patient } from '../../models/patient';
 })
 export class ClinicianNewPatientPage {
 
-  public patient: {
+  public info: {
     birthyear?: string,
     gestation?: number,
     bplower?: number,
@@ -58,7 +58,7 @@ export class ClinicianNewPatientPage {
   constructor( public navCtrl: NavController, private translate: TranslateService, private database: Database ) {
      // birth year
      for (var i = 2002; i >= 1910; --i) {
-        this.birthYears.push(i);
+        this.birthYears.push("" + i);
      }
 
      // gestation
@@ -88,11 +88,18 @@ export class ClinicianNewPatientPage {
 
   }
 
-  newPatient() {
+  saveAndContinue() {
 
-      var newPatient = new Patient({  });
+      var riskInt = Math.floor(Math.random() * 3);
+      var risk = "low";
+      if (riskInt > 2) { risk = "high" }
+      else if (riskInt > 1) { risk = "medium" }
+
+      var newPatient = new Patient({ risk: risk });
+      newPatient.info = this.info;
+
       this.database.save(newPatient).then((result) => {
-          //
+         this.navCtrl.pop();
       }, (error) => {
           console.log("ERROR: ", error);
       });

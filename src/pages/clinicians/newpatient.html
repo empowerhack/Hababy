@@ -13,9 +13,46 @@
   </div>
   <ion-item>
     <ion-label>{{ "clinician.newpatient.yearborn.title" | translate }}</ion-label>
-    <ion-select [selectOptions]="yearSelectOptions">
+    <ion-select [selectOptions]="yearSelectOptions" [(ngModel)]="patient.birthyear">
       <ion-option *ngFor="let year of birthYears" [value]="year">{{year}}</ion-option>
     </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>{{ "clinician.newpatient.gestation.title" | translate }}</ion-label>
+    <ion-select [selectOptions]="gestationSelectOptions" [(ngModel)]="patient.gestation">
+      <ion-option *ngFor="let week of gestationWeeks" [value]="week.value">{{week.label}}</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>{{ "clinician.newpatient.bloodpressure.title" | translate }}</ion-label>
+    <ion-select [selectOptions]="lowerPressureSelectOptions" [(ngModel)]="patient.bplower">
+      <ion-option *ngFor="let pressure of bloodPressures" [value]="pressure">{{pressure}}</ion-option>
+    </ion-select>
+    <ion-select [selectOptions]="upperPressureSelectOptions" [(ngModel)]="patient.bpupper">
+      <ion-option *ngFor="let pressure of bloodPressures" [value]="pressure">{{pressure}}</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>{{ "clinician.newpatient.bloodtype" | translate }}</ion-label>
+    <ion-select [selectOptions]="bloodTypeSelectOptions" [(ngModel)]="patient.bloodtype">
+      <ion-option *ngFor="let type of bloodTypes" [value]="type">{{type}}</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>{{ "clinician.newpatient.rhesus.title" | translate }}</ion-label>
+    <ion-select [selectOptions]="rhesusSelectOptions" [(ngModel)]="patient.rhesus">
+      <ion-option *ngFor="let rhesus of rhesusTypes" [value]="rhesus">{{rhesus}}</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>{{ "clinician.newpatient.previous" | translate }}</ion-label>
+    <ion-select [selectOptions]="previousSelectOptions" [(ngModel)]="patient.pregnancies">
+      <ion-option *ngFor="let num of previousPregnancies" [value]="num">{{num}}</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>{{ "clinician.newpatient.otherdetails" | translate }}</ion-label>
+    <ion-textarea [(ngModel)]="patient.otherdetails"></ion-textarea>
   </ion-item>
 
   <button class="primary" (click)="saveAndContinue()">{{ "next" | translate }}</button>

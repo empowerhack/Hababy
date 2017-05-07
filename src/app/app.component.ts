@@ -8,6 +8,7 @@ import { Database } from "../providers/database";
 import { HomePage } from '../pages/home/home';
 import { PatientPage } from '../pages/patients/patient';
 import { ClinicianPage } from '../pages/clinicians/index';
+import { ClinicianNewPatientPage } from '../pages/clinicians/newpatient';
 import { SymptomEntryPage } from '../pages/symptoms/entry';
 import { MedicalHistoryPage } from '../pages/history/index';
 import { HistoryProblemsPage } from '../pages/history/problems';

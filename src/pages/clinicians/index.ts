@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { TranslateService } from 'ng2-translate/ng2-translate';
 import { Database } from "../../providers/database";
 import { Patient } from '../../models/patient';
+import { ClinicianNewPatientPage } from '../clinicians/newpatient';
 
 @Component({
   templateUrl: 'index.html'
@@ -32,18 +33,7 @@ export class ClinicianPage {
 
   newPatient() {
 
-      // for now, just create a new patient directly
-      // TODO: go to new patient page
-      var riskInt = Math.floor(Math.random() * 3);
-      var risk = "low";
-      if (riskInt > 2) { risk = "high" }
-      else if (riskInt > 1) { risk = "medium" }
+      this.navCtrl.push(ClinicianNewPatientPage);
 
-      var newPatient = new Patient({ risk: risk });
-      this.database.save(newPatient).then((result) => {
-          this.loadPatients();
-      }, (error) => {
-          console.log("ERROR: ", error);
-      });
   }
 }
